@@ -5,35 +5,40 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rixie — Data Detective | by Irixs</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root {
-  --blue-dark:  #003057;
-  --blue-mid:   #004d8c;
-  --blue:       #0069c0;
-  --blue-light: #e8f2fb;
-  --blue-pale:  #f0f6fc;
-  --green:      #00875a;
-  --green-light:#e3f5ee;
-  --red:        #c0392b;
-  --red-light:  #fdecea;
-  --amber:      #d97706;
-  --amber-light:#fef3c7;
-  --gray-100:   #f5f7fa;
-  --gray-200:   #e8ecf0;
-  --gray-300:   #cdd4db;
-  --gray-500:   #6b7a8d;
-  --gray-700:   #3d4d5c;
-  --gray-900:   #1a2530;
-  --white:      #ffffff;
-  --radius:     8px;
-  --radius-lg:  12px;
+  /* ── Irixs brand colours ── */
+  --purple-dark:  #2D1B5E;
+  --purple:       #3D1254;
+  --purple-mid:   #7B2D8B;
+  --purple-light: #f0e8f5;
+  --purple-pale:  #f8f3fc;
+  --yellow:       #F5A623;
+  --yellow-dark:  #d4880a;
+  --yellow-light: #fef6e4;
+  --blue:         #1B3A8C;
+  --blue-bright:  #1E90D4;
+  --blue-light:   #e8f2fb;
+  --green:        #00875a;
+  --green-light:  #e3f5ee;
+  --red:          #c0392b;
+  --red-light:    #fdecea;
+  --gray-100:     #f5f5f7;
+  --gray-200:     #e8e8ed;
+  --gray-300:     #c8c8d0;
+  --gray-500:     #6b6b80;
+  --gray-700:     #3d3d52;
+  --gray-900:     #1a1a2e;
+  --white:        #ffffff;
+  --radius:       8px;
+  --radius-lg:    14px;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-  font-family: 'Inter', -apple-system, sans-serif;
+  font-family: 'Poppins', sans-serif;
   background: var(--gray-100);
   color: var(--gray-900);
   min-height: 100vh;
@@ -41,76 +46,17 @@ body {
   line-height: 1.6;
 }
 
-/* ── NAV ── */
-nav {
-  background: var(--white);
-  border-bottom: 1px solid var(--gray-200);
-  padding: 0 2rem;
-  height: 64px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-.nav-logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  text-decoration: none;
-}
-.nav-logo-text {
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--blue-dark);
-  letter-spacing: -0.5px;
-}
-.nav-product {
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--blue);
-  background: var(--blue-light);
-  padding: 3px 10px;
-  border-radius: 20px;
-  letter-spacing: 0.2px;
-}
-.nav-right {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-.nav-link {
-  font-size: 13px;
-  color: var(--gray-500);
-  text-decoration: none;
-  font-weight: 500;
-}
-.nav-link:hover { color: var(--blue-dark); }
-.nav-cta {
-  background: var(--blue);
-  color: white;
-  font-size: 13px;
-  font-weight: 600;
-  padding: 8px 18px;
-  border-radius: 6px;
-  text-decoration: none;
-  transition: background .15s;
-}
-.nav-cta:hover { background: var(--blue-dark); }
-
-/* ── HERO ── */
+/* ── HERO (compact — sits under irixs.nl hero) ── */
 .hero {
-  background: var(--blue-dark);
+  background: var(--purple-dark);
   color: white;
-  padding: 3.5rem 2rem 3rem;
-  text-align: center;
+  padding: 1.5rem 2rem;
 }
 .hero-eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
   letter-spacing: 1.5px;
   text-transform: uppercase;
@@ -120,22 +66,22 @@ nav {
 .hero-dot {
   width: 6px; height: 6px;
   border-radius: 50%;
-  background: #4db8ff;
+  background: var(--yellow);
   display: inline-block;
 }
 .hero h1 {
-  font-size: clamp(26px, 5vw, 42px);
-  font-weight: 700;
+  font-size: clamp(24px, 4vw, 36px);
+  font-weight: 800;
   line-height: 1.15;
-  letter-spacing: -1px;
+  letter-spacing: -0.5px;
   margin-bottom: .75rem;
 }
-.hero h1 span { color: #4db8ff; }
+.hero h1 span { color: var(--yellow); }
 .hero-sub {
-  font-size: 16px;
+  font-size: 15px;
   color: rgba(255,255,255,0.6);
   max-width: 520px;
-  margin: 0 auto 2rem;
+  margin: 0 auto 1.5rem;
   font-weight: 300;
 }
 .hero-badges {
@@ -153,16 +99,16 @@ nav {
   border: 1px solid rgba(255,255,255,0.15);
   border-radius: 20px;
   padding: 5px 12px;
-  font-size: 12px;
+  font-size: 11px;
   color: rgba(255,255,255,0.7);
   font-weight: 500;
 }
 
-/* ── MAIN CONTENT ── */
+/* ── MAIN ── */
 .main {
   max-width: 860px;
   margin: 0 auto;
-  padding: 2.5rem 1.5rem 4rem;
+  padding: 2rem 1.5rem 4rem;
 }
 
 /* ── PROGRESS ── */
@@ -174,7 +120,6 @@ nav {
   margin-bottom: 1.5rem;
   display: flex;
   align-items: center;
-  gap: 0;
 }
 .step-item {
   display: flex;
@@ -190,12 +135,13 @@ nav {
   align-items: center;
   justify-content: center;
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--gray-500);
   flex-shrink: 0;
   transition: all .3s;
+  font-family: 'Poppins', sans-serif;
 }
-.step-circle.active { border-color: var(--blue); background: var(--blue); color: white; }
+.step-circle.active { border-color: var(--purple); background: var(--purple); color: white; }
 .step-circle.done   { border-color: var(--green); background: var(--green); color: white; font-size: 11px; }
 .step-info { min-width: 0; }
 .step-label { font-size: 12px; font-weight: 600; color: var(--gray-900); }
@@ -212,8 +158,7 @@ nav {
 
 /* ── BRIEF CARD ── */
 .brief-card {
-  background: var(--white);
-  border: 1px solid var(--gray-200);
+  background: var(--purple-dark);
   border-radius: var(--radius-lg);
   padding: 1.5rem;
   margin-bottom: 1.5rem;
@@ -221,6 +166,7 @@ nav {
   grid-template-columns: 1fr auto;
   gap: 1.5rem;
   align-items: center;
+  color: white;
 }
 @media (max-width: 600px) { .brief-card { grid-template-columns: 1fr; } }
 .brief-eyebrow {
@@ -228,34 +174,34 @@ nav {
   font-weight: 600;
   letter-spacing: 1px;
   text-transform: uppercase;
-  color: var(--blue);
+  color: var(--yellow);
   margin-bottom: 6px;
 }
 .brief-title {
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--blue-dark);
+  font-size: 22px;
+  font-weight: 800;
+  color: white;
   letter-spacing: -0.3px;
   margin-bottom: 6px;
 }
-.brief-text { font-size: 14px; color: var(--gray-700); line-height: 1.65; }
-.brief-text strong { color: var(--gray-900); font-weight: 600; }
+.brief-text { font-size: 14px; color: rgba(255,255,255,0.75); line-height: 1.65; }
+.brief-text strong { color: white; font-weight: 600; }
 .brief-stats {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  min-width: 140px;
+  min-width: 130px;
 }
 .stat-pill {
-  background: var(--gray-100);
-  border: 1px solid var(--gray-200);
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.15);
   border-radius: var(--radius);
   padding: .6rem .9rem;
   text-align: center;
 }
-.stat-num { font-size: 20px; font-weight: 700; color: var(--blue-dark); letter-spacing: -0.5px; }
-.stat-num.red { color: var(--red); }
-.stat-label { font-size: 11px; color: var(--gray-500); margin-top: 1px; }
+.stat-num { font-size: 20px; font-weight: 700; color: var(--yellow); letter-spacing: -0.5px; }
+.stat-num.red { color: #ff7070; }
+.stat-label { font-size: 11px; color: rgba(255,255,255,0.5); margin-top: 1px; }
 
 /* ── SECTION HEADING ── */
 .section-heading {
@@ -263,7 +209,7 @@ nav {
   font-weight: 700;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  color: var(--blue);
+  color: var(--purple-mid);
   margin-bottom: 1rem;
 }
 
@@ -284,13 +230,10 @@ nav {
   position: relative;
 }
 .src-card:hover:not(.unlocked) {
-  border-color: var(--blue);
+  border-color: var(--purple-mid);
   transform: translateY(-2px);
 }
-.src-card.unlocked {
-  border-color: var(--green);
-  cursor: default;
-}
+.src-card.unlocked { border-color: var(--green); cursor: default; }
 .src-card.unlocked:hover { transform: none; }
 .src-top {
   display: flex;
@@ -308,7 +251,7 @@ nav {
 }
 .src-name { font-size: 14px; font-weight: 600; color: var(--gray-900); }
 .src-status { font-size: 12px; color: var(--gray-500); margin-top: 1px; }
-.src-status.open { color: var(--green); font-weight: 500; }
+.src-status.open { color: var(--green); font-weight: 600; }
 .src-lock {
   border-top: 1px dashed var(--gray-200);
   margin-top: 8px;
@@ -317,7 +260,7 @@ nav {
   align-items: center;
   gap: 6px;
   font-size: 12px;
-  color: var(--blue);
+  color: var(--purple-mid);
   font-weight: 500;
 }
 .src-data {
@@ -335,8 +278,8 @@ nav {
 }
 .src-data-text { font-size: 13px; color: var(--gray-700); line-height: 1.6; }
 .highlight {
-  background: var(--blue-light);
-  color: var(--blue-dark);
+  background: var(--purple-light);
+  color: var(--purple);
   font-weight: 600;
   padding: 1px 5px;
   border-radius: 4px;
@@ -354,8 +297,8 @@ nav {
 
 /* ── PROCEED BANNER ── */
 .proceed-banner {
-  background: var(--green-light);
-  border: 1px solid var(--green);
+  background: var(--purple-pale);
+  border: 1px solid var(--purple-mid);
   border-radius: var(--radius);
   padding: 1rem 1.25rem;
   display: flex;
@@ -365,7 +308,7 @@ nav {
   margin-bottom: 1.5rem;
   flex-wrap: wrap;
 }
-.proceed-text { font-size: 14px; color: var(--green); font-weight: 500; }
+.proceed-text { font-size: 14px; color: var(--purple); font-weight: 500; }
 
 /* ── VERDICT ── */
 .verdict-card {
@@ -395,7 +338,7 @@ nav {
   border-radius: var(--radius);
   padding: .9rem 1rem;
   cursor: pointer;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 13px;
   color: var(--gray-700);
   text-align: left;
@@ -405,10 +348,10 @@ nav {
   gap: 10px;
   align-items: flex-start;
 }
-.opt:hover { border-color: var(--blue); background: var(--blue-pale); }
-.opt.selected { border-color: var(--blue); background: var(--blue-light); color: var(--blue-dark); font-weight: 500; }
+.opt:hover { border-color: var(--purple-mid); background: var(--purple-pale); }
+.opt.selected { border-color: var(--purple); background: var(--purple-light); color: var(--purple); font-weight: 600; }
 .opt.correct  { border-color: var(--green); background: var(--green-light); color: var(--green); font-weight: 600; }
-.opt.wrong    { border-color: var(--red);   background: var(--red-light);   color: var(--red); }
+.opt.wrong    { border-color: var(--red); background: var(--red-light); color: var(--red); }
 .opt-letter {
   width: 22px; height: 22px;
   border-radius: 50%;
@@ -422,11 +365,11 @@ nav {
   margin-top: 1px;
   color: var(--gray-700);
 }
-.opt.selected .opt-letter { background: var(--blue); color: white; }
+.opt.selected .opt-letter { background: var(--purple); color: white; }
 .opt.correct .opt-letter  { background: var(--green); color: white; }
 .opt.wrong .opt-letter    { background: var(--red); color: white; }
 
-/* ── FEEDBACK BANNER ── */
+/* ── FEEDBACK ── */
 .feedback {
   border-radius: var(--radius);
   padding: 1rem 1.25rem;
@@ -436,13 +379,13 @@ nav {
   animation: fadeUp .3s ease;
 }
 .feedback.success { background: var(--green-light); border-left: 3px solid var(--green); color: var(--green); }
-.feedback.fail    { background: var(--red-light);   border-left: 3px solid var(--red);   color: var(--red); }
+.feedback.fail    { background: var(--red-light); border-left: 3px solid var(--red); color: var(--red); }
 .feedback-title   { font-weight: 700; font-size: 15px; margin-bottom: 4px; }
 .feedback-body    { color: var(--gray-700); font-size: 13px; }
 
 /* ── RIXIE ADVICE ── */
 .advice-card {
-  background: var(--blue-dark);
+  background: var(--purple-dark);
   border-radius: var(--radius-lg);
   padding: 2rem;
   color: white;
@@ -460,8 +403,8 @@ nav {
 .rixie-av {
   width: 44px; height: 44px;
   border-radius: 50%;
-  background: rgba(77,184,255,0.2);
-  border: 2px solid rgba(77,184,255,0.4);
+  background: rgba(245,166,35,0.2);
+  border: 2px solid rgba(245,166,35,0.5);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -486,15 +429,15 @@ nav {
 }
 @media (max-width: 480px) { .advice-metrics { grid-template-columns: 1fr 1fr; } }
 .metric {
-  background: rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.07);
   border-radius: var(--radius);
   padding: .85rem;
   text-align: center;
 }
-.metric-val { font-size: 22px; font-weight: 700; color: #4db8ff; letter-spacing: -0.5px; }
+.metric-val { font-size: 22px; font-weight: 700; color: var(--yellow); letter-spacing: -0.5px; }
 .metric-label { font-size: 11px; color: rgba(255,255,255,0.4); margin-top: 3px; line-height: 1.3; }
 
-/* ── SOLVED HEADER ── */
+/* ── SOLVED BAR ── */
 .solved-bar {
   background: var(--green-light);
   border: 1px solid var(--green);
@@ -510,9 +453,7 @@ nav {
   width: 44px; height: 44px;
   border-radius: 50%;
   background: var(--green);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
   animation: pop .4s cubic-bezier(.175,.885,.32,1.275);
 }
@@ -524,63 +465,29 @@ nav {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
   font-weight: 600;
   padding: 10px 22px;
-  border-radius: 6px;
+  border-radius: 25px;
   cursor: pointer;
   transition: all .15s;
   text-decoration: none;
   border: none;
+  letter-spacing: 0.3px;
 }
-.btn-primary { background: var(--blue); color: white; }
-.btn-primary:hover { background: var(--blue-dark); }
+.btn-primary { background: var(--yellow); color: var(--purple); }
+.btn-primary:hover { background: var(--yellow-dark); color: var(--purple); }
 .btn-outline {
   background: white;
   color: var(--gray-700);
   border: 1.5px solid var(--gray-300);
+  border-radius: 25px;
 }
 .btn-outline:hover { background: var(--gray-100); border-color: var(--gray-500); }
-.btn-green { background: var(--green); color: white; }
+.btn-green { background: var(--green); color: white; border-radius: 25px; }
 .btn-green:hover { background: #006b47; }
 .btn-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 1.25rem; }
-
-/* ── SCREEN MGMT ── */
-.screen { display: none; animation: fadeUp .3s ease; }
-.screen.active { display: block; }
-
-/* ── FOOTER ── */
-footer {
-  background: var(--white);
-  border-top: 1px solid var(--gray-200);
-  padding: 1.5rem 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: .75rem;
-}
-.footer-left { font-size: 13px; color: var(--gray-500); }
-.footer-left strong { color: var(--blue-dark); }
-.footer-links { display: flex; gap: 1.25rem; }
-.footer-links a { font-size: 13px; color: var(--gray-500); text-decoration: none; font-weight: 500; }
-.footer-links a:hover { color: var(--blue); }
-
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(8px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-@keyframes pop {
-  from { transform: scale(0); }
-  to   { transform: scale(1); }
-}
-@keyframes unlockBounce {
-  0%   { transform: scale(.96); }
-  60%  { transform: scale(1.02); }
-  100% { transform: scale(1); }
-}
-.just-unlocked { animation: unlockBounce .35s ease forwards; }
 
 /* ── TIMER BAR ── */
 .timer-bar {
@@ -595,18 +502,16 @@ footer {
   gap: 1rem;
 }
 .timer-left { display: flex; align-items: center; gap: 8px; }
-.timer-icon { color: var(--blue); display: flex; }
+.timer-icon { color: var(--purple-mid); display: flex; }
 .timer-label { font-size: 12px; color: var(--gray-500); font-weight: 500; }
 .timer-value {
   font-size: 20px;
   font-weight: 700;
-  color: var(--blue-dark);
   font-variant-numeric: tabular-nums;
   letter-spacing: -0.5px;
   min-width: 62px;
+  color: var(--green);
 }
-.timer-value.fast  { color: var(--green); }
-.timer-value.slow  { color: var(--amber); }
 .sources-count {
   display: flex;
   align-items: center;
@@ -648,10 +553,10 @@ footer {
   flex-shrink: 0;
   animation: pop .5s cubic-bezier(.175,.885,.32,1.275);
 }
-.score-trophy.gold   { background: #fef3c7; border: 2px solid #d97706; }
-.score-trophy.silver { background: var(--gray-100); border: 2px solid var(--gray-300); }
-.score-trophy.bronze { background: #fdecea; border: 2px solid var(--red); }
-.score-main-title { font-size: 20px; font-weight: 700; color: var(--blue-dark); letter-spacing: -0.3px; }
+.score-trophy.gold   { background: var(--yellow-light); border: 2px solid var(--yellow); }
+.score-trophy.silver { background: var(--purple-light); border: 2px solid var(--purple-mid); }
+.score-trophy.bronze { background: var(--red-light); border: 2px solid var(--red); }
+.score-main-title { font-size: 20px; font-weight: 700; color: var(--purple); letter-spacing: -0.3px; }
 .score-main-sub   { font-size: 13px; color: var(--gray-500); margin-top: 3px; }
 .score-grid {
   display: grid;
@@ -661,8 +566,8 @@ footer {
 }
 @media (max-width: 500px) { .score-grid { grid-template-columns: 1fr 1fr; } }
 .score-tile {
-  background: var(--gray-100);
-  border: 1px solid var(--gray-200);
+  background: var(--purple-pale);
+  border: 1px solid var(--purple-light);
   border-radius: var(--radius);
   padding: 1rem .85rem;
   text-align: center;
@@ -671,10 +576,10 @@ footer {
   font-size: 26px;
   font-weight: 700;
   letter-spacing: -0.5px;
-  color: var(--blue-dark);
+  color: var(--purple);
 }
 .score-tile-val.green  { color: var(--green); }
-.score-tile-val.amber  { color: var(--amber); }
+.score-tile-val.amber  { color: var(--yellow-dark); }
 .score-tile-val.red    { color: var(--red); }
 .score-tile-label {
   font-size: 11px;
@@ -682,10 +587,7 @@ footer {
   margin-top: 3px;
   line-height: 1.3;
 }
-.score-breakdown {
-  border-top: 1px solid var(--gray-200);
-  padding-top: 1.25rem;
-}
+.score-breakdown { border-top: 1px solid var(--gray-200); padding-top: 1.25rem; }
 .score-row {
   display: flex;
   justify-content: space-between;
@@ -695,7 +597,7 @@ footer {
   color: var(--gray-700);
 }
 .score-row-val { font-weight: 600; color: var(--gray-900); }
-.score-row-val.plus { color: var(--green); }
+.score-row-val.plus  { color: var(--green); }
 .score-row-val.minus { color: var(--red); }
 .score-total-row {
   display: flex;
@@ -706,19 +608,19 @@ footer {
   padding: 10px 0 0;
   margin-top: 6px;
   border-top: 1.5px solid var(--gray-200);
-  color: var(--blue-dark);
+  color: var(--purple);
 }
 .score-bar-wrap { margin-top: 10px; }
 .score-bar-label { font-size: 11px; color: var(--gray-500); margin-bottom: 4px; display: flex; justify-content: space-between; }
 .score-bar-bg { height: 8px; background: var(--gray-200); border-radius: 4px; overflow: hidden; }
-.score-bar-fill { height: 100%; border-radius: 4px; background: var(--blue); transition: width .8s cubic-bezier(.4,0,.2,1); }
-.score-bar-fill.gold { background: #d97706; }
-.score-bar-fill.silver { background: var(--blue); }
+.score-bar-fill { height: 100%; border-radius: 4px; background: var(--purple); transition: width .8s cubic-bezier(.4,0,.2,1); }
+.score-bar-fill.gold   { background: var(--yellow); }
+.score-bar-fill.silver { background: var(--purple-mid); }
 .score-bar-fill.bronze { background: var(--red); }
 
 /* ── START SCREEN ── */
 .start-screen {
-  min-height: calc(100vh - 64px);
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -732,9 +634,10 @@ footer {
   max-width: 620px;
   width: 100%;
   overflow: hidden;
+  box-shadow: 0 8px 32px rgba(45,27,94,0.1);
 }
 .start-card-top {
-  background: var(--blue-dark);
+  background: var(--purple-dark);
   padding: 2.5rem 2rem 2rem;
   color: white;
   text-align: center;
@@ -749,12 +652,12 @@ footer {
 }
 .start-title {
   font-size: clamp(24px, 5vw, 36px);
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: -0.5px;
   line-height: 1.15;
   margin-bottom: .6rem;
 }
-.start-title span { color: #4db8ff; }
+.start-title span { color: var(--yellow); }
 .start-subtitle {
   font-size: 15px;
   color: rgba(255,255,255,0.6);
@@ -770,8 +673,8 @@ footer {
 }
 @media (max-width: 420px) { .start-meta { grid-template-columns: 1fr 1fr; } }
 .start-meta-item {
-  background: var(--gray-100);
-  border: 1px solid var(--gray-200);
+  background: var(--purple-pale);
+  border: 1px solid var(--purple-light);
   border-radius: var(--radius);
   padding: .85rem .75rem;
   text-align: center;
@@ -779,14 +682,10 @@ footer {
 .start-meta-val {
   font-size: 18px;
   font-weight: 700;
-  color: var(--blue-dark);
+  color: var(--purple);
   letter-spacing: -0.3px;
 }
-.start-meta-label {
-  font-size: 11px;
-  color: var(--gray-500);
-  margin-top: 2px;
-}
+.start-meta-label { font-size: 11px; color: var(--gray-500); margin-top: 2px; }
 .start-rules {
   margin-bottom: 1.75rem;
   border: 1px solid var(--gray-200);
@@ -807,8 +706,8 @@ footer {
 .start-rule-num {
   width: 22px; height: 22px;
   border-radius: 50%;
-  background: var(--blue-light);
-  color: var(--blue);
+  background: var(--purple-light);
+  color: var(--purple);
   font-size: 11px;
   font-weight: 700;
   display: flex; align-items: center; justify-content: center;
@@ -821,19 +720,20 @@ footer {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: var(--blue);
-  color: white;
-  font-family: 'Inter', sans-serif;
-  font-size: 16px;
+  background: var(--yellow);
+  color: var(--purple);
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
   font-weight: 700;
   padding: 14px 36px;
-  border-radius: 8px;
+  border-radius: 30px;
   border: none;
   cursor: pointer;
   transition: background .15s, transform .1s;
-  letter-spacing: -0.2px;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
 }
-.btn-start:hover { background: var(--blue-dark); transform: translateY(-1px); }
+.btn-start:hover { background: var(--yellow-dark); transform: translateY(-1px); }
 .btn-start:active { transform: translateY(0); }
 .start-note {
   font-size: 12px;
@@ -841,7 +741,8 @@ footer {
   text-align: center;
   margin-top: .85rem;
 }
-/* ── COUNTDOWN OVERLAY ── */
+
+/* ── COUNTDOWN ── */
 #countdown-overlay {
   position: fixed;
   bottom: 1.5rem;
@@ -852,7 +753,7 @@ footer {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: var(--blue-dark);
+  background: var(--purple-dark);
   border-radius: 16px;
   padding: 1rem 1.5rem;
   border: 2px solid rgba(255,255,255,0.15);
@@ -863,32 +764,136 @@ footer {
   background: #7f0000;
   border-color: rgba(255,100,100,0.4);
 }
+
+/* ── SCREEN MGMT ── */
+.screen { display: none; animation: fadeUp .3s ease; }
+.screen.active { display: block; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes pop {
+  from { transform: scale(0); }
+  to   { transform: scale(1); }
+}
+@keyframes unlockBounce {
+  0%   { transform: scale(.96); }
+  60%  { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+.just-unlocked { animation: unlockBounce .35s ease forwards; }
+/* ── UNLOCK MECHANICS ── */
+.src-mechanic-label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  color: var(--purple-mid);
+  margin-bottom: 10px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--gray-200);
+}
+.puzzle-instruction {
+  font-size: 12px;
+  color: var(--gray-700);
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+.puzzle-instruction strong { color: var(--purple); }
+.puzzle-error {
+  font-size: 11px;
+  color: var(--red);
+  margin-top: 6px;
+  min-height: 16px;
+  font-weight: 500;
+}
+
+/* ERP: data rows */
+.data-rows { display: flex; flex-direction: column; gap: 4px; }
+.data-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 10px;
+  background: var(--gray-100);
+  border: 1.5px solid var(--gray-200);
+  border-radius: 6px;
+  font-size: 12px;
+  font-family: 'Poppins', monospace;
+  cursor: pointer;
+  transition: all .15s;
+  color: var(--gray-700);
+}
+.data-row:hover { border-color: var(--purple-mid); background: var(--purple-pale); }
+.data-row.wrong { border-color: var(--red); background: var(--red-light); color: var(--red); animation: shake .3s ease; }
+.data-row.correct { border-color: var(--green); background: var(--green-light); color: var(--green); font-weight: 600; }
+.data-row-label { font-weight: 600; color: var(--gray-500); font-size: 10px; }
+@keyframes shake {
+  0%,100%{transform:translateX(0)} 25%{transform:translateX(-4px)} 75%{transform:translateX(4px)}
+}
+
+/* CRM: wait bar */
+.wait-bar-wrap { margin: 8px 0; }
+.wait-bar-bg { height: 6px; background: var(--gray-200); border-radius: 3px; overflow: hidden; margin-bottom: 8px; }
+.wait-bar-fill { height: 100%; width: 0%; background: var(--purple-mid); border-radius: 3px; transition: width .5s linear; }
+.wait-steps { display: flex; justify-content: space-between; margin-bottom: 6px; }
+.wait-step { font-size: 10px; color: var(--gray-300); font-weight: 500; transition: color .3s; }
+.wait-step.active { color: var(--purple-mid); }
+.wait-step.done   { color: var(--green); }
+.wait-msg { font-size: 12px; color: var(--gray-500); font-style: italic; }
+
+/* Finance: quiz options */
+.quiz-options { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 6px; }
+.quiz-opt {
+  background: var(--gray-100);
+  border: 1.5px solid var(--gray-200);
+  border-radius: 6px;
+  padding: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  color: var(--purple);
+  cursor: pointer;
+  transition: all .15s;
+}
+.quiz-opt:hover { border-color: var(--purple-mid); background: var(--purple-pale); }
+.quiz-opt.wrong   { border-color: var(--red); background: var(--red-light); color: var(--red); }
+.quiz-opt.correct { border-color: var(--green); background: var(--green-light); color: var(--green); }
+
+/* ── ROL SELECTOR ── */
+.role-select-label { font-size: 13px; font-weight: 600; color: var(--gray-900); margin-bottom: 10px; }
+.role-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 1.5rem; }
+@media (max-width: 480px) { .role-cards { grid-template-columns: 1fr; } }
+.role-card {
+  border: 2px solid var(--gray-200); border-radius: var(--radius);
+  padding: .85rem .75rem; text-align: center; cursor: pointer;
+  transition: all .15s; background: var(--white); position: relative;
+}
+.role-card:hover { border-color: var(--purple-mid); background: var(--purple-pale); }
+.role-card.selected { border-color: var(--purple); background: var(--purple-light); }
+.role-card-icon { font-size: 26px; margin-bottom: 5px; line-height: 1; }
+.role-card-name { font-size: 13px; font-weight: 700; color: var(--purple); line-height: 1.3; }
+.role-card-desc { font-size: 11px; color: var(--gray-500); margin-top: 3px; line-height: 1.3; }
+.role-check {
+  position: absolute; top: 6px; right: 6px;
+  width: 18px; height: 18px; border-radius: 50%;
+  background: var(--purple); display: none;
+  align-items: center; justify-content: center;
+}
+.role-card.selected .role-check { display: flex; }
+.role-badge {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: rgba(245,166,35,0.15); border: 1px solid rgba(245,166,35,0.4);
+  border-radius: 20px; padding: 4px 12px;
+  font-size: 11px; font-weight: 600; color: var(--yellow-dark);
+}
+
 </style>
 <body>
-
-<!-- NAV -->
-<nav>
-  <a class="nav-logo" href="https://irixs.nl" target="_blank">
-    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-      <rect width="28" height="28" rx="6" fill="#003057"/>
-      <circle cx="10" cy="10" r="3.5" fill="white" opacity=".9"/>
-      <circle cx="10" cy="10" r="2"   fill="#003057"/>
-      <circle cx="10.8" cy="9.2" r=".7" fill="white"/>
-      <circle cx="18" cy="10" r="3.5" fill="white" opacity=".9"/>
-      <circle cx="18" cy="10" r="2"   fill="#003057"/>
-      <circle cx="18.8" cy="9.2" r=".7" fill="white"/>
-      <polygon points="12.5,13 14,12 15.5,13 15,15 14,15.5 13,15" fill="#d97706"/>
-      <path d="M7 18Q7 24 14 25Q21 24 21 18" fill="white" opacity=".15"/>
-    </svg>
-    <span class="nav-logo-text">irixs</span>
-    <span class="nav-product">Rixie AI</span>
-  </a>
-  <div class="nav-right">
-    <a class="nav-link" href="https://irixs.nl/diensten/" target="_blank">Diensten</a>
-    <a class="nav-link" href="https://irixs.nl/over-irixs/" target="_blank">Over Irixs</a>
-    <a class="nav-cta" href="https://irixs.nl/contact/" target="_blank">Neem contact op</a>
-  </div>
-</nav>
 
 <!-- START SCREEN -->
 <div id="start-screen" class="start-screen">
@@ -896,9 +901,32 @@ footer {
     <div class="start-card-top">
       <p class="start-case-label">Rixie AI Agent · Zaak #01</p>
       <h1 class="start-title">De verdwijnende<br><span>marge</span></h1>
-      <p class="start-subtitle">Een bedrijf verliest kwartaal na kwartaal winst.<br>Niemand weet waarom. Jij lost het op — met Rixie.</p>
+      <p class="start-subtitle">Een bedrijf verliest kwartaal na kwartaal winst.<br>Kies jouw rol — en los het op met Rixie.</p>
     </div>
     <div class="start-card-body">
+
+      <p class="role-select-label">Kies jouw rol:</p>
+      <div class="role-cards">
+        <div class="role-card" id="role-sales" onclick="selectRole('sales')">
+          <div class="role-check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="role-card-icon">📈</div>
+          <div class="role-card-name">Sales Manager</div>
+          <div class="role-card-desc">Klanten & omzet</div>
+        </div>
+        <div class="role-card" id="role-hr" onclick="selectRole('hr')">
+          <div class="role-check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="role-card-icon">👥</div>
+          <div class="role-card-name">HR Manager</div>
+          <div class="role-card-desc">Mensen & productiviteit</div>
+        </div>
+        <div class="role-card" id="role-finance" onclick="selectRole('finance')">
+          <div class="role-check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="role-card-icon">💰</div>
+          <div class="role-card-name">Finance Manager</div>
+          <div class="role-card-desc">Kosten & marges</div>
+        </div>
+      </div>
+
       <div class="start-meta">
         <div class="start-meta-item">
           <div class="start-meta-val">3</div>
@@ -909,30 +937,32 @@ footer {
           <div class="start-meta-label">speeltijd</div>
         </div>
         <div class="start-meta-item">
-          <div class="start-meta-val">300</div>
+          <div class="start-meta-val">270</div>
           <div class="start-meta-label">max score</div>
         </div>
       </div>
+
       <div class="start-rules">
         <div class="start-rule">
           <span class="start-rule-num">1</span>
-          <span><strong>Ontgrendel databronnen</strong> — optioneel. Minder bronnen gebruiken én toch het juiste antwoord geven levert de hoogste bonusscore op.</span>
+          <span><strong>Kies jouw rol</strong> — elke rol heeft eigen databronnen en een andere invalshoek op de zaak.</span>
         </div>
         <div class="start-rule">
           <span class="start-rule-num">2</span>
-          <span><strong>Kies de oorzaak</strong> — vier mogelijke antwoorden. Eerste poging correct geeft een bonusscore. Bij 0:00 stopt de tijd automatisch.</span>
+          <span><strong>Ontgrendel databronnen</strong> — optioneel. Minder bronnen én correct antwoord = hogere bonusscore.</span>
         </div>
         <div class="start-rule">
           <span class="start-rule-num">3</span>
-          <span><strong>Je hebt 3 minuten</strong> — hoe meer tijd er over is als je antwoordt, hoe hoger de tijdbonus. De aftelling begint zodra je klikt.</span>
+          <span><strong>Je hebt 3 minuten</strong> — hoe sneller je antwoordt, hoe hoger de tijdbonus.</span>
         </div>
       </div>
+
       <div class="start-btn-wrap">
-        <button class="btn-start" onclick="startGame()">
-          Start de zaak
+        <button class="btn-start" onclick="startGame()" id="start-btn" disabled style="opacity:.5;cursor:not-allowed;">
+          Kies eerst een rol
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 8h8M9 5l3 3-3 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
-        <p class="start-note">De timer start zodra je op "Start de zaak" klikt</p>
+        <p class="start-note" id="start-note">Selecteer een rol om te beginnen</p>
       </div>
     </div>
   </div>
@@ -940,29 +970,6 @@ footer {
 
 <!-- MAIN GAME (hidden until start) -->
 <div id="game-content" style="display:none;">
-
-<!-- HERO -->
-<div class="hero" style="padding:1.5rem 2rem;">
-  <div style="max-width:860px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
-    <div style="text-align:left;">
-      <div class="hero-eyebrow" style="justify-content:flex-start;">
-        <span class="hero-dot"></span>
-        Zaak #01 · Bakkerij De Korst BV
-      </div>
-      <div style="font-size:22px;font-weight:700;letter-spacing:-0.5px;">De verdwijnende marge</div>
-    </div>
-    <div class="hero-badges">
-      <span class="hero-badge">
-        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.2"/><path d="M6 3v3l2 2" stroke="rgba(255,255,255,0.6)" stroke-width="1.2" stroke-linecap="round"/></svg>
-        Timer loopt
-      </span>
-      <span class="hero-badge" id="hero-src-badge">
-        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><rect x="1" y="1" width="4" height="4" rx="1" fill="rgba(255,255,255,0.6)"/><rect x="7" y="1" width="4" height="4" rx="1" fill="rgba(255,255,255,0.6)"/><rect x="1" y="7" width="4" height="4" rx="1" fill="rgba(255,255,255,0.6)"/><rect x="7" y="7" width="4" height="4" rx="1" fill="rgba(255,255,255,0.3)"/></svg>
-        0 / 3 bronnen
-      </span>
-    </div>
-  </div>
-</div>
 
 <!-- MAIN -->
 <div class="main">
@@ -1005,9 +1012,9 @@ footer {
     </div>
     <div class="sources-count">
       <span style="font-size:12px;color:var(--gray-500);">Bronnen:</span>
-      <span class="src-pip" id="pip-erp"></span>
-      <span class="src-pip" id="pip-crm"></span>
-      <span class="src-pip" id="pip-fin"></span>
+      <span class="src-pip" id="pip-src1"></span>
+      <span class="src-pip" id="pip-src2"></span>
+      <span class="src-pip" id="pip-src3"></span>
       <span id="pip-label" style="font-size:12px;color:var(--gray-500);margin-left:2px;">0 / 3</span>
     </div>
   </div>
@@ -1015,9 +1022,9 @@ footer {
   <!-- BRIEF -->
   <div class="brief-card">
     <div>
-      <p class="brief-eyebrow">Zaak #01 · Bakkerij De Korst BV</p>
-      <h2 class="brief-title">De verdwijnende marge</h2>
-      <p class="brief-text">De brutowinst daalt al <strong>drie kwartalen op rij</strong> met 8%. De omzet stijgt, het personeel is stabiel — maar niemand weet waar het geld naartoe gaat. <strong>Rixie krijgt toegang tot drie losse systemen.</strong> Jij ontgrendelt de aanwijzingen en verbindt de puntjes.</p>
+      <p class="brief-eyebrow" id="brief-eyebrow">Zaak #01 · Bakkerij De Korst BV</p>
+      <h2 class="brief-title" id="brief-title">De verdwijnende marge</h2>
+      <p class="brief-text" id="brief-text">De brutowinst daalt al <strong>drie kwartalen op rij</strong> met 8%. De omzet stijgt, het personeel is stabiel — maar niemand weet waar het geld naartoe gaat. <strong>Rixie krijgt toegang tot drie losse systemen.</strong> Jij ontgrendelt de aanwijzingen en verbindt de puntjes.</p>
     </div>
     <div class="brief-stats">
       <div class="stat-pill">
@@ -1039,83 +1046,15 @@ footer {
   <div class="screen active" id="screen1">
     <p class="section-heading">Stap 1 — Ontgrendel de databronnen</p>
 
-    <div class="sources-grid">
-
-      <div class="src-card" id="card-erp" onclick="unlock('erp')">
-        <div class="src-top">
-          <div class="src-icon" style="background:#e8f2fb;">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-              <rect x="2" y="2" width="7" height="7" rx="1.5" fill="#0069c0"/>
-              <rect x="11" y="2" width="7" height="7" rx="1.5" fill="#0069c0"/>
-              <rect x="2" y="11" width="7" height="7" rx="1.5" fill="#0069c0"/>
-              <rect x="11" y="11" width="7" height="7" rx="1.5" fill="#4db8ff" opacity=".6"/>
-            </svg>
-          </div>
-          <div>
-            <div class="src-name">ERP</div>
-            <div class="src-status" id="erp-status">Inkoop & productiedata</div>
-          </div>
-        </div>
-        <div id="erp-body">
-          <div class="src-lock">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="3" y="6.5" width="8" height="6.5" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M4.5 6.5V5a2.5 2.5 0 015 0v1.5" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
-            Klik om databron te openen
-          </div>
-        </div>
-      </div>
-
-      <div class="src-card" id="card-crm" onclick="unlock('crm')">
-        <div class="src-top">
-          <div class="src-icon" style="background:#e3f5ee;">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-              <circle cx="8" cy="7" r="4" fill="#00875a"/>
-              <path d="M2 18c0-4 2.7-6.5 6-6.5s6 2.5 6 6.5" fill="#00875a" opacity=".4"/>
-              <circle cx="15" cy="7" r="2.8" fill="#00875a" opacity=".55"/>
-              <path d="M14.5 12c2.5 0 4.5 2 4.5 5" fill="none" stroke="#00875a" stroke-width="1.2"/>
-            </svg>
-          </div>
-          <div>
-            <div class="src-name">CRM</div>
-            <div class="src-status" id="crm-status">Klanten & orderhistorie</div>
-          </div>
-        </div>
-        <div id="crm-body">
-          <div class="src-lock">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="3" y="6.5" width="8" height="6.5" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M4.5 6.5V5a2.5 2.5 0 015 0v1.5" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
-            Klik om databron te openen
-          </div>
-        </div>
-      </div>
-
-      <div class="src-card" id="card-fin" onclick="unlock('fin')">
-        <div class="src-top">
-          <div class="src-icon" style="background:#fef3c7;">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-              <rect x="2" y="12" width="3.5" height="6" rx="1" fill="#d97706"/>
-              <rect x="8" y="8"  width="3.5" height="10" rx="1" fill="#d97706"/>
-              <rect x="14" y="3" width="3.5" height="15" rx="1" fill="#f59e0b"/>
-            </svg>
-          </div>
-          <div>
-            <div class="src-name">Finance</div>
-            <div class="src-status" id="fin-status">Kosten & margeanalyse</div>
-          </div>
-        </div>
-        <div id="fin-body">
-          <div class="src-lock">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="3" y="6.5" width="8" height="6.5" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M4.5 6.5V5a2.5 2.5 0 015 0v1.5" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
-            Klik om databron te openen
-          </div>
-        </div>
-      </div>
-
+    <div class="sources-grid" id="sources-grid">
+      <!-- Wordt dynamisch gevuld op basis van gekozen rol -->
     </div>
 
     <div id="proceed-wrap" style="display:block">
-      <div class="proceed-banner" id="proceed-banner" style="background:var(--blue-light);border-color:var(--blue);">
+      <div class="proceed-banner" id="proceed-banner" style="background:var(--purple-pale);border-color:var(--purple-mid);">
         <div>
-          <div class="proceed-text" style="color:var(--blue);">Databronnen zijn optioneel — je kunt direct doorgaan.</div>
-          <div style="font-size:13px;color:var(--gray-700);margin-top:2px;">Hoe meer bronnen je ontgrendelt, hoe hoger je eindscore.</div>
+          <div class="proceed-text" style="color:var(--purple);">Databronnen zijn optioneel — je kunt direct doorgaan.</div>
+          <div style="font-size:13px;color:var(--gray-700);margin-top:2px;">Minder bronnen + correct antwoord = hogere score.</div>
         </div>
         <button class="btn btn-primary" onclick="goScreen(2)">
           Naar stap 2
@@ -1156,90 +1095,14 @@ footer {
     </div>
   </div>
 
-  <!-- SCREEN 3: ADVICE -->
+  <!-- SCREEN 3: SCORE + ADVIES -->
   <div class="screen" id="screen3">
-    <p class="section-heading">Stap 3 — Rixie geeft strategisch advies</p>
 
-    <div class="solved-bar">
-      <div class="solved-check">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-          <path d="M4 10l5 5 7-7" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </div>
-      <div>
-        <div class="solved-title">Zaak opgelost</div>
-        <div class="solved-sub">Alleen zichtbaar door ERP, CRM én Finance gelijktijdig te analyseren — precies wat Rixie doet</div>
-      </div>
-    </div>
-
-    <div class="advice-card">
-      <div class="advice-header">
-        <div class="rixie-av">
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-            <path d="M4 18L3 13Q3 9 7 8.5L11 8L11 18Z" fill="rgba(255,255,255,0.25)"/>
-            <path d="M18 18L19 13Q19 9 15 8.5L11 8L11 18Z" fill="rgba(255,255,255,0.25)"/>
-            <circle cx="11" cy="7" r="6" fill="rgba(255,255,255,0.1)"/>
-            <ellipse cx="11" cy="7.5" rx="4.5" ry="4" fill="rgba(255,255,255,0.9)"/>
-            <circle cx="8.8" cy="7" r="2.2" fill="#003057"/>
-            <circle cx="8.8" cy="7" r="1.3" fill="#4db8ff"/>
-            <circle cx="9.4" cy="6.4" r=".55" fill="white"/>
-            <circle cx="13.2" cy="7" r="2.2" fill="#003057"/>
-            <circle cx="13.2" cy="7" r="1.3" fill="#4db8ff"/>
-            <circle cx="13.8" cy="6.4" r=".55" fill="white"/>
-            <polygon points="9.5,10 11,9.2 12.5,10 12.1,11.5 11,12 9.9,11.5" fill="#d97706"/>
-          </svg>
-        </div>
-        <div>
-          <div class="rixie-av-name">Rixie</div>
-          <div class="rixie-av-role">AI Agent · Irixs · Analyse voltooid</div>
-        </div>
-      </div>
-      <p class="advice-body">
-        Door <strong>ERP, CRM en Finance gelijktijdig te analyseren</strong> ontdekte Rixie wat geen enkel systeem apart kon zien. Een machinestoring op productielijn 3 is al <strong>9 maanden onopgelost</strong>. Dit verhoogde de productieverspilling van 2% naar 7%. Tegelijkertijd stegen grondstofprijzen met 6%. Beide signalen zaten in aparte systemen — niemand had ze gekoppeld.
-      </p>
-      <p class="advice-body">
-        <strong>Strategisch advies:</strong> Plan preventief onderhoud op lijn 3 in Q4. Heronderhandel grondstofcontracten op basis van de volumedata uit het ERP. Activeer een automatisch margealarm zodra verspilling de 4%-grens overschrijdt.
-      </p>
-      <div class="advice-metrics">
-        <div class="metric">
-          <div class="metric-val">€38k</div>
-          <div class="metric-label">kostenbesparing per kwartaal</div>
-        </div>
-        <div class="metric">
-          <div class="metric-val">+11%</div>
-          <div class="metric-label">margeherstel binnen 2 kwartalen</div>
-        </div>
-        <div class="metric">
-          <div class="metric-val">3</div>
-          <div class="metric-label">systemen gecombineerd door Rixie</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- CTA -->
-    <div style="background:var(--white);border:1px solid var(--gray-200);border-radius:var(--radius-lg);padding:1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;" id="cta-block">
-      <div>
-        <p style="font-size:15px;font-weight:700;color:var(--blue-dark);margin-bottom:4px;">Bekijk jouw eindscore</p>
-        <p style="font-size:13px;color:var(--gray-500);">Zie hoeveel punten je hebt gescoord op tijd, bronnen en antwoord.</p>
-      </div>
-      <button class="btn btn-primary" onclick="goScore()">
-        Bekijk score
-        <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5h9M8 3.5l3 3-3 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-    </div>
-
-  </div>
-
-</div>
-
-  <!-- SCREEN 4: SCORE -->
-  <div class="screen" id="screen4">
     <p class="section-heading">Jouw eindscore</p>
-
     <div class="score-card" id="score-card">
       <div class="score-header">
         <div class="score-trophy" id="score-trophy">
-          <svg width="26" height="26" viewBox="0 0 26 26" fill="none" id="trophy-icon">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
             <path d="M8 3h10v9a5 5 0 01-10 0V3z" fill="#d97706" opacity=".8"/>
             <path d="M5 5H8M18 5h3" stroke="#d97706" stroke-width="1.5" stroke-linecap="round"/>
             <rect x="10" y="17" width="6" height="4" rx="1" fill="#d97706" opacity=".7"/>
@@ -1251,7 +1114,6 @@ footer {
           <div class="score-main-sub" id="score-sub">Hier is jouw persoonlijke score</div>
         </div>
       </div>
-
       <div class="score-grid">
         <div class="score-tile">
           <div class="score-tile-val" id="score-time-val">—</div>
@@ -1266,7 +1128,6 @@ footer {
           <div class="score-tile-label">Antwoord</div>
         </div>
       </div>
-
       <div class="score-breakdown">
         <div class="score-row">
           <span>Basiscore</span>
@@ -1291,7 +1152,7 @@ footer {
         <div class="score-bar-wrap">
           <div class="score-bar-label">
             <span id="bar-rank-label">Uw rang</span>
-            <span id="bar-pct-label">0 / 300</span>
+            <span id="bar-pct-label">0 / 270</span>
           </div>
           <div class="score-bar-bg">
             <div class="score-bar-fill" id="score-bar" style="width:0%"></div>
@@ -1300,9 +1161,55 @@ footer {
       </div>
     </div>
 
-    <div style="background:var(--white);border:1px solid var(--gray-200);border-radius:var(--radius-lg);padding:1.5rem;display:grid;grid-template-columns:1fr auto;gap:1.5rem;align-items:center;" id="cta-block2">
+    <p class="section-heading" style="margin-top:1.75rem;">Rixie geeft strategisch advies</p>
+
+    <div class="advice-card">
+      <div class="advice-header">
+        <div class="rixie-av">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+            <path d="M4 18L3 13Q3 9 7 8.5L11 8L11 18Z" fill="rgba(255,255,255,0.25)"/>
+            <path d="M18 18L19 13Q19 9 15 8.5L11 8L11 18Z" fill="rgba(255,255,255,0.25)"/>
+            <circle cx="11" cy="7" r="6" fill="rgba(255,255,255,0.1)"/>
+            <ellipse cx="11" cy="7.5" rx="4.5" ry="4" fill="rgba(255,255,255,0.9)"/>
+            <circle cx="8.8" cy="7" r="2.2" fill="var(--purple-dark)"/>
+            <circle cx="8.8" cy="7" r="1.3" fill="#4db8ff"/>
+            <circle cx="9.4" cy="6.4" r=".55" fill="white"/>
+            <circle cx="13.2" cy="7" r="2.2" fill="var(--purple-dark)"/>
+            <circle cx="13.2" cy="7" r="1.3" fill="#4db8ff"/>
+            <circle cx="13.8" cy="6.4" r=".55" fill="white"/>
+            <polygon points="9.5,10 11,9.2 12.5,10 12.1,11.5 11,12 9.9,11.5" fill="#d97706"/>
+          </svg>
+        </div>
+        <div>
+          <div class="rixie-av-name">Rixie</div>
+          <div class="rixie-av-role">AI Agent · Irixs · Analyse voltooid</div>
+        </div>
+      </div>
+      <p class="advice-body" id="advice-body-1">
+        Door <strong>ERP, CRM en Finance gelijktijdig te analyseren</strong> ontdekte Rixie wat geen enkel systeem apart kon zien. Een machinestoring op productielijn 3 is al <strong>9 maanden onopgelost</strong>. Dit verhoogde de productieverspilling van 2% naar 7%. Tegelijkertijd stegen grondstofprijzen met 6%. Beide signalen zaten in aparte systemen — niemand had ze gekoppeld.
+      </p>
+      <p class="advice-body" style="margin-top:.85rem;" id="advice-body-2">
+        <strong>Strategisch advies:</strong> Plan preventief onderhoud op lijn 3 in Q4. Heronderhandel grondstofcontracten op basis van de volumedata uit het ERP. Activeer een automatisch margealarm zodra verspilling de 4%-grens overschrijdt.
+      </p>
+      <div class="advice-metrics">
+        <div class="metric">
+          <div class="metric-val">€38k</div>
+          <div class="metric-label">kostenbesparing per kwartaal</div>
+        </div>
+        <div class="metric">
+          <div class="metric-val">+11%</div>
+          <div class="metric-label">margeherstel binnen 2 kwartalen</div>
+        </div>
+        <div class="metric">
+          <div class="metric-val">3</div>
+          <div class="metric-label">systemen gecombineerd door Rixie</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:var(--white);border:1px solid var(--gray-200);border-radius:var(--radius-lg);padding:1.5rem;display:grid;grid-template-columns:1fr auto;gap:1.5rem;align-items:center;margin-top:1.5rem;">
       <div>
-        <p style="font-size:16px;font-weight:700;color:var(--blue-dark);margin-bottom:4px;">Wil je Rixie in jouw organisatie?</p>
+        <p style="font-size:16px;font-weight:700;color:var(--purple);margin-bottom:4px;">Wil je Rixie in jouw organisatie?</p>
         <p style="font-size:13px;color:var(--gray-500);">Irixs verbindt jouw systemen en laat Rixie echte strategische inzichten genereren — op basis van jouw data.</p>
       </div>
       <div style="display:flex;flex-direction:column;gap:8px;min-width:160px;">
@@ -1316,47 +1223,384 @@ footer {
         </button>
       </div>
     </div>
+
   </div>
 
 </div>
 
 </div><!-- end game-content -->
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-left">Een product van <strong>Irixs</strong> · Businessconsultants met oog voor procesverbetering</div>
-  <div class="footer-links">
-    <a href="https://irixs.nl" target="_blank">irixs.nl</a>
-    <a href="https://irixs.nl/contact/" target="_blank">Contact</a>
-    <a href="https://irixs.nl/diensten/" target="_blank">Diensten</a>
-  </div>
-</footer>
 
 <script>
 var TOTAL_SECONDS = 180;
-var unlocked = {erp:false, crm:false, fin:false};
+var unlocked = {src1:false, src2:false, src3:false};
 var selected = null;
 var correctAnswer = false;
 var timerInterval = null;
 var remainingSeconds = TOTAL_SECONDS;
 var timerStopped = false;
+var currentRole = null;
+var finAttempts = 0;
+var crmTimer = null;
 
-var clues = {
-  erp: {
-    tag: 'ERP · Productiedata Q1–Q3 2024',
-    text: 'Grondstofkosten +6% t.o.v. vorig jaar — marktconform. Echter: <span class="highlight">productieverspilling steeg van 2% naar 7% op lijn 3</span>. Machinestoring gemeld in januari, nog niet verholpen.'
+/* ══════════════════════════════════════════
+   ROL DATA
+══════════════════════════════════════════ */
+var roles = {
+  sales: {
+    name: 'Sales Manager',
+    icon: '📈',
+    brief: 'Als Sales Manager zie jij elke kwartaalrapportage als eerste. De omzet groeit, maar jouw commissie-pool krimpt. Ergens lekt marge — en jij wil weten waar.',
+    sources: {
+      src1: {
+        name: 'CRM',
+        sub: 'Orderhistorie & marges',
+        icon: 'crm',
+        mechanic: 'rows',
+        mechanicLabel: 'Vind de afwijkende regio',
+        rows: [
+          { label: 'Regio Noord', val: 'Marge: 18.2%', ok: true },
+          { label: 'Regio Oost',  val: 'Marge: 17.9%', ok: true },
+          { label: 'Regio West',  val: 'Marge: 18.5%', ok: true },
+          { label: 'Regio Zuid',  val: 'Marge: 18.1%', ok: true },
+          { label: 'Productlijn Premium', val: 'Marge: 9.1%', ok: false },
+        ],
+        clueTag: 'CRM · Orderdata Q1–Q3 2024',
+        clue: 'Alle regio’s presteren normaal. Echter: <span class="highlight">de Premium productlijn heeft een marge van slechts 9% — normaal 18%.</span> De kosten van die lijn exploderen.'
+      },
+      src2: {
+        name: 'Verkooprapportage',
+        sub: 'Omzet per productlijn',
+        icon: 'chart',
+        mechanic: 'wait',
+        mechanicLabel: 'Rapport opvragen bij controller',
+        waitSteps: ['Aanvraag verstuurd', 'Controller verwerkt', 'Rapport klaar'],
+        waitMsgs: ['Wachten op de controller...', 'Rapport wordt samengesteld...', 'Bijna klaar...', 'Rapport beschikbaar!'],
+        clueTag: 'Verkooprapportage · Q3 2024',
+        clue: 'Omzet stijgt met 4% — volumegroei klopt. <span class="highlight">Premium lijn verkoopt meer maar genereert minder marge per eenheid.</span> Productiekosten stegen disproportioneel.'
+      },
+      src3: {
+        name: 'Klantfeedback',
+        sub: 'Klachten & retourzendingen',
+        icon: 'feedback',
+        mechanic: 'quiz',
+        mechanicLabel: 'Beantwoord toegangsvraag',
+        quizQ: 'Hoeveel procent daalde de marge van de Premium lijn?',
+        quizOpts: ['3%', '9%', '50%', '18%'],
+        quizAnswer: '50%',
+        clueTag: 'Klantfeedback · Q3 2024',
+        clue: 'Geen toename in klachten of retouren. <span class="highlight">Kwaliteit is stabiel — het probleem zit niet bij de klant, maar in de productie.</span>'
+      }
+    },
+    advice: 'Jouw CRM-data wees op de Premium lijn, maar de oorzaak lag buiten jouw scope. Door de verkoopdata te combineren met productiedata ontdekte Rixie: <strong>machinestoring op lijn 3 verhoogde de productiekosten van de Premium lijn met 48%.</strong> De klant betaalt gewoon — de fabriek is te duur geworden.',
+    adviceAction: 'Bespreek met productie een tijdelijk prijsoverleg voor de Premium lijn én push voor spoedonderhoud lijn 3. Verwachte margeherstel: <strong>+9 procentpunt binnen één kwartaal.</strong>'
   },
-  crm: {
-    tag: 'CRM · Orderdata 847 klanten',
-    text: 'Omzet +4% door volumegroei, marges per order stabiel. <span class="highlight">Geen klantgerelateerde afwijkingen gevonden.</span> Klanten betalen correct — dit is geen verkoopprobleem.'
+
+  hr: {
+    name: 'HR Manager',
+    icon: '👥',
+    brief: 'Als HR Manager zie jij de mensen achter de cijfers. Er zijn meldingen van overwerk op één productieafdeling, maar de output daalt. Iets klopt niet.',
+    sources: {
+      src1: {
+        name: 'Personeelsplanning',
+        sub: 'Uren & bezetting per lijn',
+        icon: 'people',
+        mechanic: 'rows',
+        mechanicLabel: 'Vind de afwijkende lijn',
+        rows: [
+          { label: 'Lijn 1', val: 'Overwerk: 2u/week', ok: true },
+          { label: 'Lijn 2', val: 'Overwerk: 1u/week', ok: true },
+          { label: 'Lijn 3', val: 'Overwerk: 14u/week', ok: false },
+          { label: 'Lijn 4', val: 'Overwerk: 3u/week', ok: true },
+          { label: 'Lijn 5', val: 'Overwerk: 2u/week', ok: true },
+        ],
+        clueTag: 'Personeelsplanning · Q3 2024',
+        clue: 'Bijna geen overwerk — behalve lijn 3. <span class="highlight">Medewerkers op lijn 3 draaien gemiddeld 14 uur overwerk per week</span> om de uitval van de storing te compenseren.'
+      },
+      src2: {
+        name: 'Ziekteverzuim',
+        sub: 'Meldingen per afdeling',
+        icon: 'health',
+        mechanic: 'wait',
+        mechanicLabel: 'Rapport opvragen bij HR-systeem',
+        waitSteps: ['Aanvraag ingediend', 'Privacy check', 'Data beschikbaar'],
+        waitMsgs: ['Privacy-check loopt...', 'Anonimiseren van data...', 'Rapport wordt geladen...', 'Verzuimdata beschikbaar!'],
+        clueTag: 'Ziekteverzuim · Q3 2024',
+        clue: 'Verzuim lijn 3 is 3x hoger dan gemiddeld. <span class="highlight">Medewerkers melden zich vaker ziek door de stressvolle werkomstandigheden rond de storing.</span> Dit verhoogt indirecte personeelskosten.'
+      },
+      src3: {
+        name: 'Exitgesprekken',
+        sub: 'Redenen van vertrek',
+        icon: 'exit',
+        mechanic: 'quiz',
+        mechanicLabel: 'Beantwoord toegangsvraag',
+        quizQ: 'Hoeveel uur overwerk per week draait lijn 3 gemiddeld?',
+        quizOpts: ['3 uur', '7 uur', '14 uur', '21 uur'],
+        quizAnswer: '14 uur',
+        clueTag: 'Exitgesprekken · Q3 2024',
+        clue: '3 medewerkers vertrokken dit kwartaal van lijn 3. <span class="highlight">Alle drie noemden "aanhoudende machineproblemen zonder oplossing" als reden.</span> Het signaal bestond al maanden.'
+      }
+    },
+    advice: 'De personeelsdata wees op lijn 3, maar HR kon dit niet alleen oplossen. Rixie koppelde jouw data aan productie- en financiële systemen: <strong>een 9 maanden oude machinestoring op lijn 3 veroorzaakt structureel overwerk, verhoogd verzuim en medewerkersverloop.</strong>',
+    adviceAction: 'Escaleer spoedonderhoud lijn 3 naar directie met de personeelskosten als argument: overwerk + verzuim + vervanging kost <strong>€22k/kwartaal extra</strong>. HR-data is hier het bewijs.'
   },
-  fin: {
-    tag: 'Finance · P&L Q1–Q3 2024',
-    text: 'Energiekosten +3%, logistiek +2% — beide binnen bandbreedte. <span class="highlight">Directe productiekosten stegen disproportioneel op één lijn</span>, niet zichtbaar in de standaard maandrapportage.'
+
+  finance: {
+    name: 'Finance Manager',
+    icon: '💰',
+    brief: 'Als Finance Manager zie jij de cijfers direct. De brutowinst daalt 8% per kwartaal, maar omzet stijgt. Ergens lopen kosten uit de hand — en jij moet weten waar.',
+    sources: {
+      src1: {
+        name: 'P&L Rapport',
+        sub: 'Kosten & margeanalyse',
+        icon: 'finance',
+        mechanic: 'rows',
+        mechanicLabel: 'Vind de afwijkende kostenpost',
+        rows: [
+          { label: 'Grondstofkosten', val: '+6% (marktconform)', ok: true },
+          { label: 'Energiekosten',   val: '+3% (in lijn)', ok: true },
+          { label: 'Directe productiekosten', val: '+34% lijn 3', ok: false },
+          { label: 'Logistiek',       val: '+2% (normaal)', ok: true },
+          { label: 'Personeelskosten',val: '+4% (CAO)', ok: true },
+        ],
+        clueTag: 'P&L · Q1–Q3 2024',
+        clue: 'Alle kostenposten zijn marktconform — behalve één. <span class="highlight">Directe productiekosten op lijn 3 stegen met 34%</span> terwijl volume gelijk bleef. Geen inkoopoorzaak.'
+      },
+      src2: {
+        name: 'Inkoopfacturen',
+        sub: 'Leveranciers & onderhoudskosten',
+        icon: 'invoice',
+        mechanic: 'wait',
+        mechanicLabel: 'Facturen opvragen uit ERP',
+        waitSteps: ['Extractie gestart', 'Facturen geladen', 'Analyse klaar'],
+        waitMsgs: ['ERP-extractie loopt...', 'Facturen worden geladen...', 'Analyse bezig...', 'Factuurdata beschikbaar!'],
+        clueTag: 'Inkoopfacturen · Q3 2024',
+        clue: 'Grondstofinkoopprijzen normaal. <span class="highlight">Maar: geen onderhoudsorder voor lijn 3 in 9 maanden.</span> Uitgesteld onderhoud = hogere verspilling = hogere kosten per eenheid.'
+      },
+      src3: {
+        name: 'Budget vs. Realisatie',
+        sub: 'Afwijkingen per afdeling',
+        icon: 'budget',
+        mechanic: 'quiz',
+        mechanicLabel: 'Beantwoord autorisatievraag',
+        quizQ: 'Met hoeveel procent stegen de directe productiekosten op lijn 3?',
+        quizOpts: ['6%', '12%', '34%', '48%'],
+        quizAnswer: '34%',
+        clueTag: 'Budget vs. Realisatie · Q3 2024',
+        clue: 'Productieafdeling overschreed haar budget met €41k. <span class="highlight">De afwijking is volledig toe te schrijven aan lijn 3 — geen andere afdeling wijkt significant af.</span>'
+      }
+    },
+    advice: 'Jouw P&L wees direct naar lijn 3. Rixie bevestigde dit door productie-, inkoop- en HR-data te combineren: <strong>een machinestoring op lijn 3, al 9 maanden onopgelost, veroorzaakt 34% kostenstijging op die lijn.</strong> De totale impact: €38k extra kosten per kwartaal.',
+    adviceAction: 'Boek spoedonderhoud lijn 3 in Q4 (eenmalig €8k) voor een structurele besparing van <strong>€38k/kwartaal</strong>. ROI: terugverdiend in 9 weken. Rapporteer aan CFO met deze cijfers.'
   }
 };
 
-/* ── COUNTDOWN OVERLAY ── */
+/* ══════════════════════════════════════════
+   ROL SELECTIE
+══════════════════════════════════════════ */
+function selectRole(role) {
+  currentRole = role;
+  document.querySelectorAll('.role-card').forEach(function(c){ c.classList.remove('selected'); });
+  document.getElementById('role-' + role).classList.add('selected');
+  var btn = document.getElementById('start-btn');
+  var note = document.getElementById('start-note');
+  var r = roles[role];
+  btn.disabled = false;
+  btn.style.opacity = '1';
+  btn.style.cursor = 'pointer';
+  btn.innerHTML = 'Start als ' + r.name + ' <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 8h8M9 5l3 3-3 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  note.textContent = 'De timer start zodra je klikt';
+}
+
+/* ══════════════════════════════════════════
+   GAME START — inject role content
+══════════════════════════════════════════ */
+function startGame() {
+  if (!currentRole) return;
+  var r = roles[currentRole];
+
+  /* Brief */
+  document.getElementById('brief-eyebrow').innerHTML =
+    '<span class="role-badge">' + r.icon + ' ' + r.name + '</span>';
+  document.getElementById('brief-title').textContent = 'De verdwijnende marge';
+  document.getElementById('brief-text').innerHTML = r.brief +
+    ' <strong>Rixie krijgt toegang tot drie databronnen.</strong> Jij ontgrendelt de aanwijzingen en verbindt de puntjes.';
+
+  /* Inject source cards */
+  buildSourceCards(r);
+
+  /* Advice */
+  document.getElementById('advice-body-1').innerHTML = r.advice;
+  document.getElementById('advice-body-2').innerHTML = '<strong>Advies:</strong> ' + r.adviceAction;
+
+  document.getElementById('start-screen').style.display = 'none';
+  document.getElementById('game-content').style.display = 'block';
+  window.scrollTo({top: 0});
+  initUnlockMechanics();
+  goScreen(1);
+  startTimer();
+}
+
+function buildSourceCards(r) {
+  var grid = document.getElementById('sources-grid');
+  grid.innerHTML = '';
+  ['src1','src2','src3'].forEach(function(key) {
+    var s = r.sources[key];
+    var iconBg = {crm:'#e3f5ee', chart:'#e8f2fb', feedback:'#fef3c7',
+                  people:'#f0e8f5', health:'#fdecea', exit:'#fef3c7',
+                  finance:'#fef3c7', invoice:'#e8f2fb', budget:'#f0e8f5'}[s.icon] || '#f0e8f5';
+    grid.innerHTML +=
+      '<div class="src-card" id="card-' + key + '">' +
+      '<div class="src-top">' +
+      '<div class="src-icon" style="background:' + iconBg + ';">' + iconSVG(s.icon) + '</div>' +
+      '<div><div class="src-name">' + s.name + '</div>' +
+      '<div class="src-status" id="' + key + '-status">' + s.sub + '</div></div>' +
+      '</div>' +
+      '<div id="' + key + '-body"></div>' +
+      '</div>';
+  });
+}
+
+function iconSVG(type) {
+  var icons = {
+    crm: '<svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="8" cy="7" r="4" fill="#00875a"/><path d="M2 18c0-4 2.7-6.5 6-6.5s6 2.5 6 6.5" fill="#00875a" opacity=".4"/><circle cx="15" cy="7" r="2.8" fill="#00875a" opacity=".55"/></svg>',
+    chart: '<svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="12" width="3" height="6" rx="1" fill="#7B2D8B"/><rect x="7" y="8" width="3" height="10" rx="1" fill="#7B2D8B"/><rect x="12" y="4" width="3" height="14" rx="1" fill="#3D1254"/><rect x="17" y="9" width="3" height="9" rx="1" fill="#7B2D8B" opacity=".5"/></svg>',
+    feedback: '<svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="3" width="16" height="11" rx="3" fill="none" stroke="#d97706" stroke-width="1.5"/><path d="M6 17l4-3h8" fill="none" stroke="#d97706" stroke-width="1.5"/><line x1="6" y1="7" x2="14" y2="7" stroke="#d97706" stroke-width="1.2" opacity=".6"/><line x1="6" y1="10" x2="11" y2="10" stroke="#d97706" stroke-width="1.2" opacity=".6"/></svg>',
+    people: '<svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="7" cy="6" r="3.5" fill="#7B2D8B"/><path d="M1 18c0-3.5 2.5-6 6-6s6 2.5 6 6" fill="#7B2D8B" opacity=".4"/><circle cx="15" cy="7" r="2.5" fill="#7B2D8B" opacity=".6"/><path d="M13 18c0-2.5 1.5-4 4-4" fill="none" stroke="#7B2D8B" stroke-width="1.2"/></svg>',
+    health: '<svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 17s-7-5-7-10a5 5 0 0110 0 5 5 0 0110 0c0 5-7 10-7 10" fill="none" stroke="#c0392b" stroke-width="1.5" stroke-linecap="round"/><line x1="7" y1="9" x2="13" y2="9" stroke="#c0392b" stroke-width="1.5"/><line x1="10" y1="6" x2="10" y2="12" stroke="#c0392b" stroke-width="1.5"/></svg>',
+    exit: '<svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="3" width="10" height="14" rx="2" fill="none" stroke="#d97706" stroke-width="1.5"/><path d="M13 8l5 2-5 2" fill="none" stroke="#d97706" stroke-width="1.5" stroke-linecap="round"/><line x1="13" y1="10" x2="7" y2="10" stroke="#d97706" stroke-width="1.5"/></svg>',
+    finance: '<svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="12" width="3.5" height="6" rx="1" fill="#d97706"/><rect x="8" y="8" width="3.5" height="10" rx="1" fill="#d97706"/><rect x="14" y="3" width="3.5" height="15" rx="1" fill="#f59e0b"/></svg>',
+    invoice: '<svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="3" y="2" width="14" height="16" rx="2" fill="none" stroke="#7B2D8B" stroke-width="1.5"/><line x1="6" y1="7" x2="14" y2="7" stroke="#7B2D8B" stroke-width="1.2"/><line x1="6" y1="10" x2="14" y2="10" stroke="#7B2D8B" stroke-width="1.2"/><line x1="6" y1="13" x2="10" y2="13" stroke="#7B2D8B" stroke-width="1.2"/></svg>',
+    budget: '<svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" fill="none" stroke="#7B2D8B" stroke-width="1.5"/><path d="M10 6v4l3 3" stroke="#7B2D8B" stroke-width="1.5" stroke-linecap="round"/></svg>'
+  };
+  return icons[type] || icons.finance;
+}
+
+/* ══════════════════════════════════════════
+   UNLOCK MECHANICS — initialise per role
+══════════════════════════════════════════ */
+function initUnlockMechanics() {
+  var r = roles[currentRole];
+  ['src1','src2','src3'].forEach(function(key) {
+    var s = r.sources[key];
+    var body = document.getElementById(key + '-body');
+    if (s.mechanic === 'rows') {
+      body.innerHTML =
+        '<div class="src-mechanic-label"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 3h10M3 6h6M5 9h2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>' + s.mechanicLabel + '</div>' +
+        '<p class="puzzle-instruction">Klik op de rij die <strong>afwijkt</strong> van de rest:</p>' +
+        '<div class="data-rows" id="' + key + '-rows"></div>' +
+        '<p class="puzzle-error" id="' + key + '-error"></p>';
+      s.rows.forEach(function(row, i) {
+        var el = document.createElement('div');
+        el.className = 'data-row';
+        el.innerHTML = '<span class="data-row-label">' + row.label + '</span><span>' + row.val + '</span>';
+        el.onclick = (function(k, idx, ok) {
+          return function() {
+            if (ok) {
+              el.classList.add('wrong');
+              var err = document.getElementById(k + '-error');
+              if (err) err.textContent = 'Deze waarde lijkt normaal. Zoek de uitbijter.';
+              setTimeout(function(){ el.classList.remove('wrong'); if(err) err.textContent=''; }, 900);
+            } else {
+              el.classList.add('correct');
+              document.querySelectorAll('#' + k + '-rows .data-row').forEach(function(r){ r.onclick = null; });
+              var err = document.getElementById(k + '-error');
+              if (err) err.textContent = '';
+              setTimeout(function(){ unlock(k); }, 600);
+            }
+          };
+        })(key, i, row.ok);
+        document.getElementById(key + '-rows').appendChild(el);
+      });
+    } else if (s.mechanic === 'wait') {
+      body.innerHTML =
+        '<div class="src-mechanic-label"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M6 3v3l2 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>' + s.mechanicLabel + '</div>' +
+        '<button class="btn btn-primary" style="width:100%;justify-content:center;" onclick="startWait(this.getAttribute(\'data-key\'))" data-key="' + key + '" id="' + key + '-req-btn">Aanvragen</button>' +
+        '<div id="' + key + '-waiting" style="display:none;">' +
+        '<div class="wait-bar-wrap"><div class="wait-bar-bg"><div class="wait-bar-fill" id="' + key + '-bar"></div></div>' +
+        '<div class="wait-steps">' + s.waitSteps.map(function(ws, i){ return '<span class="wait-step' + (i===0?' active':'') + '" id="' + key + '-ws' + i + '">' + ws + '</span>'; }).join('') + '</div></div>' +
+        '<p class="wait-msg" id="' + key + '-msg">' + s.waitMsgs[0] + '</p></div>';
+    } else if (s.mechanic === 'quiz') {
+      body.innerHTML =
+        '<div class="src-mechanic-label"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M6 4v3M6 8.5v.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>' + s.mechanicLabel + '</div>' +
+        '<p class="puzzle-instruction">' + s.quizQ + '</p>' +
+        '<div class="quiz-options">' +
+        s.quizOpts.map(function(opt) {
+          return '<button class="quiz-opt" data-key="' + key + '" data-opt="' + opt.replace(/"/g,'&quot;') + '" onclick="checkQuiz(this.getAttribute(\'data-key\'),this.getAttribute(\'data-opt\'))">' + opt + '</button>';
+        }).join('') +
+        '</div>' +
+        '<p class="puzzle-error" id="' + key + '-error"></p>';
+    }
+  });
+}
+
+function startWait(key) {
+  var s = roles[currentRole].sources[key];
+  document.getElementById(key + '-req-btn').style.display = 'none';
+  document.getElementById(key + '-waiting').style.display = 'block';
+  var msgs = s.waitMsgs;
+  var delays = [800, 4000, 3000, 1200];
+  var bar = document.getElementById(key + '-bar');
+  var msgEl = document.getElementById(key + '-msg');
+  var pcts = [20, 55, 85, 100];
+  var idx = 0;
+  function next() {
+    if (idx >= msgs.length) { setTimeout(function(){ unlock(key); }, 400); return; }
+    if (bar) bar.style.width = pcts[idx] + '%';
+    if (msgEl) msgEl.textContent = msgs[idx];
+    s.waitSteps.forEach(function(ws, i) {
+      var el = document.getElementById(key + '-ws' + i);
+      if (!el) return;
+      if (i < idx) el.className = 'wait-step done';
+      else if (i === idx) el.className = 'wait-step active';
+      else el.className = 'wait-step';
+    });
+    idx++;
+    crmTimer = setTimeout(next, delays[Math.min(idx-1, delays.length-1)]);
+  }
+  next();
+}
+
+function checkQuiz(key, answer) {
+  var s = roles[currentRole].sources[key];
+  var errEl = document.getElementById(key + '-error');
+  if (answer === s.quizAnswer) {
+    document.querySelectorAll('#card-' + key + ' .quiz-opt').forEach(function(b){
+      b.onclick = null;
+      if (b.textContent === answer) b.classList.add('correct');
+    });
+    if (errEl) errEl.textContent = '';
+    setTimeout(function(){ unlock(key); }, 500);
+  } else {
+    finAttempts++;
+    var btn = Array.from(document.querySelectorAll('#card-' + key + ' .quiz-opt')).find(function(b){ return b.textContent === answer; });
+    if (btn) { btn.classList.add('wrong'); setTimeout(function(){ btn.classList.remove('wrong'); }, 800); }
+    var hints = ['Fout. Hint: het staat in de zaakbeschrijving.', 'Nog niet. Lees de briefing opnieuw.', 'Het antwoord staat letterlijk beschreven.'];
+    if (errEl) errEl.textContent = hints[Math.min(finAttempts-1, hints.length-1)];
+  }
+}
+
+/* ══════════════════════════════════════════
+   GENERIC UNLOCK
+══════════════════════════════════════════ */
+function unlock(key) {
+  if (unlocked[key]) return;
+  unlocked[key] = true;
+  var card = document.getElementById('card-' + key);
+  card.classList.add('unlocked', 'just-unlocked');
+  setTimeout(function(){ card.classList.remove('just-unlocked'); }, 400);
+  document.getElementById(key + '-status').classList.add('open');
+  document.getElementById(key + '-status').textContent = 'Ontgrendeld ✓';
+  var s = roles[currentRole].sources[key];
+  document.getElementById(key + '-body').innerHTML =
+    '<div class="unlocked-badge"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>' +
+    '<div class="src-data"><div class="src-data-tag">' + s.clueTag + '</div><div class="src-data-text">' + s.clue + '</div></div>';
+  updatePips();
+}
+
+/* ══════════════════════════════════════════
+   COUNTDOWN OVERLAY
+══════════════════════════════════════════ */
 var overlayEl = null;
 function showCountdownOverlay(sec) {
   if (!overlayEl) {
@@ -1366,27 +1610,21 @@ function showCountdownOverlay(sec) {
   }
   overlayEl.style.display = 'flex';
   overlayEl.className = sec <= 5 ? 'urgent' : '';
-
   var pct = sec / 10;
-  var r = Math.round(255);
   var g = Math.round(180 * pct);
-  var color = 'rgb(' + r + ',' + g + ',50)';
-
+  var color = 'rgb(255,' + g + ',50)';
   overlayEl.innerHTML =
-    '<div style="font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.5);font-family:Inter,sans-serif;margin-bottom:4px;">Nog</div>' +
-    '<div style="font-size:52px;font-weight:700;font-family:Inter,sans-serif;color:' + color + ';line-height:1;letter-spacing:-2px;">' + sec + '</div>' +
-    '<div style="font-size:11px;color:rgba(255,255,255,0.5);font-family:Inter,sans-serif;margin-top:4px;">seconden</div>';
-
-  if (sec === 0) {
-    setTimeout(function(){ if(overlayEl) overlayEl.style.display='none'; }, 600);
-  }
+    '<div style="font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.5);font-family:Poppins,sans-serif;margin-bottom:4px;">Nog</div>' +
+    '<div style="font-size:52px;font-weight:700;font-family:Poppins,sans-serif;color:' + color + ';line-height:1;letter-spacing:-2px;">' + sec + '</div>' +
+    '<div style="font-size:11px;color:rgba(255,255,255,0.5);font-family:Poppins,sans-serif;margin-top:4px;">seconden</div>';
+  if (sec === 0) setTimeout(function(){ if(overlayEl) overlayEl.style.display='none'; }, 600);
 }
 
-function hideOverlay() {
-  if (overlayEl) overlayEl.style.display = 'none';
-}
+function hideOverlay() { if (overlayEl) overlayEl.style.display = 'none'; }
 
-/* ── TIMER ── */
+/* ══════════════════════════════════════════
+   TIMER
+══════════════════════════════════════════ */
 function startTimer() {
   remainingSeconds = TOTAL_SECONDS;
   timerStopped = false;
@@ -1396,115 +1634,64 @@ function startTimer() {
     if (timerStopped) return;
     remainingSeconds--;
     updateTimerDisplay();
-    if (remainingSeconds <= 10 && remainingSeconds > 0) {
-      showCountdownOverlay(remainingSeconds);
-    } else if (remainingSeconds === 0) {
-      showCountdownOverlay(0);
-      clearInterval(timerInterval);
-      timerInterval = null;
-      setTimeout(function(){ timeUp(); }, 900);
-    } else {
-      hideOverlay();
-    }
+    if (remainingSeconds <= 10 && remainingSeconds > 0) showCountdownOverlay(remainingSeconds);
+    else if (remainingSeconds === 0) { showCountdownOverlay(0); clearInterval(timerInterval); timerInterval = null; setTimeout(timeUp, 900); }
+    else hideOverlay();
   }, 1000);
 }
 
-function stopTimer() {
-  timerStopped = true;
-  hideOverlay();
-}
+function stopTimer() { timerStopped = true; hideOverlay(); }
 
 function timeUp() {
   stopTimer();
-  var res = document.getElementById('verdict-result');
-  if (res && !document.getElementById('check-btn').disabled) {
-    document.getElementById('check-btn').disabled = true;
-    document.querySelectorAll('.opt').forEach(function(o){ o.onclick = null; });
-    document.querySelectorAll('.opt')[2].classList.add('correct');
-    correctAnswer = false;
-    res.innerHTML = '<div class="feedback fail">' +
-      '<div class="feedback-title">Tijd is om!</div>' +
-      '<div class="feedback-body">De 3 minuten zijn voorbij. Het juiste antwoord was C — productiestoring op lijn 3. Bekijk het Rixie-advies om te zien hoe dit gevonden werd.</div>' +
-      '</div>' +
-      '<div class="btn-row"><button class="btn btn-primary" onclick="goScreen(3)">Zie het Rixie-advies <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5h9M8 3.5l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>';
-    goScreen(2);
-  }
+  correctAnswer = false;
+  var cb = document.getElementById('check-btn');
+  if (cb) cb.disabled = true;
+  document.querySelectorAll('.opt').forEach(function(o){ o.onclick = null; });
+  var opts = document.querySelectorAll('.opt');
+  if (opts[2]) opts[2].classList.add('correct');
+  var sel = document.querySelector('.opt.selected');
+  if (sel && !sel.classList.contains('correct')) sel.classList.add('wrong');
+  goScore();
 }
 
-function elapsedSeconds() {
-  return TOTAL_SECONDS - remainingSeconds;
-}
+function elapsedSeconds() { return TOTAL_SECONDS - remainingSeconds; }
 
 function updateTimerDisplay() {
   var s = remainingSeconds;
-  var mins = Math.floor(s / 60);
-  var secs = s % 60;
-  var display = mins + ':' + (secs < 10 ? '0' : '') + secs;
   var el = document.getElementById('timer-display');
   if (!el) return;
-  el.textContent = display;
-
-  var pct = s / TOTAL_SECONDS;
+  el.textContent = Math.floor(s/60) + ':' + (s%60 < 10 ? '0' : '') + (s%60);
   var r, g;
-  if (pct > 0.5) {
-    r = Math.round(255 * (1 - (pct - 0.5) * 2));
-    g = 180;
-  } else {
-    r = 220;
-    g = Math.round(180 * (pct * 2));
-  }
-  if (s <= 30) { r = 192; g = 57; }
-  if (s <= 10) { r = 192; g = 39; }
+  if (s > 120)      { r = 34;  g = 139; }
+  else if (s > 60)  { r = 200; g = 130; }
+  else if (s > 30)  { r = 220; g = 80; }
+  else              { r = 192; g = 39; }
   el.style.color = 'rgb(' + r + ',' + g + ',50)';
-  el.style.fontWeight = s <= 30 ? '700' : '700';
 }
 
-/* ── GAME FLOW ── */
-function startGame() {
-  document.getElementById('start-screen').style.display = 'none';
-  document.getElementById('game-content').style.display = 'block';
-  window.scrollTo({top: 0});
-  goScreen(1);
-  startTimer();
-}
-
+/* ══════════════════════════════════════════
+   PIPS & PROGRESS
+══════════════════════════════════════════ */
 function countUnlocked() {
-  return (unlocked.erp?1:0) + (unlocked.crm?1:0) + (unlocked.fin?1:0);
+  return (unlocked.src1?1:0) + (unlocked.src2?1:0) + (unlocked.src3?1:0);
 }
 
 function updatePips() {
   var count = countUnlocked();
-  ['erp','crm','fin'].forEach(function(s) {
-    var pip = document.getElementById('pip-' + s);
-    if (pip) { if (unlocked[s]) pip.classList.add('done'); else pip.classList.remove('done'); }
+  ['src1','src2','src3'].forEach(function(k) {
+    var pip = document.getElementById('pip-' + k);
+    if (pip) { if (unlocked[k]) pip.classList.add('done'); else pip.classList.remove('done'); }
   });
   var pl = document.getElementById('pip-label');
   if (pl) pl.textContent = count + ' / 3';
-  var heroBadge = document.getElementById('hero-src-badge');
-  if (heroBadge && heroBadge.childNodes.length > 1) heroBadge.childNodes[heroBadge.childNodes.length-1].textContent = ' ' + count + ' / 3 bronnen';
   var banner = document.getElementById('proceed-banner');
   if (banner && count === 3) {
     banner.style.background = 'var(--green-light)';
     banner.style.borderColor = 'var(--green)';
-    banner.querySelector('.proceed-text').style.color = 'var(--green)';
-    banner.querySelector('.proceed-text').textContent = 'Alle drie bronnen ontgrendeld — maximale score mogelijk!';
+    var pt = banner.querySelector('.proceed-text');
+    if (pt) { pt.style.color = 'var(--green)'; pt.textContent = 'Alle bronnen ontgrendeld — maximale score mogelijk!'; }
   }
-}
-
-function unlock(src) {
-  if (unlocked[src]) return;
-  unlocked[src] = true;
-  var card = document.getElementById('card-' + src);
-  card.classList.add('unlocked', 'just-unlocked');
-  card.onclick = null;
-  setTimeout(function(){ card.classList.remove('just-unlocked'); }, 400);
-  document.getElementById(src + '-status').textContent = 'Ontgrendeld';
-  document.getElementById(src + '-status').classList.add('open');
-  var c = clues[src];
-  document.getElementById(src + '-body').innerHTML =
-    '<div class="unlocked-badge"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>' +
-    '<div class="src-data"><div class="src-data-tag">' + c.tag + '</div><div class="src-data-text">' + c.text + '</div></div>';
-  updatePips();
 }
 
 function goScreen(n) {
@@ -1512,6 +1699,8 @@ function goScreen(n) {
   var scr = document.getElementById('screen' + n);
   if (scr) scr.classList.add('active');
   updateProgress(n);
+  var brief = document.querySelector('.brief-card');
+  if (brief) brief.style.display = n === 3 ? 'none' : '';
   window.scrollTo({top: 0, behavior: 'smooth'});
 }
 
@@ -1528,11 +1717,9 @@ function updateProgress(step) {
       var conn = document.getElementById('conn' + i);
       if (conn) conn.classList.add('done');
     } else if (i === step) {
-      sc.classList.add('active');
-      sc.textContent = i;
+      sc.classList.add('active'); sc.textContent = i;
     } else {
-      sl.classList.add('muted');
-      sc.textContent = i;
+      sl.classList.add('muted'); sc.textContent = i;
     }
   }
 }
@@ -1547,147 +1734,121 @@ function checkAnswer() {
   if (!selected) return;
   stopTimer();
   document.getElementById('check-btn').disabled = true;
-  var opts = document.querySelectorAll('.opt');
-  opts.forEach(function(o){ o.onclick = null; });
-  opts[2].classList.add('correct');
+  document.querySelectorAll('.opt').forEach(function(o){ o.onclick = null; });
+  document.querySelectorAll('.opt')[2].classList.add('correct');
   correctAnswer = (selected === 'c');
   var sel = document.querySelector('.opt.selected');
   if (sel && !sel.classList.contains('correct')) sel.classList.add('wrong');
-  var res = document.getElementById('verdict-result');
-  if (correctAnswer) {
-    res.innerHTML = '<div class="feedback success">' +
-      '<div class="feedback-title">Correct — goed opgelost!</div>' +
-      '<div class="feedback-body">Precies. Alleen door ERP en Finance tegelijk te analyseren werd de storing op lijn 3 zichtbaar. Rixie doet dit automatisch.</div>' +
-      '</div>' +
-      '<div class="btn-row"><button class="btn btn-primary" onclick="goScreen(3)">Zie het Rixie-advies <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5h9M8 3.5l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>';
-  } else {
-    res.innerHTML = '<div class="feedback fail">' +
-      '<div class="feedback-title">Niet helemaal — het antwoord is C</div>' +
-      '<div class="feedback-body">Logisch om naar kosten of klanten te kijken. Maar de kern zat in productieverspilling op lijn 3 — pas zichtbaar als je ERP én Finance combineert.</div>' +
-      '</div>' +
-      '<div class="btn-row"><button class="btn btn-primary" onclick="goScreen(3)">Zie het Rixie-advies <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5h9M8 3.5l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>';
-  }
+  goScore();
 }
 
 function goScore() {
   var elapsed = elapsedSeconds();
   var numUnlocked = countUnlocked();
-
   var base = 100;
   var answerBonus = correctAnswer ? 50 : 0;
-
-  /* Minder bronnen = hogere bronnenbonus (max als 0 gebruikt, correct beantwoord) */
   var sourceScore;
-  if (numUnlocked === 0 && correctAnswer)      sourceScore = 60;
-  else if (numUnlocked === 0)                   sourceScore = 20;
-  else if (numUnlocked === 1 && correctAnswer)  sourceScore = 45;
-  else if (numUnlocked === 1)                   sourceScore = 15;
-  else if (numUnlocked === 2 && correctAnswer)  sourceScore = 30;
-  else if (numUnlocked === 2)                   sourceScore = 10;
-  else                                          sourceScore = 10;
-
+  if (numUnlocked === 0 && correctAnswer)     sourceScore = 60;
+  else if (numUnlocked === 0)                  sourceScore = 20;
+  else if (numUnlocked === 1 && correctAnswer) sourceScore = 45;
+  else if (numUnlocked === 1)                  sourceScore = 15;
+  else if (numUnlocked === 2 && correctAnswer) sourceScore = 30;
+  else if (numUnlocked === 2)                  sourceScore = 10;
+  else                                         sourceScore = 10;
   var timeBonus = 0;
-  if (elapsed <= 30)       timeBonus = 60;
-  else if (elapsed <= 60)  timeBonus = 50;
-  else if (elapsed <= 90)  timeBonus = 35;
+  if (elapsed <= 30) timeBonus = 60;
+  else if (elapsed <= 60) timeBonus = 50;
+  else if (elapsed <= 90) timeBonus = 35;
   else if (elapsed <= 120) timeBonus = 20;
   else if (elapsed <= 150) timeBonus = 10;
-
   var total = base + answerBonus + sourceScore + timeBonus;
   var maxScore = 270;
-  var pct = Math.min(100, Math.round((total / maxScore) * 100));
+  var pct = Math.min(100, Math.round(total/maxScore*100));
 
-  var mins = Math.floor(elapsed / 60);
-  var secs = elapsed % 60;
-  var timeStr = mins + ':' + (secs < 10 ? '0' : '') + secs;
+  var mins = Math.floor(elapsed/60), secs = elapsed%60;
+  var r = roles[currentRole];
 
-  document.getElementById('score-time-val').textContent = timeStr;
-  document.getElementById('score-time-val').className = 'score-tile-val' + (elapsed <= 90 ? ' green' : elapsed <= 150 ? ' amber' : ' red');
+  document.getElementById('score-time-val').textContent = mins + ':' + (secs<10?'0':'') + secs;
+  document.getElementById('score-time-val').className = 'score-tile-val' + (elapsed<=90?' green':elapsed<=150?' amber':' red');
   document.getElementById('score-sources-val').textContent = numUnlocked + ' / 3';
-  document.getElementById('score-sources-val').className = 'score-tile-val' + (numUnlocked === 0 ? ' green' : numUnlocked === 1 ? ' green' : numUnlocked === 2 ? ' amber' : '');
+  document.getElementById('score-sources-val').className = 'score-tile-val' + (numUnlocked<=1?' green':numUnlocked===2?' amber':'');
   document.getElementById('score-answer-val').textContent = correctAnswer ? 'Correct' : 'Fout';
-  document.getElementById('score-answer-val').className = 'score-tile-val' + (correctAnswer ? ' green' : ' red');
-  document.getElementById('sr-answer-val').textContent = (answerBonus > 0 ? '+' : '') + answerBonus + ' punten';
-  document.getElementById('sr-answer-val').className = 'score-row-val' + (answerBonus > 0 ? ' plus' : ' minus');
+  document.getElementById('score-answer-val').className = 'score-tile-val' + (correctAnswer?' green':' red');
+  document.getElementById('sr-answer-val').textContent = (answerBonus>0?'+':'') + answerBonus + ' punten';
+  document.getElementById('sr-answer-val').className = 'score-row-val' + (answerBonus>0?' plus':' minus');
   document.getElementById('sr-sources-val').textContent = '+' + sourceScore + ' punten';
-
-  var sourceLabel = document.getElementById('sr-sources').querySelector('span');
-  if (sourceLabel) {
-    if (numUnlocked === 0) sourceLabel.textContent = 'Geen bronnen gebruikt (max bonus)';
-    else if (numUnlocked === 1) sourceLabel.textContent = '1 bron gebruikt';
-    else if (numUnlocked === 2) sourceLabel.textContent = '2 bronnen gebruikt';
-    else sourceLabel.textContent = 'Alle 3 bronnen gebruikt';
-  }
-
+  var sl = document.getElementById('sr-sources').querySelector('span');
+  if (sl) sl.textContent = numUnlocked===0 ? 'Geen bronnen (max bonus)' : numUnlocked===1 ? '1 bron gebruikt' : numUnlocked===2 ? '2 bronnen gebruikt' : 'Alle 3 bronnen gebruikt';
   document.getElementById('sr-time-val').textContent = '+' + timeBonus + ' punten';
   document.getElementById('sr-total').textContent = total + ' punten';
 
   var rank, trophyClass, barClass, titleText, subText;
-  if (total >= 220) {
-    rank = 'Data Expert'; trophyClass = 'gold'; barClass = 'gold';
-    titleText = 'Uitstekend — Data Expert!';
-    subText = 'Razendsnel, minimale databronnen én het juiste antwoord. Precies zoals Rixie het doet.';
-  } else if (total >= 160) {
-    rank = 'Senior Analist'; trophyClass = 'silver'; barClass = 'silver';
-    titleText = 'Goed gedaan — Senior Analist';
-    subText = 'Solide score. Probeer met minder databronnen te antwoorden voor extra bonuspunten.';
-  } else {
-    rank = 'Junior Detective'; trophyClass = 'bronze'; barClass = 'bronze';
-    titleText = 'Zaak gesloten — Junior Detective';
-    subText = 'Probeer sneller te antwoorden en minder databronnen te gebruiken voor een hogere score.';
-  }
+  if (total >= 220)      { rank='Data Expert'; trophyClass='gold'; barClass='gold'; titleText='Uitstekend — Data Expert!'; subText='Razendsnel en scherp. Precies zoals Rixie het doet.'; }
+  else if (total >= 160) { rank='Senior Analist'; trophyClass='silver'; barClass='silver'; titleText='Goed gedaan — Senior Analist'; subText='Solide. Probeer sneller te antwoorden voor meer punten.'; }
+  else                   { rank='Junior Detective'; trophyClass='bronze'; barClass='bronze'; titleText='Zaak gesloten — Junior Detective'; subText='Goede poging. Probeer met minder bronnen en sneller.'; }
 
   document.getElementById('score-title').textContent = titleText;
   document.getElementById('score-sub').textContent = subText;
   document.getElementById('score-trophy').className = 'score-trophy ' + trophyClass;
   document.getElementById('bar-rank-label').textContent = rank;
   document.getElementById('bar-pct-label').textContent = total + ' / ' + maxScore;
+
+  /* Role-specific advice */
+  document.getElementById('advice-body-1').innerHTML = r.advice;
+  document.getElementById('advice-body-2').innerHTML = '<strong>Advies:</strong> ' + r.adviceAction;
+
   var bar = document.getElementById('score-bar');
   bar.className = 'score-bar-fill ' + barClass;
   bar.style.width = '0%';
   setTimeout(function(){ bar.style.width = pct + '%'; }, 150);
-
-  goScreen(4);
+  goScreen(3);
 }
 
 function resetGame() {
   if (timerInterval) { clearInterval(timerInterval); timerInterval = null; }
+  if (crmTimer) { clearTimeout(crmTimer); crmTimer = null; }
   hideOverlay();
-  unlocked = {erp:false, crm:false, fin:false};
+
+  unlocked = {src1:false, src2:false, src3:false};
   selected = null;
   correctAnswer = false;
   remainingSeconds = TOTAL_SECONDS;
   timerStopped = false;
+  finAttempts = 0;
 
-  var lockHTML = '<div class="src-lock"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="3" y="6.5" width="8" height="6.5" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M4.5 6.5V5a2.5 2.5 0 015 0v1.5" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>Klik om databron te openen</div>';
-  var labels = {erp:'Inkoop & productiedata', crm:'Klanten & orderhistorie', fin:'Kosten & margeanalyse'};
+  /* Reset role selection */
+  document.querySelectorAll('.role-card').forEach(function(c){ c.classList.remove('selected'); });
+  var btn = document.getElementById('start-btn');
+  if (btn) {
+    btn.disabled = true; btn.style.opacity = '.5'; btn.style.cursor = 'not-allowed';
+    btn.innerHTML = 'Kies eerst een rol <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 8h8M9 5l3 3-3 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  }
+  var note = document.getElementById('start-note');
+  if (note) note.textContent = 'Selecteer een rol om te beginnen';
 
-  ['erp','crm','fin'].forEach(function(s){
-    var card = document.getElementById('card-' + s);
-    card.classList.remove('unlocked','just-unlocked');
-    (function(src){ card.onclick = function(){ unlock(src); }; })(s);
-    document.getElementById(s + '-status').textContent = labels[s];
-    document.getElementById(s + '-status').classList.remove('open');
-    document.getElementById(s + '-body').innerHTML = lockHTML;
-    document.getElementById('pip-' + s).classList.remove('done');
+  /* Reset pips */
+  ['src1','src2','src3'].forEach(function(k){
+    var pip = document.getElementById('pip-' + k);
+    if (pip) pip.classList.remove('done');
   });
-
   var pl = document.getElementById('pip-label');
   if (pl) pl.textContent = '0 / 3';
 
+  /* Reset banner */
   var banner = document.getElementById('proceed-banner');
   if (banner) {
-    banner.style.background = 'var(--blue-light)';
-    banner.style.borderColor = 'var(--blue)';
-    banner.querySelector('.proceed-text').style.color = 'var(--blue)';
-    banner.querySelector('.proceed-text').textContent = 'Databronnen zijn optioneel — je kunt direct doorgaan.';
+    banner.style.background = 'var(--purple-pale)'; banner.style.borderColor = 'var(--purple-mid)';
+    var pt = banner.querySelector('.proceed-text');
+    if (pt) { pt.style.color = 'var(--purple)'; pt.textContent = 'Databronnen zijn optioneel — je kunt direct doorgaan.'; }
   }
 
+  /* Reset verdict */
   var vr = document.getElementById('verdict-result');
   if (vr) vr.innerHTML = '';
   var cb = document.getElementById('check-btn');
   if (cb) cb.disabled = false;
 
+  /* Reset answer options */
   var vals = ['a','b','c','d'];
   document.querySelectorAll('.opt').forEach(function(o, i){
     o.classList.remove('selected','correct','wrong');
@@ -1695,29 +1856,29 @@ function resetGame() {
     (function(v){ o.onclick = function(){ pick(this, v); }; })(vals[i]);
   });
 
+  /* Reset timer */
   var td = document.getElementById('timer-display');
-  if (td) { td.textContent = '3:00'; td.style.color = ''; td.className = 'timer-value fast'; }
+  if (td) { td.textContent = '3:00'; td.style.color = ''; }
 
-  var heroBadge = document.getElementById('hero-src-badge');
-  if (heroBadge && heroBadge.childNodes.length > 1) heroBadge.childNodes[heroBadge.childNodes.length-1].textContent = ' 0 / 3 bronnen';
-
+  /* Reset score bar */
   var sb = document.getElementById('score-bar');
   if (sb) sb.style.width = '0%';
 
+  /* Reset progress steps */
   for (var i = 1; i <= 3; i++) {
     var sc = document.getElementById('sc' + i);
-    var sl = document.getElementById('sl' + i);
+    var sl2 = document.getElementById('sl' + i);
     if (sc) { sc.classList.remove('active','done'); sc.textContent = i; }
-    if (sl) sl.classList.remove('muted');
+    if (sl2) sl2.classList.remove('muted');
     var conn = document.getElementById('conn' + i);
     if (conn) conn.classList.remove('done');
   }
 
+  currentRole = null;
   document.getElementById('game-content').style.display = 'none';
   document.getElementById('start-screen').style.display = 'flex';
-  window.scrollTo({top: 0});
+  window.scrollTo({top:0});
 }
 </script>
-
 </body>
 </html>
