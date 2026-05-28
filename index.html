@@ -3,12 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rixie — Data Detective | by Irixs</title>
+<title>Rixsi — Data Detectivespel | by Irixs</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root {
-  /* ── Irixs brand colours ── */
   --purple-dark:  #2D1B5E;
   --purple:       #3D1254;
   --purple-mid:   #7B2D8B;
@@ -17,13 +16,12 @@
   --yellow:       #F5A623;
   --yellow-dark:  #d4880a;
   --yellow-light: #fef6e4;
-  --blue:         #1B3A8C;
-  --blue-bright:  #1E90D4;
-  --blue-light:   #e8f2fb;
   --green:        #00875a;
   --green-light:  #e3f5ee;
   --red:          #c0392b;
   --red-light:    #fdecea;
+  --orange:       #e67e22;
+  --orange-light: #fef0e6;
   --gray-100:     #f5f5f7;
   --gray-200:     #e8e8ed;
   --gray-300:     #c8c8d0;
@@ -34,1058 +32,486 @@
   --radius:       8px;
   --radius-lg:    14px;
 }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Poppins',sans-serif;background:var(--gray-100);color:var(--gray-900);min-height:100vh;font-size:15px;line-height:1.6}
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+/* START SCREEN */
+.start-screen{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:2rem 1.5rem;background:var(--gray-100)}
+.start-card{background:var(--white);border:1px solid var(--gray-200);border-radius:var(--radius-lg);max-width:680px;width:100%;overflow:hidden;box-shadow:0 8px 32px rgba(45,27,94,0.10)}
+.start-top{background:var(--purple-dark);padding:2.5rem 2rem 2rem;color:white;text-align:center}
+.start-eyebrow{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:.75rem}
+.start-title{font-size:clamp(26px,5vw,38px);font-weight:800;letter-spacing:-0.5px;line-height:1.15;margin-bottom:.6rem}
+.start-title span{color:var(--yellow)}
+.start-sub{font-size:15px;color:rgba(255,255,255,0.6);font-weight:300;line-height:1.55}
+.start-body{padding:2rem}
+.start-section-label{font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--purple-mid);margin-bottom:10px;margin-top:1.25rem}
+.start-section-label:first-child{margin-top:0}
 
-body {
-  font-family: 'Poppins', sans-serif;
-  background: var(--gray-100);
-  color: var(--gray-900);
-  min-height: 100vh;
-  font-size: 15px;
-  line-height: 1.6;
-}
+/* ROLE CARDS */
+.role-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:.5rem}
+@media(max-width:560px){.role-cards{grid-template-columns:repeat(2,1fr)}}
+.role-card{border:2px solid var(--gray-200);border-radius:var(--radius);padding:.75rem .5rem;text-align:center;cursor:pointer;transition:all .15s;background:var(--white);position:relative}
+.role-card:hover{border-color:var(--purple-mid);background:var(--purple-pale)}
+.role-card.selected{border-color:var(--purple);background:var(--purple-light)}
+.role-card-icon{font-size:22px;margin-bottom:4px;line-height:1}
+.role-card-name{font-size:12px;font-weight:700;color:var(--purple);line-height:1.3}
+.role-card-desc{font-size:10px;color:var(--gray-500);margin-top:2px;line-height:1.3}
+.role-check{position:absolute;top:5px;right:5px;width:16px;height:16px;border-radius:50%;background:var(--purple);display:none;align-items:center;justify-content:center}
+.role-card.selected .role-check{display:flex}
 
-/* ── HERO (compact — sits under irixs.nl hero) ── */
-.hero {
-  background: var(--purple-dark);
-  color: white;
-  padding: 1.5rem 2rem;
-}
-.hero-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.5);
-  margin-bottom: 1rem;
-}
-.hero-dot {
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: var(--yellow);
-  display: inline-block;
-}
-.hero h1 {
-  font-size: clamp(24px, 4vw, 36px);
-  font-weight: 800;
-  line-height: 1.15;
-  letter-spacing: -0.5px;
-  margin-bottom: .75rem;
-}
-.hero h1 span { color: var(--yellow); }
-.hero-sub {
-  font-size: 15px;
-  color: rgba(255,255,255,0.6);
-  max-width: 520px;
-  margin: 0 auto 1.5rem;
-  font-weight: 300;
-}
-.hero-badges {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-.hero-badge {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.15);
-  border-radius: 20px;
-  padding: 5px 12px;
-  font-size: 11px;
-  color: rgba(255,255,255,0.7);
-  font-weight: 500;
-}
+/* DATASOURCE SELECTOR */
+.ds-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:.5rem}
+@media(max-width:560px){.ds-cards{grid-template-columns:repeat(2,1fr)}}
+.ds-card{border:2px solid var(--gray-200);border-radius:var(--radius);padding:.75rem .5rem;text-align:center;cursor:pointer;transition:all .15s;background:var(--white);position:relative}
+.ds-card:hover{border-color:var(--purple-mid);background:var(--purple-pale)}
+.ds-card.selected{border-color:var(--purple);background:var(--purple-light)}
+.ds-card-logo{font-size:20px;margin-bottom:3px;line-height:1}
+.ds-card-name{font-size:12px;font-weight:700;color:var(--purple)}
+.ds-card-type{font-size:10px;color:var(--gray-500);margin-top:1px}
+.ds-check{position:absolute;top:5px;right:5px;width:16px;height:16px;border-radius:50%;background:var(--purple);display:none;align-items:center;justify-content:center}
+.ds-card.selected .ds-check{display:flex}
+.ds-hint{font-size:11px;color:var(--gray-500);margin-top:4px}
+.ds-hint.error{color:var(--red);font-weight:500}
 
-/* ── MAIN ── */
-.main {
-  max-width: 860px;
-  margin: 0 auto;
-  padding: 2rem 1.5rem 4rem;
-}
+/* START RULES */
+.start-rules{border:1px solid var(--gray-200);border-radius:var(--radius);overflow:hidden;margin-bottom:1.5rem}
+.start-rule{display:flex;align-items:flex-start;gap:12px;padding:.8rem 1rem;font-size:13px;color:var(--gray-700);line-height:1.5;border-bottom:1px solid var(--gray-200)}
+.start-rule:last-child{border-bottom:none}
+.start-rule-num{width:22px;height:22px;border-radius:50%;background:var(--purple-light);color:var(--purple);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.start-rule strong{color:var(--gray-900);font-weight:600}
+.start-btn-wrap{text-align:center}
+.btn-start{display:inline-flex;align-items:center;gap:8px;background:var(--yellow);color:var(--purple);font-family:'Poppins',sans-serif;font-size:15px;font-weight:700;padding:14px 36px;border-radius:30px;border:none;cursor:pointer;transition:all .15s;text-transform:uppercase;letter-spacing:0.3px}
+.btn-start:hover{background:var(--yellow-dark);transform:translateY(-1px)}
+.btn-start:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.start-note{font-size:12px;color:var(--gray-500);text-align:center;margin-top:.75rem}
 
-/* ── PROGRESS ── */
-.progress-bar {
-  background: var(--white);
-  border: 1px solid var(--gray-200);
-  border-radius: var(--radius-lg);
-  padding: 1.25rem 1.5rem;
-  margin-bottom: 1.5rem;
-  display: flex;
-  align-items: center;
-}
-.step-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex: 1;
-}
-.step-circle {
-  width: 32px; height: 32px;
-  border-radius: 50%;
-  border: 2px solid var(--gray-300);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--gray-500);
-  flex-shrink: 0;
-  transition: all .3s;
-  font-family: 'Poppins', sans-serif;
-}
-.step-circle.active { border-color: var(--purple); background: var(--purple); color: white; }
-.step-circle.done   { border-color: var(--green); background: var(--green); color: white; font-size: 11px; }
-.step-info { min-width: 0; }
-.step-label { font-size: 12px; font-weight: 600; color: var(--gray-900); }
-.step-label.muted { color: var(--gray-500); font-weight: 400; }
-.step-desc { font-size: 11px; color: var(--gray-500); }
-.step-connector {
-  flex: 1;
-  height: 2px;
-  background: var(--gray-200);
-  margin: 0 12px;
-  border-radius: 1px;
-}
-.step-connector.done { background: var(--green); }
+/* MAIN GAME */
+.main{max-width:860px;margin:0 auto;padding:2rem 1.5rem 4rem}
 
-/* ── BRIEF CARD ── */
-.brief-card {
-  background: var(--purple-dark);
-  border-radius: var(--radius-lg);
-  padding: 1.5rem;
-  margin-bottom: 1.5rem;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 1.5rem;
-  align-items: center;
-  color: white;
-}
-@media (max-width: 600px) { .brief-card { grid-template-columns: 1fr; } }
-.brief-eyebrow {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: var(--yellow);
-  margin-bottom: 6px;
-}
-.brief-title {
-  font-size: 22px;
-  font-weight: 800;
-  color: white;
-  letter-spacing: -0.3px;
-  margin-bottom: 6px;
-}
-.brief-text { font-size: 14px; color: rgba(255,255,255,0.75); line-height: 1.65; }
-.brief-text strong { color: white; font-weight: 600; }
-.brief-stats {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  min-width: 130px;
-}
-.stat-pill {
-  background: rgba(255,255,255,0.1);
-  border: 1px solid rgba(255,255,255,0.15);
-  border-radius: var(--radius);
-  padding: .6rem .9rem;
-  text-align: center;
-}
-.stat-num { font-size: 20px; font-weight: 700; color: var(--yellow); letter-spacing: -0.5px; }
-.stat-num.red { color: #ff7070; }
-.stat-label { font-size: 11px; color: rgba(255,255,255,0.5); margin-top: 1px; }
+/* TIMER */
+.timer-bar{background:var(--white);border:1px solid var(--gray-200);border-radius:var(--radius-lg);padding:.85rem 1.25rem;margin-bottom:1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.timer-left{display:flex;align-items:center;gap:8px}
+.timer-icon{color:var(--purple-mid);display:flex}
+.timer-label{font-size:12px;color:var(--gray-500);font-weight:500}
+.timer-value{font-size:20px;font-weight:700;min-width:60px;color:var(--green)}
+.sources-count{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--gray-500)}
+.src-pip{width:10px;height:10px;border-radius:50%;border:1.5px solid var(--gray-300);background:transparent;transition:all .2s}
+.src-pip.done{background:var(--green);border-color:var(--green)}
 
-/* ── SECTION HEADING ── */
-.section-heading {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--purple-mid);
-  margin-bottom: 1rem;
-}
+/* PROGRESS */
+.progress-bar{background:var(--white);border:1px solid var(--gray-200);border-radius:var(--radius-lg);padding:1.25rem 1.5rem;margin-bottom:1.5rem;display:flex;align-items:center}
+.step-item{display:flex;align-items:center;gap:8px;flex:1}
+.step-circle{width:32px;height:32px;border-radius:50%;border:2px solid var(--gray-300);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:var(--gray-500);flex-shrink:0;transition:all .3s}
+.step-circle.active{border-color:var(--purple);background:var(--purple);color:white}
+.step-circle.done{border-color:var(--green);background:var(--green);color:white}
+.step-info .step-label{font-size:12px;font-weight:600;color:var(--gray-900)}
+.step-info .step-label.muted{color:var(--gray-500);font-weight:400}
+.step-info .step-desc{font-size:11px;color:var(--gray-500)}
+.step-connector{flex:1;height:2px;background:var(--gray-200);margin:0 12px;border-radius:1px}
+.step-connector.done{background:var(--green)}
 
-/* ── SOURCE CARDS ── */
-.sources-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 12px;
-  margin-bottom: 1.5rem;
-}
-.src-card {
-  background: var(--white);
-  border: 1.5px solid var(--gray-200);
-  border-radius: var(--radius-lg);
-  padding: 1.25rem;
-  cursor: pointer;
-  transition: border-color .2s, transform .15s;
-  position: relative;
-}
-.src-card:hover:not(.unlocked) {
-  border-color: var(--purple-mid);
-  transform: translateY(-2px);
-}
-.src-card.unlocked { border-color: var(--green); cursor: default; }
-.src-card.unlocked:hover { transform: none; }
-.src-top {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 10px;
-}
-.src-icon {
-  width: 40px; height: 40px;
-  border-radius: var(--radius);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-.src-name { font-size: 14px; font-weight: 600; color: var(--gray-900); }
-.src-status { font-size: 12px; color: var(--gray-500); margin-top: 1px; }
-.src-status.open { color: var(--green); font-weight: 600; }
-.src-lock {
-  border-top: 1px dashed var(--gray-200);
-  margin-top: 8px;
-  padding-top: 10px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 12px;
-  color: var(--purple-mid);
-  font-weight: 500;
-}
-.src-data {
-  border-top: 1px solid var(--gray-200);
-  margin-top: 8px;
-  padding-top: 10px;
-}
-.src-data-tag {
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: var(--gray-500);
-  margin-bottom: 6px;
-}
-.src-data-text { font-size: 13px; color: var(--gray-700); line-height: 1.6; }
-.highlight {
-  background: var(--purple-light);
-  color: var(--purple);
-  font-weight: 600;
-  padding: 1px 5px;
-  border-radius: 4px;
-}
-.unlocked-badge {
-  position: absolute;
-  top: 10px; right: 10px;
-  width: 20px; height: 20px;
-  background: var(--green);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+/* BRIEF */
+.brief-card{background:var(--purple-dark);border-radius:var(--radius-lg);padding:1.5rem;margin-bottom:1.5rem;display:grid;grid-template-columns:1fr auto;gap:1.5rem;align-items:center;color:white}
+@media(max-width:600px){.brief-card{grid-template-columns:1fr}}
+.brief-eyebrow{font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--yellow);margin-bottom:6px}
+.brief-title{font-size:22px;font-weight:800;color:white;letter-spacing:-0.3px;margin-bottom:6px}
+.brief-text{font-size:14px;color:rgba(255,255,255,0.75);line-height:1.65}
+.brief-text strong{color:white;font-weight:600}
+.brief-stats{display:flex;flex-direction:column;gap:10px;min-width:130px}
+.stat-pill{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);border-radius:var(--radius);padding:.6rem .9rem;text-align:center}
+.stat-num{font-size:20px;font-weight:700;color:var(--yellow);letter-spacing:-0.5px}
+.stat-num.red{color:#ff7070}
+.stat-label{font-size:11px;color:rgba(255,255,255,0.5);margin-top:1px}
+.role-badge{display:inline-flex;align-items:center;gap:5px;background:rgba(245,166,35,0.15);border:1px solid rgba(245,166,35,0.4);border-radius:20px;padding:4px 12px;font-size:11px;font-weight:600;color:var(--yellow)}
 
-/* ── PROCEED BANNER ── */
-.proceed-banner {
-  background: var(--purple-pale);
-  border: 1px solid var(--purple-mid);
-  border-radius: var(--radius);
-  padding: 1rem 1.25rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-  flex-wrap: wrap;
-}
-.proceed-text { font-size: 14px; color: var(--purple); font-weight: 500; }
+/* SECTION HEADING */
+.section-heading{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--purple-mid);margin-bottom:1rem}
 
-/* ── VERDICT ── */
-.verdict-card {
-  background: var(--white);
-  border: 1px solid var(--gray-200);
-  border-radius: var(--radius-lg);
-  padding: 1.5rem;
-  margin-bottom: 1.5rem;
-}
-.verdict-q {
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--gray-900);
-  margin-bottom: 1.25rem;
-  line-height: 1.5;
-}
-.options-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  margin-bottom: 1.25rem;
-}
-@media (max-width: 520px) { .options-grid { grid-template-columns: 1fr; } }
-.opt {
-  background: var(--gray-100);
-  border: 1.5px solid var(--gray-200);
-  border-radius: var(--radius);
-  padding: .9rem 1rem;
-  cursor: pointer;
-  font-family: 'Poppins', sans-serif;
-  font-size: 13px;
-  color: var(--gray-700);
-  text-align: left;
-  line-height: 1.45;
-  transition: all .15s;
-  display: flex;
-  gap: 10px;
-  align-items: flex-start;
-}
-.opt:hover { border-color: var(--purple-mid); background: var(--purple-pale); }
-.opt.selected { border-color: var(--purple); background: var(--purple-light); color: var(--purple); font-weight: 600; }
-.opt.correct  { border-color: var(--green); background: var(--green-light); color: var(--green); font-weight: 600; }
-.opt.wrong    { border-color: var(--red); background: var(--red-light); color: var(--red); }
-.opt-letter {
-  width: 22px; height: 22px;
-  border-radius: 50%;
-  background: var(--gray-200);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 11px;
-  font-weight: 700;
-  flex-shrink: 0;
-  margin-top: 1px;
-  color: var(--gray-700);
-}
-.opt.selected .opt-letter { background: var(--purple); color: white; }
-.opt.correct .opt-letter  { background: var(--green); color: white; }
-.opt.wrong .opt-letter    { background: var(--red); color: white; }
+/* SOURCE CARDS */
+.sources-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-bottom:1.5rem}
+.src-card{background:var(--white);border:1.5px solid var(--gray-200);border-radius:var(--radius-lg);padding:1.1rem;transition:border-color .2s,transform .15s;position:relative}
+.src-card.unlocked{border-color:var(--green);cursor:default}
+.src-top{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.src-icon{width:38px;height:38px;border-radius:var(--radius);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px}
+.src-name{font-size:14px;font-weight:600;color:var(--gray-900)}
+.src-status{font-size:12px;color:var(--gray-500);margin-top:1px}
+.src-status.open{color:var(--green);font-weight:600}
+.src-mechanic-label{display:flex;align-items:center;gap:5px;font-size:11px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--purple-mid);margin-bottom:8px;padding-top:8px;border-top:1px dashed var(--gray-200)}
+.puzzle-instruction{font-size:12px;color:var(--gray-700);margin-bottom:8px;line-height:1.5}
+.puzzle-instruction strong{color:var(--purple)}
+.puzzle-error{font-size:11px;color:var(--red);margin-top:5px;min-height:16px;font-weight:500}
+.data-rows{display:flex;flex-direction:column;gap:4px}
+.data-row{display:flex;align-items:center;justify-content:space-between;padding:6px 10px;background:var(--gray-100);border:1.5px solid var(--gray-200);border-radius:6px;font-size:12px;cursor:pointer;transition:all .15s;color:var(--gray-700)}
+.data-row:hover{border-color:var(--purple-mid);background:var(--purple-pale)}
+.data-row.wrong{border-color:var(--red);background:var(--red-light);color:var(--red);animation:shake .3s ease}
+.data-row.correct{border-color:var(--green);background:var(--green-light);color:var(--green);font-weight:600}
+.data-row-label{font-weight:600;color:var(--gray-500);font-size:10px}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+.wait-bar-wrap{margin:8px 0}
+.wait-bar-bg{height:6px;background:var(--gray-200);border-radius:3px;overflow:hidden;margin-bottom:8px}
+.wait-bar-fill{height:100%;width:0%;background:var(--purple-mid);border-radius:3px;transition:width .5s linear}
+.wait-steps{display:flex;justify-content:space-between;margin-bottom:6px}
+.wait-step{font-size:10px;color:var(--gray-300);font-weight:500;transition:color .3s}
+.wait-step.active{color:var(--purple-mid)}
+.wait-step.done{color:var(--green)}
+.wait-msg{font-size:12px;color:var(--gray-500);font-style:italic}
+.quiz-options{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:6px}
+.quiz-opt{background:var(--gray-100);border:1.5px solid var(--gray-200);border-radius:6px;padding:8px;font-size:14px;font-weight:700;font-family:'Poppins',sans-serif;color:var(--purple);cursor:pointer;transition:all .15s}
+.quiz-opt:hover{border-color:var(--purple-mid);background:var(--purple-pale)}
+.quiz-opt.wrong{border-color:var(--red);background:var(--red-light);color:var(--red)}
+.quiz-opt.correct{border-color:var(--green);background:var(--green-light);color:var(--green)}
+.unlocked-badge{position:absolute;top:10px;right:10px;width:20px;height:20px;background:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center}
 
-/* ── FEEDBACK ── */
-.feedback {
-  border-radius: var(--radius);
-  padding: 1rem 1.25rem;
-  margin-top: 1rem;
-  font-size: 14px;
-  line-height: 1.6;
-  animation: fadeUp .3s ease;
-}
-.feedback.success { background: var(--green-light); border-left: 3px solid var(--green); color: var(--green); }
-.feedback.fail    { background: var(--red-light); border-left: 3px solid var(--red); color: var(--red); }
-.feedback-title   { font-weight: 700; font-size: 15px; margin-bottom: 4px; }
-.feedback-body    { color: var(--gray-700); font-size: 13px; }
+/* CHATBOT BUTTON */
+.chatbot-btn{display:flex;align-items:center;gap:6px;width:100%;margin-top:8px;padding:7px 10px;background:var(--gray-100);border:1.5px dashed var(--gray-300);border-radius:6px;font-size:12px;font-weight:600;color:var(--gray-500);cursor:pointer;transition:all .15s;font-family:'Poppins',sans-serif}
+.chatbot-btn:hover{border-color:var(--purple-mid);color:var(--purple-mid);background:var(--purple-pale)}
+.chatbot-btn.used{opacity:.5;cursor:not-allowed;border-style:solid}
 
-/* ── RIXIE ADVICE ── */
-.advice-card {
-  background: var(--purple-dark);
-  border-radius: var(--radius-lg);
-  padding: 2rem;
-  color: white;
-  margin-bottom: 1.5rem;
-  animation: fadeUp .4s ease;
-}
-.advice-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 1.5rem;
-  padding-bottom: 1.25rem;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-}
-.rixie-av {
-  width: 44px; height: 44px;
-  border-radius: 50%;
-  background: rgba(245,166,35,0.2);
-  border: 2px solid rgba(245,166,35,0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-.rixie-av-name { font-size: 16px; font-weight: 700; }
-.rixie-av-role { font-size: 12px; color: rgba(255,255,255,0.45); margin-top: 1px; }
-.advice-body {
-  font-size: 14px;
-  line-height: 1.75;
-  color: rgba(255,255,255,0.8);
-  margin-bottom: 1.25rem;
-}
-.advice-body strong { color: white; font-weight: 600; }
-.advice-metrics {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  margin-top: 1.25rem;
-  padding-top: 1.25rem;
-  border-top: 1px solid rgba(255,255,255,0.1);
-}
-@media (max-width: 480px) { .advice-metrics { grid-template-columns: 1fr 1fr; } }
-.metric {
-  background: rgba(255,255,255,0.07);
-  border-radius: var(--radius);
-  padding: .85rem;
-  text-align: center;
-}
-.metric-val { font-size: 22px; font-weight: 700; color: var(--yellow); letter-spacing: -0.5px; }
-.metric-label { font-size: 11px; color: rgba(255,255,255,0.4); margin-top: 3px; line-height: 1.3; }
+/* AVG POPUP */
+.avg-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:10000;display:flex;align-items:center;justify-content:center;padding:1.5rem;animation:fadeUp .2s ease}
+.avg-popup{background:var(--white);border-radius:var(--radius-lg);max-width:420px;width:100%;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.2)}
+.avg-popup-top{background:#b7410e;padding:1.25rem 1.5rem;display:flex;align-items:center;gap:10px}
+.avg-popup-top h3{font-size:16px;font-weight:700;color:white}
+.avg-popup-body{padding:1.5rem}
+.avg-popup-body p{font-size:14px;color:var(--gray-700);line-height:1.65;margin-bottom:.75rem}
+.avg-popup-body strong{color:var(--gray-900);font-weight:600}
+.avg-penalty{background:var(--red-light);border:1px solid var(--red);border-radius:var(--radius);padding:.75rem 1rem;font-size:13px;color:var(--red);font-weight:600;margin-bottom:1rem;display:flex;align-items:center;gap:8px}
+.avg-popup-footer{padding:0 1.5rem 1.5rem;display:flex;justify-content:flex-end}
 
-/* ── SOLVED BAR ── */
-.solved-bar {
-  background: var(--green-light);
-  border: 1px solid var(--green);
-  border-radius: var(--radius-lg);
-  padding: 1.25rem 1.5rem;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 1.5rem;
-  animation: fadeUp .3s ease;
-}
-.solved-check {
-  width: 44px; height: 44px;
-  border-radius: 50%;
-  background: var(--green);
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-  animation: pop .4s cubic-bezier(.175,.885,.32,1.275);
-}
-.solved-title { font-size: 17px; font-weight: 700; color: var(--green); }
-.solved-sub   { font-size: 13px; color: var(--gray-700); margin-top: 2px; }
+/* PROCEED BANNER */
+.proceed-banner{background:var(--purple-pale);border:1px solid var(--purple-mid);border-radius:var(--radius);padding:1rem 1.25rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:1.5rem;flex-wrap:wrap}
+.proceed-text{font-size:14px;color:var(--purple);font-weight:500}
 
-/* ── BUTTONS ── */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-family: 'Poppins', sans-serif;
-  font-size: 13px;
-  font-weight: 600;
-  padding: 10px 22px;
-  border-radius: 25px;
-  cursor: pointer;
-  transition: all .15s;
-  text-decoration: none;
-  border: none;
-  letter-spacing: 0.3px;
-}
-.btn-primary { background: var(--yellow); color: var(--purple); }
-.btn-primary:hover { background: var(--yellow-dark); color: var(--purple); }
-.btn-outline {
-  background: white;
-  color: var(--gray-700);
-  border: 1.5px solid var(--gray-300);
-  border-radius: 25px;
-}
-.btn-outline:hover { background: var(--gray-100); border-color: var(--gray-500); }
-.btn-green { background: var(--green); color: white; border-radius: 25px; }
-.btn-green:hover { background: #006b47; }
-.btn-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 1.25rem; }
+/* VERDICT */
+.verdict-card{background:var(--white);border:1px solid var(--gray-200);border-radius:var(--radius-lg);padding:1.5rem;margin-bottom:1.5rem}
+.verdict-q{font-size:15px;font-weight:600;color:var(--gray-900);margin-bottom:1.25rem;line-height:1.5}
+.options-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:1.25rem}
+@media(max-width:520px){.options-grid{grid-template-columns:1fr}}
+.opt{background:var(--gray-100);border:1.5px solid var(--gray-200);border-radius:var(--radius);padding:.9rem 1rem;cursor:pointer;font-family:'Poppins',sans-serif;font-size:13px;color:var(--gray-700);text-align:left;line-height:1.45;transition:all .15s;display:flex;gap:10px;align-items:flex-start}
+.opt:hover{border-color:var(--purple-mid);background:var(--purple-pale)}
+.opt.selected{border-color:var(--purple);background:var(--purple-light);color:var(--purple);font-weight:600}
+.opt.correct{border-color:var(--green);background:var(--green-light);color:var(--green);font-weight:600}
+.opt.wrong{border-color:var(--red);background:var(--red-light);color:var(--red)}
+.opt-letter{width:22px;height:22px;border-radius:50%;background:var(--gray-200);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;margin-top:1px;color:var(--gray-700)}
+.opt.selected .opt-letter{background:var(--purple);color:white}
+.opt.correct .opt-letter{background:var(--green);color:white}
+.opt.wrong .opt-letter{background:var(--red);color:white}
 
-/* ── TIMER BAR ── */
-.timer-bar {
-  background: var(--white);
-  border: 1px solid var(--gray-200);
-  border-radius: var(--radius-lg);
-  padding: .85rem 1.25rem;
-  margin-bottom: 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-}
-.timer-left { display: flex; align-items: center; gap: 8px; }
-.timer-icon { color: var(--purple-mid); display: flex; }
-.timer-label { font-size: 12px; color: var(--gray-500); font-weight: 500; }
-.timer-value {
-  font-size: 20px;
-  font-weight: 700;
-  font-variant-numeric: tabular-nums;
-  letter-spacing: -0.5px;
-  min-width: 62px;
-  color: var(--green);
-}
-.sources-count {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 13px;
-  color: var(--gray-500);
-  font-weight: 500;
-}
-.src-pip {
-  width: 10px; height: 10px;
-  border-radius: 50%;
-  border: 1.5px solid var(--gray-300);
-  background: transparent;
-  transition: all .2s;
-}
-.src-pip.done { background: var(--green); border-color: var(--green); }
+/* SCORE CARD */
+.score-card{background:var(--white);border:1px solid var(--gray-200);border-radius:var(--radius-lg);padding:1.75rem;margin-bottom:1.5rem;animation:fadeUp .4s ease}
+.score-header{display:flex;align-items:center;gap:14px;margin-bottom:1.5rem;padding-bottom:1.25rem;border-bottom:1px solid var(--gray-200)}
+.score-trophy{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;animation:pop .5s cubic-bezier(.175,.885,.32,1.275)}
+.score-trophy.gold{background:var(--yellow-light);border:2px solid var(--yellow)}
+.score-trophy.silver{background:var(--purple-light);border:2px solid var(--purple-mid)}
+.score-trophy.bronze{background:var(--red-light);border:2px solid var(--red)}
+.score-main-title{font-size:20px;font-weight:700;color:var(--purple);letter-spacing:-0.3px}
+.score-main-sub{font-size:13px;color:var(--gray-500);margin-top:3px}
+.score-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:1.25rem}
+@media(max-width:500px){.score-grid{grid-template-columns:1fr 1fr}}
+.score-tile{background:var(--purple-pale);border:1px solid var(--purple-light);border-radius:var(--radius);padding:1rem .85rem;text-align:center}
+.score-tile-val{font-size:26px;font-weight:700;letter-spacing:-0.5px;color:var(--purple)}
+.score-tile-val.green{color:var(--green)}
+.score-tile-val.amber{color:var(--yellow-dark)}
+.score-tile-val.red{color:var(--red)}
+.score-tile-label{font-size:11px;color:var(--gray-500);margin-top:3px;line-height:1.3}
+.score-breakdown{border-top:1px solid var(--gray-200);padding-top:1.25rem}
+.score-row{display:flex;justify-content:space-between;align-items:center;font-size:13px;padding:5px 0;color:var(--gray-700)}
+.score-row-val{font-weight:600;color:var(--gray-900)}
+.score-row-val.plus{color:var(--green)}
+.score-row-val.minus{color:var(--red)}
+.score-total-row{display:flex;justify-content:space-between;align-items:center;font-size:15px;font-weight:700;padding:10px 0 0;margin-top:6px;border-top:1.5px solid var(--gray-200);color:var(--purple)}
+.score-bar-wrap{margin-top:10px}
+.score-bar-label{font-size:11px;color:var(--gray-500);margin-bottom:4px;display:flex;justify-content:space-between}
+.score-bar-bg{height:8px;background:var(--gray-200);border-radius:4px;overflow:hidden}
+.score-bar-fill{height:100%;border-radius:4px;background:var(--purple);transition:width .8s cubic-bezier(.4,0,.2,1)}
+.score-bar-fill.gold{background:var(--yellow)}
+.score-bar-fill.silver{background:var(--purple-mid)}
+.score-bar-fill.bronze{background:var(--red)}
 
-/* ── SCORE CARD ── */
-.score-card {
-  background: var(--white);
-  border: 1px solid var(--gray-200);
-  border-radius: var(--radius-lg);
-  padding: 1.75rem;
-  margin-bottom: 1.5rem;
-  animation: fadeUp .4s ease;
-}
-.score-header {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 1.5rem;
-  padding-bottom: 1.25rem;
-  border-bottom: 1px solid var(--gray-200);
-}
-.score-trophy {
-  width: 52px; height: 52px;
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-  animation: pop .5s cubic-bezier(.175,.885,.32,1.275);
-}
-.score-trophy.gold   { background: var(--yellow-light); border: 2px solid var(--yellow); }
-.score-trophy.silver { background: var(--purple-light); border: 2px solid var(--purple-mid); }
-.score-trophy.bronze { background: var(--red-light); border: 2px solid var(--red); }
-.score-main-title { font-size: 20px; font-weight: 700; color: var(--purple); letter-spacing: -0.3px; }
-.score-main-sub   { font-size: 13px; color: var(--gray-500); margin-top: 3px; }
-.score-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-  margin-bottom: 1.25rem;
-}
-@media (max-width: 500px) { .score-grid { grid-template-columns: 1fr 1fr; } }
-.score-tile {
-  background: var(--purple-pale);
-  border: 1px solid var(--purple-light);
-  border-radius: var(--radius);
-  padding: 1rem .85rem;
-  text-align: center;
-}
-.score-tile-val {
-  font-size: 26px;
-  font-weight: 700;
-  letter-spacing: -0.5px;
-  color: var(--purple);
-}
-.score-tile-val.green  { color: var(--green); }
-.score-tile-val.amber  { color: var(--yellow-dark); }
-.score-tile-val.red    { color: var(--red); }
-.score-tile-label {
-  font-size: 11px;
-  color: var(--gray-500);
-  margin-top: 3px;
-  line-height: 1.3;
-}
-.score-breakdown { border-top: 1px solid var(--gray-200); padding-top: 1.25rem; }
-.score-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 13px;
-  padding: 5px 0;
-  color: var(--gray-700);
-}
-.score-row-val { font-weight: 600; color: var(--gray-900); }
-.score-row-val.plus  { color: var(--green); }
-.score-row-val.minus { color: var(--red); }
-.score-total-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 15px;
-  font-weight: 700;
-  padding: 10px 0 0;
-  margin-top: 6px;
-  border-top: 1.5px solid var(--gray-200);
-  color: var(--purple);
-}
-.score-bar-wrap { margin-top: 10px; }
-.score-bar-label { font-size: 11px; color: var(--gray-500); margin-bottom: 4px; display: flex; justify-content: space-between; }
-.score-bar-bg { height: 8px; background: var(--gray-200); border-radius: 4px; overflow: hidden; }
-.score-bar-fill { height: 100%; border-radius: 4px; background: var(--purple); transition: width .8s cubic-bezier(.4,0,.2,1); }
-.score-bar-fill.gold   { background: var(--yellow); }
-.score-bar-fill.silver { background: var(--purple-mid); }
-.score-bar-fill.bronze { background: var(--red); }
+/* ADVICE */
+.advice-card{background:var(--purple-dark);border-radius:var(--radius-lg);padding:2rem;color:white;margin-bottom:1.5rem;animation:fadeUp .4s ease}
+.advice-header{display:flex;align-items:center;gap:12px;margin-bottom:1.5rem;padding-bottom:1.25rem;border-bottom:1px solid rgba(255,255,255,0.1)}
+.rixsi-av{width:44px;height:44px;border-radius:50%;background:rgba(245,166,35,0.2);border:2px solid rgba(245,166,35,0.5);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.rixsi-av-name{font-size:16px;font-weight:700}
+.rixsi-av-role{font-size:12px;color:rgba(255,255,255,0.45);margin-top:1px}
+.advice-body{font-size:14px;line-height:1.75;color:rgba(255,255,255,0.8)}
+.advice-body strong{color:white;font-weight:600}
+.advice-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid rgba(255,255,255,0.1)}
+@media(max-width:480px){.advice-metrics{grid-template-columns:1fr 1fr}}
+.metric{background:rgba(255,255,255,0.07);border-radius:var(--radius);padding:.85rem;text-align:center}
+.metric-val{font-size:22px;font-weight:700;color:var(--yellow);letter-spacing:-0.5px}
+.metric-label{font-size:11px;color:rgba(255,255,255,0.4);margin-top:3px;line-height:1.3}
 
-/* ── START SCREEN ── */
-.start-screen {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem 1.5rem;
-  background: var(--gray-100);
-}
-.start-card {
-  background: var(--white);
-  border: 1px solid var(--gray-200);
-  border-radius: var(--radius-lg);
-  max-width: 620px;
-  width: 100%;
-  overflow: hidden;
-  box-shadow: 0 8px 32px rgba(45,27,94,0.1);
-}
-.start-card-top {
-  background: var(--purple-dark);
-  padding: 2.5rem 2rem 2rem;
-  color: white;
-  text-align: center;
-}
-.start-case-label {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.45);
-  margin-bottom: .75rem;
-}
-.start-title {
-  font-size: clamp(24px, 5vw, 36px);
-  font-weight: 800;
-  letter-spacing: -0.5px;
-  line-height: 1.15;
-  margin-bottom: .6rem;
-}
-.start-title span { color: var(--yellow); }
-.start-subtitle {
-  font-size: 15px;
-  color: rgba(255,255,255,0.6);
-  font-weight: 300;
-  line-height: 1.55;
-}
-.start-card-body { padding: 2rem; }
-.start-meta {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  margin-bottom: 1.75rem;
-}
-@media (max-width: 420px) { .start-meta { grid-template-columns: 1fr 1fr; } }
-.start-meta-item {
-  background: var(--purple-pale);
-  border: 1px solid var(--purple-light);
-  border-radius: var(--radius);
-  padding: .85rem .75rem;
-  text-align: center;
-}
-.start-meta-val {
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--purple);
-  letter-spacing: -0.3px;
-}
-.start-meta-label { font-size: 11px; color: var(--gray-500); margin-top: 2px; }
-.start-rules {
-  margin-bottom: 1.75rem;
-  border: 1px solid var(--gray-200);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.start-rule {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  padding: .85rem 1rem;
-  font-size: 13px;
-  color: var(--gray-700);
-  line-height: 1.5;
-  border-bottom: 1px solid var(--gray-200);
-}
-.start-rule:last-child { border-bottom: none; }
-.start-rule-num {
-  width: 22px; height: 22px;
-  border-radius: 50%;
-  background: var(--purple-light);
-  color: var(--purple);
-  font-size: 11px;
-  font-weight: 700;
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-  margin-top: 1px;
-}
-.start-rule strong { color: var(--gray-900); font-weight: 600; }
-.start-btn-wrap { text-align: center; }
-.btn-start {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--yellow);
-  color: var(--purple);
-  font-family: 'Poppins', sans-serif;
-  font-size: 15px;
-  font-weight: 700;
-  padding: 14px 36px;
-  border-radius: 30px;
-  border: none;
-  cursor: pointer;
-  transition: background .15s, transform .1s;
-  letter-spacing: 0.3px;
-  text-transform: uppercase;
-}
-.btn-start:hover { background: var(--yellow-dark); transform: translateY(-1px); }
-.btn-start:active { transform: translateY(0); }
-.start-note {
-  font-size: 12px;
-  color: var(--gray-500);
-  text-align: center;
-  margin-top: .85rem;
-}
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:6px;font-family:'Poppins',sans-serif;font-size:13px;font-weight:600;padding:10px 22px;border-radius:25px;cursor:pointer;transition:all .15s;text-decoration:none;border:none;letter-spacing:0.3px}
+.btn-primary{background:var(--yellow);color:var(--purple)}
+.btn-primary:hover{background:var(--yellow-dark)}
+.btn-outline{background:white;color:var(--gray-700);border:1.5px solid var(--gray-300);border-radius:25px}
+.btn-outline:hover{background:var(--gray-100);border-color:var(--gray-500)}
+.btn-red{background:var(--red);color:white}
+.btn-red:hover{background:#a93226}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:1.25rem}
 
-/* ── COUNTDOWN ── */
-#countdown-overlay {
+/* COUNTDOWN */
+#countdown-overlay{position:fixed;bottom:1.5rem;right:1.5rem;z-index:9999;pointer-events:none;display:none;flex-direction:column;align-items:center;background:var(--purple-dark);border-radius:16px;padding:1rem 1.5rem;border:2px solid rgba(255,255,255,0.15);min-width:100px}
+#countdown-overlay.urgent{background:#7f0000;border-color:rgba(255,100,100,0.4)}
+
+/* SCREEN */
+.screen{display:none;animation:fadeUp .3s ease}
+.screen.active{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pop{from{transform:scale(0)}to{transform:scale(1)}}
+@keyframes unlockBounce{0%{transform:scale(.96)}60%{transform:scale(1.02)}100%{transform:scale(1)}}
+.just-unlocked{animation:unlockBounce .35s ease forwards}
+.feedback{border-radius:var(--radius);padding:1rem 1.25rem;margin-top:1rem;font-size:14px;line-height:1.6;animation:fadeUp .3s ease}
+.feedback.success{background:var(--green-light);border-left:3px solid var(--green);color:var(--green)}
+.feedback.fail{background:var(--red-light);border-left:3px solid var(--red);color:var(--red)}
+.feedback-title{font-weight:700;font-size:15px;margin-bottom:4px}
+.feedback-body{color:var(--gray-700);font-size:13px}
+/* STICKY TIMER */
+.sticky-timer {
   position: fixed;
-  bottom: 1.5rem;
-  right: 1.5rem;
-  z-index: 9999;
-  pointer-events: none;
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  z-index: 8000;
   background: var(--purple-dark);
-  border-radius: 16px;
-  padding: 1rem 1.5rem;
-  border: 2px solid rgba(255,255,255,0.15);
-  min-width: 100px;
-  animation: fadeUp .2s ease;
-}
-#countdown-overlay.urgent {
-  background: #7f0000;
-  border-color: rgba(255,100,100,0.4);
-}
-
-/* ── SCREEN MGMT ── */
-.screen { display: none; animation: fadeUp .3s ease; }
-.screen.active { display: block; }
-
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(8px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-@keyframes pop {
-  from { transform: scale(0); }
-  to   { transform: scale(1); }
-}
-@keyframes unlockBounce {
-  0%   { transform: scale(.96); }
-  60%  { transform: scale(1.02); }
-  100% { transform: scale(1); }
-}
-.just-unlocked { animation: unlockBounce .35s ease forwards; }
-/* ── UNLOCK MECHANICS ── */
-.src-mechanic-label {
-  display: flex;
+  color: white;
+  border-radius: 12px;
+  padding: .6rem 1rem;
+  display: none;
   align-items: center;
-  gap: 5px;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: .5px;
-  text-transform: uppercase;
-  color: var(--purple-mid);
-  margin-bottom: 10px;
-  padding-top: 8px;
-  border-top: 1px dashed var(--gray-200);
+  gap: 8px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+  pointer-events: none;
 }
-.puzzle-instruction {
-  font-size: 12px;
-  color: var(--gray-700);
-  margin-bottom: 8px;
-  line-height: 1.5;
-}
-.puzzle-instruction strong { color: var(--purple); }
-.puzzle-error {
-  font-size: 11px;
-  color: var(--red);
-  margin-top: 6px;
-  min-height: 16px;
-  font-weight: 500;
-}
-
-/* ERP: data rows */
-.data-rows { display: flex; flex-direction: column; gap: 4px; }
-.data-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 6px 10px;
-  background: var(--gray-100);
-  border: 1.5px solid var(--gray-200);
-  border-radius: 6px;
-  font-size: 12px;
-  font-family: 'Poppins', monospace;
-  cursor: pointer;
-  transition: all .15s;
-  color: var(--gray-700);
-}
-.data-row:hover { border-color: var(--purple-mid); background: var(--purple-pale); }
-.data-row.wrong { border-color: var(--red); background: var(--red-light); color: var(--red); animation: shake .3s ease; }
-.data-row.correct { border-color: var(--green); background: var(--green-light); color: var(--green); font-weight: 600; }
-.data-row-label { font-weight: 600; color: var(--gray-500); font-size: 10px; }
-@keyframes shake {
-  0%,100%{transform:translateX(0)} 25%{transform:translateX(-4px)} 75%{transform:translateX(4px)}
-}
-
-/* CRM: wait bar */
-.wait-bar-wrap { margin: 8px 0; }
-.wait-bar-bg { height: 6px; background: var(--gray-200); border-radius: 3px; overflow: hidden; margin-bottom: 8px; }
-.wait-bar-fill { height: 100%; width: 0%; background: var(--purple-mid); border-radius: 3px; transition: width .5s linear; }
-.wait-steps { display: flex; justify-content: space-between; margin-bottom: 6px; }
-.wait-step { font-size: 10px; color: var(--gray-300); font-weight: 500; transition: color .3s; }
-.wait-step.active { color: var(--purple-mid); }
-.wait-step.done   { color: var(--green); }
-.wait-msg { font-size: 12px; color: var(--gray-500); font-style: italic; }
-
-/* Finance: quiz options */
-.quiz-options { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 6px; }
-.quiz-opt {
-  background: var(--gray-100);
-  border: 1.5px solid var(--gray-200);
-  border-radius: 6px;
-  padding: 8px;
-  font-size: 14px;
-  font-weight: 700;
-  font-family: 'Poppins', sans-serif;
-  color: var(--purple);
-  cursor: pointer;
-  transition: all .15s;
-}
-.quiz-opt:hover { border-color: var(--purple-mid); background: var(--purple-pale); }
-.quiz-opt.wrong   { border-color: var(--red); background: var(--red-light); color: var(--red); }
-.quiz-opt.correct { border-color: var(--green); background: var(--green-light); color: var(--green); }
-
-/* ── ROL SELECTOR ── */
-.role-select-label { font-size: 13px; font-weight: 600; color: var(--gray-900); margin-bottom: 10px; }
-.role-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 1.5rem; }
-@media (max-width: 480px) { .role-cards { grid-template-columns: 1fr; } }
-.role-card {
-  border: 2px solid var(--gray-200); border-radius: var(--radius);
-  padding: .85rem .75rem; text-align: center; cursor: pointer;
-  transition: all .15s; background: var(--white); position: relative;
-}
-.role-card:hover { border-color: var(--purple-mid); background: var(--purple-pale); }
-.role-card.selected { border-color: var(--purple); background: var(--purple-light); }
-.role-card-icon { font-size: 26px; margin-bottom: 5px; line-height: 1; }
-.role-card-name { font-size: 13px; font-weight: 700; color: var(--purple); line-height: 1.3; }
-.role-card-desc { font-size: 11px; color: var(--gray-500); margin-top: 3px; line-height: 1.3; }
-.role-check {
-  position: absolute; top: 6px; right: 6px;
-  width: 18px; height: 18px; border-radius: 50%;
-  background: var(--purple); display: none;
-  align-items: center; justify-content: center;
-}
-.role-card.selected .role-check { display: flex; }
-.role-badge {
-  display: inline-flex; align-items: center; gap: 5px;
-  background: rgba(245,166,35,0.15); border: 1px solid rgba(245,166,35,0.4);
-  border-radius: 20px; padding: 4px 12px;
-  font-size: 11px; font-weight: 600; color: var(--yellow-dark);
-}
-
+.sticky-timer-icon { font-size: 14px; opacity: .7; }
+.sticky-timer-val  { font-size: 18px; font-weight: 700; font-variant-numeric: tabular-nums; min-width: 46px; }
 </style>
 <body>
+
+<!-- STICKY TIMER (always visible when scrolled) -->
+<div class="sticky-timer" id="sticky-timer">
+  <span class="sticky-timer-icon">⏱</span>
+  <span class="sticky-timer-val" id="sticky-timer-val">3:00</span>
+</div>
+
+<!-- AVG POPUP -->
+<div id="avg-overlay" class="avg-overlay" style="display:none;">
+  <div class="avg-popup">
+    <div class="avg-popup-top">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 3L2 19h18L11 3z" fill="none" stroke="white" stroke-width="2" stroke-linejoin="round"/><line x1="11" y1="9" x2="11" y2="14" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="11" cy="17" r="1" fill="white"/></svg>
+      <h3>⚠️ AVG-waarschuwing</h3>
+    </div>
+    <div class="avg-popup-body">
+      <p>Het delen van <strong>bedrijfsdata met een externe AI-chatbot</strong> (zoals ChatGPT of Claude) is <strong>niet AVG-compliant</strong>. Gevoelige bedrijfsinformatie mag niet worden verwerkt door externe systemen zonder verwerkersovereenkomst.</p>
+      <p>Rixsi verwerkt jouw data <strong>veilig en compliant</strong> binnen jouw eigen omgeving — zonder data-lekrisico.</p>
+      <div class="avg-penalty">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 5v4M8 10.5v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        Tijdstraf: −20 seconden van jouw countdown
+      </div>
+    </div>
+    <div class="avg-popup-footer">
+      <button class="btn btn-red" onclick="closeAvgPopup()">Begrepen — sluit waarschuwing</button>
+    </div>
+  </div>
+</div>
 
 <!-- START SCREEN -->
 <div id="start-screen" class="start-screen">
   <div class="start-card">
-    <div class="start-card-top">
-      <p class="start-case-label">Rixie AI Agent · Zaak #01</p>
-      <h1 class="start-title">De verdwijnende<br><span>marge</span></h1>
-      <p class="start-subtitle">Een bedrijf verliest kwartaal na kwartaal winst.<br>Kies jouw rol — en los het op met Rixie.</p>
+    <div class="start-top">
+      <p class="start-eyebrow">Rixsi AI Agent · Zaak #01</p>
+      <h1 class="start-title">De verdwijnende <span>marge</span></h1>
+      <p class="start-sub">Een organisatie verliest kwartaal na kwartaal winst. Kies jouw rol en jouw systemen — en ontdek zelf hoe lastig data-onderzoek is.</p>
     </div>
-    <div class="start-card-body">
+    <div class="start-body">
 
-      <p class="role-select-label">Kies jouw rol:</p>
+      <p class="start-section-label">1. Kies jouw rol</p>
       <div class="role-cards">
         <div class="role-card" id="role-sales" onclick="selectRole('sales')">
-          <div class="role-check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="role-check"><svg width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M1 4l2 2 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           <div class="role-card-icon">📈</div>
           <div class="role-card-name">Sales Manager</div>
           <div class="role-card-desc">Klanten & omzet</div>
         </div>
         <div class="role-card" id="role-hr" onclick="selectRole('hr')">
-          <div class="role-check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="role-check"><svg width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M1 4l2 2 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           <div class="role-card-icon">👥</div>
           <div class="role-card-name">HR Manager</div>
           <div class="role-card-desc">Mensen & productiviteit</div>
         </div>
         <div class="role-card" id="role-finance" onclick="selectRole('finance')">
-          <div class="role-check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="role-check"><svg width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M1 4l2 2 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           <div class="role-card-icon">💰</div>
           <div class="role-card-name">Finance Manager</div>
           <div class="role-card-desc">Kosten & marges</div>
         </div>
+        <div class="role-card" id="role-service" onclick="selectRole('service')">
+          <div class="role-check"><svg width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M1 4l2 2 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="role-card-icon">🎧</div>
+          <div class="role-card-name">Service Desk</div>
+          <div class="role-card-desc">Support & tickets</div>
+        </div>
       </div>
 
-      <div class="start-meta">
-        <div class="start-meta-item">
-          <div class="start-meta-val">3</div>
-          <div class="start-meta-label">databronnen</div>
+      <p class="start-section-label">2. Kies jouw systemen <span style="font-weight:400;color:var(--gray-500)">(minimaal 2)</span></p>
+      <div class="ds-cards" style="grid-template-columns:repeat(5,1fr)">
+        <div class="ds-card" id="ds-erp" onclick="toggleDs('erp')">
+          <div class="ds-check"><svg width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M1 4l2 2 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="ds-card-logo">🔷</div>
+          <div class="ds-card-name">ERP</div>
+          <div class="ds-card-type">Financiën & productie</div>
         </div>
-        <div class="start-meta-item">
-          <div class="start-meta-val">~3 min</div>
-          <div class="start-meta-label">speeltijd</div>
+        <div class="ds-card" id="ds-crm" onclick="toggleDs('crm')">
+          <div class="ds-check"><svg width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M1 4l2 2 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="ds-card-logo">🤝</div>
+          <div class="ds-card-name">CRM</div>
+          <div class="ds-card-type">Klanten & sales</div>
         </div>
-        <div class="start-meta-item">
-          <div class="start-meta-val">270</div>
-          <div class="start-meta-label">max score</div>
+        <div class="ds-card" id="ds-hr" onclick="toggleDs('hr')">
+          <div class="ds-check"><svg width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M1 4l2 2 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="ds-card-logo">👥</div>
+          <div class="ds-card-name">HR</div>
+          <div class="ds-card-type">Personeel & verzuim</div>
+        </div>
+        <div class="ds-card" id="ds-rapportage" onclick="toggleDs('rapportage')">
+          <div class="ds-check"><svg width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M1 4l2 2 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="ds-card-logo">📊</div>
+          <div class="ds-card-name">Rapportage</div>
+          <div class="ds-card-type">BI & dashboards</div>
+        </div>
+        <div class="ds-card" id="ds-planning" onclick="toggleDs('planning')">
+          <div class="ds-check"><svg width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M1 4l2 2 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="ds-card-logo">📅</div>
+          <div class="ds-card-name">Planning</div>
+          <div class="ds-card-type">Projecten & capaciteit</div>
         </div>
       </div>
+      <p class="ds-hint" id="ds-hint">Selecteer minimaal 2 systemen</p>
 
       <div class="start-rules">
         <div class="start-rule">
-          <span class="start-rule-num">1</span>
-          <span><strong>Kies jouw rol</strong> — elke rol heeft eigen databronnen en een andere invalshoek op de zaak.</span>
-        </div>
-        <div class="start-rule">
-          <span class="start-rule-num">2</span>
-          <span><strong>Ontgrendel databronnen</strong> — optioneel. Minder bronnen én correct antwoord = hogere bonusscore.</span>
-        </div>
-        <div class="start-rule">
           <span class="start-rule-num">3</span>
-          <span><strong>Je hebt 3 minuten</strong> — hoe sneller je antwoordt, hoe hoger de tijdbonus.</span>
+          <span><strong>Doe zelf onderzoek</strong> — duik in jouw systemen. Hoe minder systemen je nodig hebt om het antwoord te vinden, hoe hoger je score.</span>
+        </div>
+        <div class="start-rule">
+          <span class="start-rule-num">4</span>
+          <span><strong>Je hebt 3 minuten</strong> — elke seconde telt. Aan het einde zie je hoe snel Rixsi hetzelfde had gedaan.</span>
         </div>
       </div>
 
       <div class="start-btn-wrap">
-        <button class="btn-start" onclick="startGame()" id="start-btn" disabled style="opacity:.5;cursor:not-allowed;">
-          Kies eerst een rol
+        <button class="btn-start" onclick="startGame()" id="start-btn" disabled>
+          Kies een rol en systemen
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 8h8M9 5l3 3-3 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
-        <p class="start-note" id="start-note">Selecteer een rol om te beginnen</p>
+        <p class="start-note" id="start-note">Selecteer een rol en minimaal 2 systemen</p>
       </div>
     </div>
   </div>
 </div>
 
-<!-- MAIN GAME (hidden until start) -->
+<!-- GAME -->
 <div id="game-content" style="display:none;">
-
-<!-- MAIN -->
 <div class="main">
 
-  <!-- PROGRESS -->
+  <!-- Timer -->
+  <div class="timer-bar">
+    <div class="timer-left">
+      <span class="timer-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="10" r="6.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M9 7v3.5l2 2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M7 2h4M9 2v1.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></span>
+      <span class="timer-label">Jouw onderzoekstijd</span>
+      <span class="timer-value" id="timer-display">3:00</span>
+    </div>
+    <div class="sources-count">
+      <span style="font-size:12px;color:var(--gray-500)">Systemen:</span>
+      <span id="pip-container" style="display:flex;gap:5px;align-items:center;"></span>
+      <span id="pip-label" style="font-size:12px;color:var(--gray-500);margin-left:2px">0 / 0</span>
+    </div>
+  </div>
+
+  <!-- Progress -->
   <div class="progress-bar">
     <div class="step-item">
       <div class="step-circle active" id="sc1">1</div>
-      <div class="step-info">
-        <div class="step-label" id="sl1">Databronnen</div>
-        <div class="step-desc">Ontgrendel alle drie</div>
-      </div>
+      <div class="step-info"><div class="step-label" id="sl1">Databronnen</div><div class="step-desc">Ontgrendel (optioneel)</div></div>
     </div>
     <div class="step-connector" id="conn1"></div>
     <div class="step-item">
       <div class="step-circle" id="sc2">2</div>
-      <div class="step-info">
-        <div class="step-label muted" id="sl2">Oorzaak</div>
-        <div class="step-desc">Kies het juiste antwoord</div>
-      </div>
+      <div class="step-info"><div class="step-label muted" id="sl2">Oorzaak</div><div class="step-desc">Kies het antwoord</div></div>
     </div>
     <div class="step-connector" id="conn2"></div>
     <div class="step-item">
       <div class="step-circle" id="sc3">3</div>
-      <div class="step-info">
-        <div class="step-label muted" id="sl3">Advies</div>
-        <div class="step-desc">Rixie geeft de oplossing</div>
-      </div>
+      <div class="step-info"><div class="step-label muted" id="sl3">Score & Advies</div><div class="step-desc">Rixsi analyseert</div></div>
     </div>
   </div>
 
-  <!-- TIMER BAR -->
-  <div class="timer-bar" id="timer-bar">
-    <div class="timer-left">
-      <span class="timer-icon">
-        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="10" r="6.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M9 7v3.5l2 2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M7 2h4M9 2v1.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
-      </span>
-      <span class="timer-label">Tijd bezig</span>
-      <span class="timer-value fast" id="timer-display">3:00</span>
-    </div>
-    <div class="sources-count">
-      <span style="font-size:12px;color:var(--gray-500);">Bronnen:</span>
-      <span class="src-pip" id="pip-src1"></span>
-      <span class="src-pip" id="pip-src2"></span>
-      <span class="src-pip" id="pip-src3"></span>
-      <span id="pip-label" style="font-size:12px;color:var(--gray-500);margin-left:2px;">0 / 3</span>
-    </div>
-  </div>
-
-  <!-- BRIEF -->
-  <div class="brief-card">
+  <!-- Brief -->
+  <div class="brief-card" id="brief-card">
     <div>
-      <p class="brief-eyebrow" id="brief-eyebrow">Zaak #01 · Bakkerij De Korst BV</p>
-      <h2 class="brief-title" id="brief-title">De verdwijnende marge</h2>
-      <p class="brief-text" id="brief-text">De brutowinst daalt al <strong>drie kwartalen op rij</strong> met 8%. De omzet stijgt, het personeel is stabiel — maar niemand weet waar het geld naartoe gaat. <strong>Rixie krijgt toegang tot drie losse systemen.</strong> Jij ontgrendelt de aanwijzingen en verbindt de puntjes.</p>
+      <p class="brief-eyebrow" id="brief-eyebrow">Zaak #01</p>
+      <h2 class="brief-title">De verdwijnende marge</h2>
+      <p class="brief-text" id="brief-text">Wordt gevuld op basis van gekozen rol.</p>
     </div>
     <div class="brief-stats">
-      <div class="stat-pill">
-        <div class="stat-num red">−8%</div>
-        <div class="stat-label">marge per kwartaal</div>
-      </div>
-      <div class="stat-pill">
-        <div class="stat-num">3</div>
-        <div class="stat-label">kwartalen op rij</div>
-      </div>
-      <div class="stat-pill">
-        <div class="stat-num">?</div>
-        <div class="stat-label">oorzaak onbekend</div>
-      </div>
+      <div class="stat-pill"><div class="stat-num red">−8%</div><div class="stat-label">marge/kwartaal</div></div>
+      <div class="stat-pill"><div class="stat-num">3</div><div class="stat-label">kwartalen</div></div>
+      <div class="stat-pill"><div class="stat-num">?</div><div class="stat-label">oorzaak</div></div>
     </div>
   </div>
 
-  <!-- SCREEN 1: SOURCES -->
+  <!-- SCREEN 1 -->
   <div class="screen active" id="screen1">
-    <p class="section-heading">Stap 1 — Ontgrendel de databronnen</p>
+    <p class="section-heading">Stap 1 — Doe zelf onderzoek in jouw systemen</p>
 
-    <div class="sources-grid" id="sources-grid">
-      <!-- Wordt dynamisch gevuld op basis van gekozen rol -->
-    </div>
+    <!-- Subtekst -->
+    <p style="font-size:13px;color:var(--gray-500);margin-bottom:1rem;margin-top:-0.5rem;">Elk systeem kost tijd en moeite om in te duiken. Zo werkt het in de praktijk. Rixsi doet dit in seconden.</p>
 
-    <div id="proceed-wrap" style="display:block">
-      <div class="proceed-banner" id="proceed-banner" style="background:var(--purple-pale);border-color:var(--purple-mid);">
-        <div>
-          <div class="proceed-text" style="color:var(--purple);">Databronnen zijn optioneel — je kunt direct doorgaan.</div>
-          <div style="font-size:13px;color:var(--gray-700);margin-top:2px;">Minder bronnen + correct antwoord = hogere score.</div>
+    <!-- Uitleg -->
+    <div style="background:var(--purple-pale);border:1px solid var(--purple-light);border-radius:var(--radius);padding:1rem 1.25rem;margin-bottom:.75rem;display:flex;gap:12px;align-items:flex-start;">
+      <div style="font-size:20px;flex-shrink:0;line-height:1.4">💡</div>
+      <div>
+        <div style="font-size:13px;font-weight:600;color:var(--purple);margin-bottom:4px">Zo werkt het onderzoek</div>
+        <div style="font-size:13px;color:var(--gray-700);line-height:1.6">
+          Elk systeem heeft een eigen drempel. <strong>Data doorzoeken:</strong> vind de afwijkende waarde. <strong>Rapport aanvragen:</strong> wacht op goedkeuring. <strong>Toegangscheck:</strong> beantwoord de beveiligingsvraag. Dit is de realiteit van handmatig data-onderzoek.
         </div>
-        <button class="btn btn-primary" onclick="goScreen(2)">
-          Naar stap 2
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
       </div>
     </div>
+
+    <!-- Chatbot knop direct onder uitleg -->
+    <div style="margin-bottom:1.25rem;">
+      <button class="chatbot-btn" id="global-chatbtn" onclick="askChatbot()">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="1" y="2" width="12" height="8" rx="2" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M4 12l3-2h7" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
+        Snel antwoord zoeken via AI-chatbot (ChatGPT / Claude)
+      </button>
+    </div>
+
+    <div class="sources-grid" id="sources-grid"></div>
+
+    <div class="proceed-banner" id="proceed-banner">
+      <div>
+        <div class="proceed-text">Klaar met je onderzoek?</div>
+        <div style="font-size:13px;color:var(--gray-700);margin-top:2px">Geef nu jouw conclusie op basis van wat je gevonden hebt.</div>
+      </div>
+      <button class="btn btn-primary" onclick="goScreen(2)">
+        Naar stap 2
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+
   </div>
 
-  <!-- SCREEN 2: VERDICT -->
+  <!-- SCREEN 2 -->
   <div class="screen" id="screen2">
-    <p class="section-heading">Stap 2 — Wat is de oorzaak?</p>
+    <p class="section-heading">Stap 2 — Wat is jouw conclusie?</p>
     <div class="verdict-card">
-      <p class="verdict-q">Rixie analyseerde alle drie de databronnen tegelijk. Welke oorzaak verklaart de structurele margeval bij Bakkerij De Korst?</p>
-      <div class="options-grid">
-        <button class="opt" onclick="pick(this,'a')">
-          <span class="opt-letter">A</span>
-          Grondstoffen zijn sterk gestegen door inflatie
-        </button>
-        <button class="opt" onclick="pick(this,'b')">
-          <span class="opt-letter">B</span>
-          Een grote klant bedongen agressieve kortingen
-        </button>
-        <button class="opt" onclick="pick(this,'c')">
-          <span class="opt-letter">C</span>
-          Productiestoring veroorzaakt hoge verspilling op lijn 3
-        </button>
-        <button class="opt" onclick="pick(this,'d')">
-          <span class="opt-letter">D</span>
-          Energie- en logistiekkosten zijn sterk gestegen
-        </button>
+      <p class="verdict-q" id="verdict-q">Na jouw onderzoek in de systemen — wat is de oorzaak van de structurele margeval?</p>
+      <div class="options-grid" id="options-grid">
+        <button class="opt" onclick="pick(this,'a')"><span class="opt-letter">A</span><span id="opt-a-text">Optie A</span></button>
+        <button class="opt" onclick="pick(this,'b')"><span class="opt-letter">B</span><span id="opt-b-text">Optie B</span></button>
+        <button class="opt" onclick="pick(this,'c')"><span class="opt-letter">C</span><span id="opt-c-text">Optie C</span></button>
+        <button class="opt" onclick="pick(this,'d')"><span class="opt-letter">D</span><span id="opt-d-text">Optie D</span></button>
       </div>
       <button class="btn btn-primary" id="check-btn" onclick="checkAnswer()">
         Controleer antwoord
@@ -1095,788 +521,742 @@ body {
     </div>
   </div>
 
-  <!-- SCREEN 3: SCORE + ADVIES -->
+  <!-- SCREEN 3: score + advice -->
   <div class="screen" id="screen3">
-
-    <p class="section-heading">Jouw eindscore</p>
-    <div class="score-card" id="score-card">
+    <p class="section-heading">Jouw score</p>
+    <div class="score-card">
       <div class="score-header">
-        <div class="score-trophy" id="score-trophy">
-          <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
-            <path d="M8 3h10v9a5 5 0 01-10 0V3z" fill="#d97706" opacity=".8"/>
-            <path d="M5 5H8M18 5h3" stroke="#d97706" stroke-width="1.5" stroke-linecap="round"/>
-            <rect x="10" y="17" width="6" height="4" rx="1" fill="#d97706" opacity=".7"/>
-            <rect x="7" y="21" width="12" height="2.5" rx="1" fill="#d97706" opacity=".6"/>
-          </svg>
-        </div>
-        <div>
-          <div class="score-main-title" id="score-title">Zaak opgelost!</div>
-          <div class="score-main-sub" id="score-sub">Hier is jouw persoonlijke score</div>
-        </div>
+        <div class="score-trophy gold" id="score-trophy">🏆</div>
+        <div><div class="score-main-title" id="score-title">Zaak opgelost!</div><div class="score-main-sub" id="score-sub">Jouw persoonlijke score</div></div>
       </div>
       <div class="score-grid">
-        <div class="score-tile">
-          <div class="score-tile-val" id="score-time-val">—</div>
-          <div class="score-tile-label">Tijd</div>
-        </div>
-        <div class="score-tile">
-          <div class="score-tile-val" id="score-sources-val">—</div>
-          <div class="score-tile-label">Bronnen ontgrendeld</div>
-        </div>
-        <div class="score-tile">
-          <div class="score-tile-val" id="score-answer-val">—</div>
-          <div class="score-tile-label">Antwoord</div>
-        </div>
+        <div class="score-tile"><div class="score-tile-val" id="score-time-val">—</div><div class="score-tile-label">Jouw onderzoekstijd</div></div>
+        <div class="score-tile"><div class="score-tile-val" id="score-sources-val">—</div><div class="score-tile-label">Systemen onderzocht</div></div>
+        <div class="score-tile"><div class="score-tile-val" id="score-answer-val">—</div><div class="score-tile-label">Antwoord</div></div>
       </div>
       <div class="score-breakdown">
-        <div class="score-row">
-          <span>Basiscore</span>
-          <span class="score-row-val">100 punten</span>
-        </div>
-        <div class="score-row" id="sr-answer">
-          <span>Antwoord eerste poging</span>
-          <span class="score-row-val plus" id="sr-answer-val">+50 punten</span>
-        </div>
-        <div class="score-row" id="sr-sources">
-          <span>Databronnen ontgrendeld</span>
-          <span class="score-row-val plus" id="sr-sources-val">+0 punten</span>
-        </div>
-        <div class="score-row" id="sr-time">
-          <span>Tijdbonus</span>
-          <span class="score-row-val plus" id="sr-time-val">+0 punten</span>
-        </div>
-        <div class="score-total-row">
-          <span>Totaalscore</span>
-          <span id="sr-total">100 punten</span>
+        <div class="score-row"><span>Basiscore</span><span class="score-row-val">100 punten</span></div>
+        <div class="score-row" id="sr-answer-row"><span>Correct antwoord</span><span class="score-row-val plus" id="sr-answer-val">+50</span></div>
+        <div class="score-row" id="sr-sources-row"><span id="sr-sources-label">Bronnen bonus</span><span class="score-row-val plus" id="sr-sources-val">+0</span></div>
+        <div class="score-row"><span>Tijdbonus</span><span class="score-row-val plus" id="sr-time-val">+0</span></div>
+        <div class="score-row"><span>Chatbot boete</span><span class="score-row-val minus" id="sr-chatbot-val">0</span></div>
+        <div class="score-total-row"><span>Totaalscore</span><span id="sr-total">100</span></div>
+        <div style="background:var(--purple-pale);border-radius:var(--radius);padding:.85rem 1rem;margin-top:1rem;display:flex;align-items:center;gap:10px;">
+          <span style="font-size:20px">⚡</span>
+          <div>
+            <div style="font-size:12px;font-weight:700;color:var(--purple);margin-bottom:2px">Rixsi had dit gedaan in:</div>
+            <div style="font-size:22px;font-weight:800;color:var(--purple-mid);letter-spacing:-0.5px" id="rixsi-time-compare">&lt; 5 seconden</div>
+            <div style="font-size:11px;color:var(--gray-500);margin-top:2px">Automatisch — alle systemen tegelijk, zonder toegangsdrempels.</div>
+          </div>
         </div>
         <div class="score-bar-wrap">
-          <div class="score-bar-label">
-            <span id="bar-rank-label">Uw rang</span>
-            <span id="bar-pct-label">0 / 270</span>
-          </div>
-          <div class="score-bar-bg">
-            <div class="score-bar-fill" id="score-bar" style="width:0%"></div>
-          </div>
+          <div class="score-bar-label"><span id="bar-rank-label">Rang</span><span id="bar-pct-label">0/270</span></div>
+          <div class="score-bar-bg"><div class="score-bar-fill" id="score-bar" style="width:0%"></div></div>
         </div>
       </div>
     </div>
 
-    <p class="section-heading" style="margin-top:1.75rem;">Rixie geeft strategisch advies</p>
-
+    <p class="section-heading" style="margin-top:1.75rem">Zo had Rixsi het gedaan — in seconden</p>
     <div class="advice-card">
       <div class="advice-header">
-        <div class="rixie-av">
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-            <path d="M4 18L3 13Q3 9 7 8.5L11 8L11 18Z" fill="rgba(255,255,255,0.25)"/>
-            <path d="M18 18L19 13Q19 9 15 8.5L11 8L11 18Z" fill="rgba(255,255,255,0.25)"/>
-            <circle cx="11" cy="7" r="6" fill="rgba(255,255,255,0.1)"/>
-            <ellipse cx="11" cy="7.5" rx="4.5" ry="4" fill="rgba(255,255,255,0.9)"/>
-            <circle cx="8.8" cy="7" r="2.2" fill="var(--purple-dark)"/>
-            <circle cx="8.8" cy="7" r="1.3" fill="#4db8ff"/>
-            <circle cx="9.4" cy="6.4" r=".55" fill="white"/>
-            <circle cx="13.2" cy="7" r="2.2" fill="var(--purple-dark)"/>
-            <circle cx="13.2" cy="7" r="1.3" fill="#4db8ff"/>
-            <circle cx="13.8" cy="6.4" r=".55" fill="white"/>
-            <polygon points="9.5,10 11,9.2 12.5,10 12.1,11.5 11,12 9.9,11.5" fill="#d97706"/>
-          </svg>
+        <div class="rixsi-av">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M4 18L3 13Q3 9 7 8.5L11 8L11 18Z" fill="rgba(255,255,255,0.25)"/><path d="M18 18L19 13Q19 9 15 8.5L11 8L11 18Z" fill="rgba(255,255,255,0.25)"/><circle cx="11" cy="7" r="6" fill="rgba(255,255,255,0.1)"/><ellipse cx="11" cy="7.5" rx="4.5" ry="4" fill="rgba(255,255,255,0.9)"/><circle cx="8.8" cy="7" r="2.2" fill="#2D1B5E"/><circle cx="8.8" cy="7" r="1.3" fill="#F5A623"/><circle cx="9.4" cy="6.4" r=".55" fill="white"/><circle cx="13.2" cy="7" r="2.2" fill="#2D1B5E"/><circle cx="13.2" cy="7" r="1.3" fill="#F5A623"/><circle cx="13.8" cy="6.4" r=".55" fill="white"/><polygon points="9.5,10 11,9.2 12.5,10 12.1,11.5 11,12 9.9,11.5" fill="#d97706"/></svg>
         </div>
-        <div>
-          <div class="rixie-av-name">Rixie</div>
-          <div class="rixie-av-role">AI Agent · Irixs · Analyse voltooid</div>
-        </div>
+        <div><div class="rixsi-av-name">Rixsi</div><div class="rixsi-av-role" id="rixsi-role-label">AI Agent · Irixs</div></div>
       </div>
-      <p class="advice-body" id="advice-body-1">
-        Door <strong>ERP, CRM en Finance gelijktijdig te analyseren</strong> ontdekte Rixie wat geen enkel systeem apart kon zien. Een machinestoring op productielijn 3 is al <strong>9 maanden onopgelost</strong>. Dit verhoogde de productieverspilling van 2% naar 7%. Tegelijkertijd stegen grondstofprijzen met 6%. Beide signalen zaten in aparte systemen — niemand had ze gekoppeld.
-      </p>
-      <p class="advice-body" style="margin-top:.85rem;" id="advice-body-2">
-        <strong>Strategisch advies:</strong> Plan preventief onderhoud op lijn 3 in Q4. Heronderhandel grondstofcontracten op basis van de volumedata uit het ERP. Activeer een automatisch margealarm zodra verspilling de 4%-grens overschrijdt.
-      </p>
+      <p class="advice-body" id="advice-body-1"></p>
+      <p class="advice-body" style="margin-top:.85rem" id="advice-body-2"></p>
       <div class="advice-metrics">
-        <div class="metric">
-          <div class="metric-val">€38k</div>
-          <div class="metric-label">kostenbesparing per kwartaal</div>
-        </div>
-        <div class="metric">
-          <div class="metric-val">+11%</div>
-          <div class="metric-label">margeherstel binnen 2 kwartalen</div>
-        </div>
-        <div class="metric">
-          <div class="metric-val">3</div>
-          <div class="metric-label">systemen gecombineerd door Rixie</div>
-        </div>
+        <div class="metric"><div class="metric-val" id="m1-val">—</div><div class="metric-label" id="m1-label">besparing</div></div>
+        <div class="metric"><div class="metric-val" id="m2-val">—</div><div class="metric-label" id="m2-label">margeherstel</div></div>
+        <div class="metric"><div class="metric-val" id="m3-val">—</div><div class="metric-label" id="m3-label">systemen</div></div>
       </div>
     </div>
 
-    <div style="background:var(--white);border:1px solid var(--gray-200);border-radius:var(--radius-lg);padding:1.5rem;display:grid;grid-template-columns:1fr auto;gap:1.5rem;align-items:center;margin-top:1.5rem;">
+    <div style="background:var(--white);border:1px solid var(--gray-200);border-radius:var(--radius-lg);padding:1.5rem;display:grid;grid-template-columns:1fr auto;gap:1.5rem;align-items:center">
       <div>
-        <p style="font-size:16px;font-weight:700;color:var(--purple);margin-bottom:4px;">Wil je Rixie in jouw organisatie?</p>
-        <p style="font-size:13px;color:var(--gray-500);">Irixs verbindt jouw systemen en laat Rixie echte strategische inzichten genereren — op basis van jouw data.</p>
+        <p style="font-size:16px;font-weight:700;color:var(--purple);margin-bottom:4px">Wil je dat Rixsi dit voor jou doet?</p>
+        <p style="font-size:13px;color:var(--gray-500)">Rixsi verbindt al jouw systemen en geeft in seconden het antwoord dat jij net zelf moest uitzoeken.</p>
       </div>
-      <div style="display:flex;flex-direction:column;gap:8px;min-width:160px;">
-        <a class="btn btn-primary" href="https://irixs.nl/contact/" target="_blank">
-          Neem contact op
-          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5h9M8 3.5l3 3-3 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-        <button class="btn btn-outline" onclick="resetGame()">
-          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5a4.5 4.5 0 008.9-.5M11 2.5v3.5h-3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Opnieuw spelen
-        </button>
+      <div style="display:flex;flex-direction:column;gap:8px;min-width:160px">
+        <a class="btn btn-primary" href="https://irixs.nl/contact/" target="_blank">Neem contact op <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5h9M8 3.5l3 3-3 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <button class="btn btn-outline" onclick="resetGame()"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5a4.5 4.5 0 008.9-.5M11 2.5v3.5h-3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Opnieuw spelen</button>
       </div>
     </div>
-
   </div>
 
 </div>
-
 </div><!-- end game-content -->
 
-
 <script>
-var TOTAL_SECONDS = 180;
-var unlocked = {src1:false, src2:false, src3:false};
-var selected = null;
-var correctAnswer = false;
-var timerInterval = null;
-var remainingSeconds = TOTAL_SECONDS;
-var timerStopped = false;
-var currentRole = null;
-var finAttempts = 0;
-var crmTimer = null;
+var TOTAL = 180;
+var remaining = TOTAL, timerStopped = false, timerInterval = null;
+var currentRole = null, selectedDs = [], selected = null, correctAnswer = false;
+var unlocked = {src1:false,src2:false,src3:false};
+var chatbotUsed = 0, waitTimers = [], avgPendingKey = null;
 
-/* ══════════════════════════════════════════
-   ROL DATA
-══════════════════════════════════════════ */
+/* ═══════════════════════════════
+   SYSTEM LABEL MAP
+═══════════════════════════════ */
+var dsLabels = {
+  erp:       {name:'ERP',        icon:'🔷', type:'Financiën & productie'},
+  crm:       {name:'CRM',        icon:'🤝', type:'Klanten & sales'},
+  hr:        {name:'HR',         icon:'👥', type:'Personeel & verzuim'},
+  rapportage:{name:'Rapportage', icon:'📊', type:'BI & dashboards'},
+  planning:  {name:'Planning',   icon:'📅', type:'Projecten & capaciteit'}
+};
+
+/* ═══════════════════════════════
+   ROLE DATA
+═══════════════════════════════ */
 var roles = {
   sales: {
-    name: 'Sales Manager',
-    icon: '📈',
-    brief: 'Als Sales Manager zie jij elke kwartaalrapportage als eerste. De omzet groeit, maar jouw commissie-pool krimpt. Ergens lekt marge — en jij wil weten waar.',
-    sources: {
-      src1: {
-        name: 'CRM',
-        sub: 'Orderhistorie & marges',
-        icon: 'crm',
-        mechanic: 'rows',
-        mechanicLabel: 'Vind de afwijkende regio',
-        rows: [
-          { label: 'Regio Noord', val: 'Marge: 18.2%', ok: true },
-          { label: 'Regio Oost',  val: 'Marge: 17.9%', ok: true },
-          { label: 'Regio West',  val: 'Marge: 18.5%', ok: true },
-          { label: 'Regio Zuid',  val: 'Marge: 18.1%', ok: true },
-          { label: 'Productlijn Premium', val: 'Marge: 9.1%', ok: false },
-        ],
-        clueTag: 'CRM · Orderdata Q1–Q3 2024',
-        clue: 'Alle regio’s presteren normaal. Echter: <span class="highlight">de Premium productlijn heeft een marge van slechts 9% — normaal 18%.</span> De kosten van die lijn exploderen.'
-      },
-      src2: {
-        name: 'Verkooprapportage',
-        sub: 'Omzet per productlijn',
-        icon: 'chart',
-        mechanic: 'wait',
-        mechanicLabel: 'Rapport opvragen bij controller',
-        waitSteps: ['Aanvraag verstuurd', 'Controller verwerkt', 'Rapport klaar'],
-        waitMsgs: ['Wachten op de controller...', 'Rapport wordt samengesteld...', 'Bijna klaar...', 'Rapport beschikbaar!'],
-        clueTag: 'Verkooprapportage · Q3 2024',
-        clue: 'Omzet stijgt met 4% — volumegroei klopt. <span class="highlight">Premium lijn verkoopt meer maar genereert minder marge per eenheid.</span> Productiekosten stegen disproportioneel.'
-      },
-      src3: {
-        name: 'Klantfeedback',
-        sub: 'Klachten & retourzendingen',
-        icon: 'feedback',
-        mechanic: 'quiz',
-        mechanicLabel: 'Beantwoord toegangsvraag',
-        quizQ: 'Hoeveel procent daalde de marge van de Premium lijn?',
-        quizOpts: ['3%', '9%', '50%', '18%'],
-        quizAnswer: '50%',
-        clueTag: 'Klantfeedback · Q3 2024',
-        clue: 'Geen toename in klachten of retouren. <span class="highlight">Kwaliteit is stabiel — het probleem zit niet bij de klant, maar in de productie.</span>'
-      }
-    },
-    advice: 'Jouw CRM-data wees op de Premium lijn, maar de oorzaak lag buiten jouw scope. Door de verkoopdata te combineren met productiedata ontdekte Rixie: <strong>machinestoring op lijn 3 verhoogde de productiekosten van de Premium lijn met 48%.</strong> De klant betaalt gewoon — de fabriek is te duur geworden.',
-    adviceAction: 'Bespreek met productie een tijdelijk prijsoverleg voor de Premium lijn én push voor spoedonderhoud lijn 3. Verwachte margeherstel: <strong>+9 procentpunt binnen één kwartaal.</strong>'
+    name:'Sales Manager', icon:'📈',
+    brief:'Als Sales Manager zie jij elk kwartaalrapport als eerste. De omzet groeit, maar de marge krimpt. Jij gaat zelf op onderzoek in <strong>{N} van jouw systemen.</strong> Elke bron kost tijd — zo is de praktijk. Rixsi doet dit in seconden.',
+    options:['Klanten bedingen hogere kortingen','Productlijn X heeft exploderende productiekosten','Nieuwe concurrentie drukt prijzen omlaag','Marketingkosten zijn sterk gestegen'],
+    correct:'b',
+    sources:[
+      {mechanic:'rows', mechanicLabel:'Vind de afwijkende lijn',
+       rows:[{l:'Segment Groot',v:'Marge: 18.4%',ok:true},{l:'Segment MKB',v:'Marge: 17.9%',ok:true},{l:'Segment Enterprise',v:'Marge: 18.1%',ok:true},{l:'Productlijn X',v:'Marge: 9.1%',ok:false},{l:'Segment Retail',v:'Marge: 18.3%',ok:true}],
+       clueTag:'Omzet & margedata',clue:'Alle segmenten presteren normaal. Echter: <span class="highlight">Productlijn X heeft een marge van slechts 9% — normaal 18%.</span> De productiekosten van die lijn zijn geëxplodeerd.'},
+      {mechanic:'wait', mechanicLabel:'Rapport opvragen bij controller',
+       waitSteps:['Aanvraag verstuurd','Controller verwerkt','Rapport klaar'],
+       waitMsgs:['Wachten op de controller...','Rapport wordt samengesteld...','Bijna klaar...','Rapport beschikbaar!'],
+       clueTag:'Verkooprapportage',clue:'Omzet stijgt met 4% — volumegroei klopt. <span class="highlight">Productlijn X verkoopt meer maar genereert minder marge per eenheid.</span> Productiekosten stegen disproportioneel.'},
+      {mechanic:'quiz', mechanicLabel:'Beantwoord toegangsvraag',
+       quizQ:'Hoeveel procent daalde de marge van Productlijn X?',
+       quizOpts:['3%','9%','50%','18%'], quizAnswer:'50%',
+       clueTag:'Klantfeedback',clue:'Geen toename in klachten of retouren. <span class="highlight">Het probleem zit niet bij de klant — maar in de productie.</span>'},
+      {mechanic:'rows', mechanicLabel:'Vind de afwijkende regio',
+       rows:[{l:'Regio Noord',v:'Conversie: 22%',ok:true},{l:'Regio Oost',v:'Conversie: 21%',ok:true},{l:'Regio West',v:'Conversie: 23%',ok:true},{l:'Regio Zuid',v:'Conversie: 8%',ok:false},{l:'Regio Centraal',v:'Conversie: 22%',ok:true}],
+       clueTag:'Salesdata per regio',clue:'Regio Zuid heeft een dramatisch lagere conversie. <span class="highlight">Verdieping toont: klanten in regio Zuid klagen over levertijden van Productlijn X.</span> De storing heeft ook leveringsproblemen veroorzaakt.'},
+      {mechanic:'wait', mechanicLabel:'Historische orders opvragen',
+       waitSteps:['Extractie gestart','Orders geladen','Analyse klaar'],
+       waitMsgs:['Orderdata wordt opgehaald...','Historische records laden...','Patronen worden geanalyseerd...','Orderanalyse beschikbaar!'],
+       clueTag:'Orderhistorie',clue:'Gemiddelde orderwaarde stabiel. <span class="highlight">Maar het aantal herhaalaankopen van Productlijn X daalde met 31% dit kwartaal.</span> Klanten haken af na een eerste slechte ervaring.'}
+    ],
+    advice:'Jouw verkoopdata wees op Productlijn X, maar de oorzaak lag buiten jouw scope. Door de verkoopdata te combineren met productiedata ontdekte Rixsi: <strong>een machinestoring verhoogde de productiekosten van Productlijn X met 48%.</strong> De klant betaalt gewoon — de productie is te duur geworden.',
+    adviceAction:'Bespreek met productie een tijdelijk prijsoverleg voor Productlijn X én push voor spoedonderhoud. Verwachte margeherstel: <strong>+9 procentpunt binnen één kwartaal.</strong>',
+    metrics:[{val:'€38k',lbl:'besparing/kwartaal'},{val:'+9%',lbl:'margeherstel Q1'},{val:'3',lbl:'systemen gecombineerd'}]
   },
-
   hr: {
-    name: 'HR Manager',
-    icon: '👥',
-    brief: 'Als HR Manager zie jij de mensen achter de cijfers. Er zijn meldingen van overwerk op één productieafdeling, maar de output daalt. Iets klopt niet.',
-    sources: {
-      src1: {
-        name: 'Personeelsplanning',
-        sub: 'Uren & bezetting per lijn',
-        icon: 'people',
-        mechanic: 'rows',
-        mechanicLabel: 'Vind de afwijkende lijn',
-        rows: [
-          { label: 'Lijn 1', val: 'Overwerk: 2u/week', ok: true },
-          { label: 'Lijn 2', val: 'Overwerk: 1u/week', ok: true },
-          { label: 'Lijn 3', val: 'Overwerk: 14u/week', ok: false },
-          { label: 'Lijn 4', val: 'Overwerk: 3u/week', ok: true },
-          { label: 'Lijn 5', val: 'Overwerk: 2u/week', ok: true },
-        ],
-        clueTag: 'Personeelsplanning · Q3 2024',
-        clue: 'Bijna geen overwerk — behalve lijn 3. <span class="highlight">Medewerkers op lijn 3 draaien gemiddeld 14 uur overwerk per week</span> om de uitval van de storing te compenseren.'
-      },
-      src2: {
-        name: 'Ziekteverzuim',
-        sub: 'Meldingen per afdeling',
-        icon: 'health',
-        mechanic: 'wait',
-        mechanicLabel: 'Rapport opvragen bij HR-systeem',
-        waitSteps: ['Aanvraag ingediend', 'Privacy check', 'Data beschikbaar'],
-        waitMsgs: ['Privacy-check loopt...', 'Anonimiseren van data...', 'Rapport wordt geladen...', 'Verzuimdata beschikbaar!'],
-        clueTag: 'Ziekteverzuim · Q3 2024',
-        clue: 'Verzuim lijn 3 is 3x hoger dan gemiddeld. <span class="highlight">Medewerkers melden zich vaker ziek door de stressvolle werkomstandigheden rond de storing.</span> Dit verhoogt indirecte personeelskosten.'
-      },
-      src3: {
-        name: 'Exitgesprekken',
-        sub: 'Redenen van vertrek',
-        icon: 'exit',
-        mechanic: 'quiz',
-        mechanicLabel: 'Beantwoord toegangsvraag',
-        quizQ: 'Hoeveel uur overwerk per week draait lijn 3 gemiddeld?',
-        quizOpts: ['3 uur', '7 uur', '14 uur', '21 uur'],
-        quizAnswer: '14 uur',
-        clueTag: 'Exitgesprekken · Q3 2024',
-        clue: '3 medewerkers vertrokken dit kwartaal van lijn 3. <span class="highlight">Alle drie noemden "aanhoudende machineproblemen zonder oplossing" als reden.</span> Het signaal bestond al maanden.'
-      }
-    },
-    advice: 'De personeelsdata wees op lijn 3, maar HR kon dit niet alleen oplossen. Rixie koppelde jouw data aan productie- en financiële systemen: <strong>een 9 maanden oude machinestoring op lijn 3 veroorzaakt structureel overwerk, verhoogd verzuim en medewerkersverloop.</strong>',
-    adviceAction: 'Escaleer spoedonderhoud lijn 3 naar directie met de personeelskosten als argument: overwerk + verzuim + vervanging kost <strong>€22k/kwartaal extra</strong>. HR-data is hier het bewijs.'
+    name:'HR Manager', icon:'👥',
+    brief:'Als HR Manager zie jij de mensen achter de cijfers. Er zijn meldingen van overwerk op één afdeling, maar de output daalt. Jij gaat zelf op onderzoek in <strong>{N} van jouw systemen.</strong> Elke bron kost tijd — zo is de praktijk. Rixsi doet dit in seconden.',
+    options:['Personeelsverloop verhoogt wervingskosten','Machinestoring veroorzaakt overwerk en verspilling','Ziekteverzuim legt productie stil','CAO-stijging verhoogt loonkosten structureel'],
+    correct:'b',
+    sources:[
+      {mechanic:'rows', mechanicLabel:'Vind de afwijkende afdeling',
+       rows:[{l:'Afdeling A',v:'Overwerk: 2u/week',ok:true},{l:'Afdeling B',v:'Overwerk: 1u/week',ok:true},{l:'Afdeling C',v:'Overwerk: 14u/week',ok:false},{l:'Afdeling D',v:'Overwerk: 3u/week',ok:true},{l:'Afdeling E',v:'Overwerk: 2u/week',ok:true}],
+       clueTag:'Personeelsplanning',clue:'Bijna geen overwerk — behalve afdeling C. <span class="highlight">Medewerkers op afdeling C draaien gemiddeld 14 uur overwerk per week</span> om productie-uitval te compenseren.'},
+      {mechanic:'wait', mechanicLabel:'Rapport opvragen bij HR-systeem',
+       waitSteps:['Aanvraag ingediend','Privacy check','Data beschikbaar'],
+       waitMsgs:['Privacy-check loopt...','Data anonimiseren...','Rapport wordt geladen...','Verzuimdata beschikbaar!'],
+       clueTag:'Ziekteverzuim',clue:'Verzuim afdeling C is 3x hoger dan gemiddeld. <span class="highlight">Medewerkers melden zich vaker ziek door stressvolle werkomstandigheden rond een aanhoudende storing.</span>'},
+      {mechanic:'quiz', mechanicLabel:'Beantwoord toegangsvraag',
+       quizQ:'Hoeveel uur overwerk per week draait afdeling C gemiddeld?',
+       quizOpts:['3 uur','7 uur','14 uur','21 uur'], quizAnswer:'14 uur',
+       clueTag:'Exitgesprekken',clue:'Drie medewerkers vertrokken dit kwartaal van afdeling C. <span class="highlight">Alle drie noemden aanhoudende machineproblemen zonder oplossing als reden.</span>'},
+      {mechanic:'rows', mechanicLabel:'Vind de afwijkende functiegroep',
+       rows:[{l:'Administratie',v:'Verloop: 4%',ok:true},{l:'Sales',v:'Verloop: 6%',ok:true},{l:'Productie lijn C',v:'Verloop: 38%',ok:false},{l:'Logistiek',v:'Verloop: 5%',ok:true},{l:'Management',v:'Verloop: 2%',ok:true}],
+       clueTag:'Verlooprapportage',clue:'Verloop is organisatiebreed normaal. Maar: <span class="highlight">productiemedewerkers op lijn C vertrekken met een verlooppercentage van 38%.</span> Dit is 8x het gemiddelde.'},
+      {mechanic:'wait', mechanicLabel:'Opleidingsdata opvragen',
+       waitSteps:['Aanvraag verstuurd','LMS gekoppeld','Data beschikbaar'],
+       waitMsgs:['Leerplatform wordt gekoppeld...','Trainingsdata laden...','Analyse bezig...','Opleidingsdata beschikbaar!'],
+       clueTag:'Opleidingsregistratie',clue:'Nieuwe medewerkers op lijn C volgen vaker extra veiligheidstrainingen. <span class="highlight">Reden: ze moeten handmatig omzeilen wat de machine automatisch zou doen.</span> Workaround kost 3u per medewerker per dag.'}
+    ],
+    advice:'De HR-data wees op afdeling C, maar HR kon dit niet alleen oplossen. Rixsi koppelde jouw data aan productie- en financiële systemen: <strong>een langdurige machinestoring veroorzaakt structureel overwerk, verhoogd verzuim en medewerkerverloop.</strong>',
+    adviceAction:'Escaleer spoedonderhoud naar directie met de personeelskosten als argument: overwerk + verzuim + vervanging kost <strong>€22k/kwartaal extra</strong>. HR-data is het bewijs.',
+    metrics:[{val:'€22k',lbl:'extra personeelskosten/kwartaal'},{val:'3x',lbl:'hoger verzuim afd. C'},{val:'38%',lbl:'verloop lijn C'}]
   },
-
   finance: {
-    name: 'Finance Manager',
-    icon: '💰',
-    brief: 'Als Finance Manager zie jij de cijfers direct. De brutowinst daalt 8% per kwartaal, maar omzet stijgt. Ergens lopen kosten uit de hand — en jij moet weten waar.',
-    sources: {
-      src1: {
-        name: 'P&L Rapport',
-        sub: 'Kosten & margeanalyse',
-        icon: 'finance',
-        mechanic: 'rows',
-        mechanicLabel: 'Vind de afwijkende kostenpost',
-        rows: [
-          { label: 'Grondstofkosten', val: '+6% (marktconform)', ok: true },
-          { label: 'Energiekosten',   val: '+3% (in lijn)', ok: true },
-          { label: 'Directe productiekosten', val: '+34% lijn 3', ok: false },
-          { label: 'Logistiek',       val: '+2% (normaal)', ok: true },
-          { label: 'Personeelskosten',val: '+4% (CAO)', ok: true },
-        ],
-        clueTag: 'P&L · Q1–Q3 2024',
-        clue: 'Alle kostenposten zijn marktconform — behalve één. <span class="highlight">Directe productiekosten op lijn 3 stegen met 34%</span> terwijl volume gelijk bleef. Geen inkoopoorzaak.'
-      },
-      src2: {
-        name: 'Inkoopfacturen',
-        sub: 'Leveranciers & onderhoudskosten',
-        icon: 'invoice',
-        mechanic: 'wait',
-        mechanicLabel: 'Facturen opvragen uit ERP',
-        waitSteps: ['Extractie gestart', 'Facturen geladen', 'Analyse klaar'],
-        waitMsgs: ['ERP-extractie loopt...', 'Facturen worden geladen...', 'Analyse bezig...', 'Factuurdata beschikbaar!'],
-        clueTag: 'Inkoopfacturen · Q3 2024',
-        clue: 'Grondstofinkoopprijzen normaal. <span class="highlight">Maar: geen onderhoudsorder voor lijn 3 in 9 maanden.</span> Uitgesteld onderhoud = hogere verspilling = hogere kosten per eenheid.'
-      },
-      src3: {
-        name: 'Budget vs. Realisatie',
-        sub: 'Afwijkingen per afdeling',
-        icon: 'budget',
-        mechanic: 'quiz',
-        mechanicLabel: 'Beantwoord autorisatievraag',
-        quizQ: 'Met hoeveel procent stegen de directe productiekosten op lijn 3?',
-        quizOpts: ['6%', '12%', '34%', '48%'],
-        quizAnswer: '34%',
-        clueTag: 'Budget vs. Realisatie · Q3 2024',
-        clue: 'Productieafdeling overschreed haar budget met €41k. <span class="highlight">De afwijking is volledig toe te schrijven aan lijn 3 — geen andere afdeling wijkt significant af.</span>'
-      }
-    },
-    advice: 'Jouw P&L wees direct naar lijn 3. Rixie bevestigde dit door productie-, inkoop- en HR-data te combineren: <strong>een machinestoring op lijn 3, al 9 maanden onopgelost, veroorzaakt 34% kostenstijging op die lijn.</strong> De totale impact: €38k extra kosten per kwartaal.',
-    adviceAction: 'Boek spoedonderhoud lijn 3 in Q4 (eenmalig €8k) voor een structurele besparing van <strong>€38k/kwartaal</strong>. ROI: terugverdiend in 9 weken. Rapporteer aan CFO met deze cijfers.'
+    name:'Finance Manager', icon:'💰',
+    brief:'Als Finance Manager zie jij de brutowinst kwartaal na kwartaal dalen met 8%. De omzet stijgt. Jij gaat zelf op onderzoek in <strong>{N} van jouw systemen.</strong> Elke bron kost tijd — zo is de praktijk. Rixsi doet dit in seconden.',
+    options:['Grondstofprijzen stegen sterk door inflatie','Directe productiekosten exploderen op één lijn','Energie- en logistiekkosten stegen fors','Marketinginvesteringen verhoogden de omzet maar niet de winst'],
+    correct:'b',
+    sources:[
+      {mechanic:'rows', mechanicLabel:'Vind de afwijkende kostenpost',
+       rows:[{l:'Grondstofkosten',v:'+6% (marktconform)',ok:true},{l:'Energiekosten',v:'+3% (in lijn)',ok:true},{l:'Directe productiekosten lijn C',v:'+34%',ok:false},{l:'Logistiek',v:'+2% (normaal)',ok:true},{l:'Personeelskosten',v:'+4% (CAO)',ok:true}],
+       clueTag:'P&L rapportage',clue:'Alle kostenposten zijn marktconform — behalve één. <span class="highlight">Directe productiekosten op lijn C stegen met 34%</span> terwijl volume gelijk bleef.'},
+      {mechanic:'wait', mechanicLabel:'Facturen opvragen uit systeem',
+       waitSteps:['Extractie gestart','Facturen geladen','Analyse klaar'],
+       waitMsgs:['Data-extractie loopt...','Facturen worden geladen...','Analyse bezig...','Factuurdata beschikbaar!'],
+       clueTag:'Inkoopfacturen',clue:'Grondstofinkoopprijzen normaal. <span class="highlight">Maar: geen onderhoudsorder voor lijn C in 9 maanden.</span> Uitgesteld onderhoud = hogere verspilling = hogere kosten per eenheid.'},
+      {mechanic:'quiz', mechanicLabel:'Beantwoord autorisatievraag',
+       quizQ:'Met hoeveel procent stegen de directe productiekosten op lijn C?',
+       quizOpts:['6%','12%','34%','48%'], quizAnswer:'34%',
+       clueTag:'Budget vs. Realisatie',clue:'Productieafdeling overschreed haar budget met €41k. <span class="highlight">De afwijking is volledig toe te schrijven aan lijn C — geen andere afdeling wijkt significant af.</span>'},
+      {mechanic:'rows', mechanicLabel:'Vind de afwijkende periode',
+       rows:[{l:'Q3 vorig jaar',v:'Marge: 22.1%',ok:true},{l:'Q4 vorig jaar',v:'Marge: 21.8%',ok:true},{l:'Q1 dit jaar',v:'Marge: 21.5%',ok:true},{l:'Q2 dit jaar',v:'Marge: 16.2%',ok:false},{l:'Q3 dit jaar',v:'Marge: 14.9%',ok:false}],
+       clueTag:'Kwartaalvergelijking',clue:'De marge daalt pas vanaf Q2 dit jaar structureel. <span class="highlight">Dit correleert exact met de eerste melding van de machinestoring op lijn C in week 14.</span>'},
+      {mechanic:'wait', mechanicLabel:'Kostprijscalculatie opvragen',
+       waitSteps:['Berekening gestart','Modellen laden','Resultaat klaar'],
+       waitMsgs:['Kostprijsmodel wordt geladen...','Berekening loopt...','Resultaten worden gevalideerd...','Kostprijsanalyse beschikbaar!'],
+       clueTag:'Kostprijsanalyse',clue:'Kostprijs per eenheid Productlijn C steeg van €4,20 naar €6,10. <span class="highlight">De stijging van €1,90 per eenheid × 20.000 stuks/kwartaal = €38.000 extra kosten.</span> Volledig verklaard door verspilling.'}
+    ],
+    advice:'Jouw P&L wees direct naar lijn C. Rixsi bevestigde dit door productie-, inkoop- en HR-data te combineren: <strong>een machinestoring, al 9 maanden onopgelost, veroorzaakt 34% kostenstijging op lijn C.</strong> Totale impact: €38k extra per kwartaal.',
+    adviceAction:'Boek spoedonderhoud lijn C in Q4 (eenmalig €8k) voor een besparing van <strong>€38k/kwartaal.</strong> ROI: terugverdiend in 9 weken.',
+    metrics:[{val:'€38k',lbl:'besparing/kwartaal'},{val:'9 wkn',lbl:'terugverdientijd'},{val:'+34%',lbl:'kostenstijging lijn C'}]
+  },
+  service: {
+    name:'Service Desk Manager', icon:'🎧',
+    brief:'Als Service Desk Manager zie jij de ticketvolumes stijgen terwijl de klanttevredenheid daalt. Klanten melden problemen die intern nergens worden opgepikt. Jij gaat zelf op onderzoek in <strong>{N} van jouw systemen.</strong> Elke bron kost tijd — zo is de praktijk. Rixsi doet dit in seconden.',
+    options:['Klanten zijn minder tevreden over de prijs','Een productieprobleem veroorzaakt herhaalmeldingen','Het supportteam is onderbezet','Een softwareupdate heeft bugs geïntroduceerd'],
+    correct:'b',
+    sources:[
+      {mechanic:'rows', mechanicLabel:'Vind het afwijkende tickettype',
+       rows:[{l:'Factuurvragen',v:'12 tickets/week',ok:true},{l:'Leveringsvragen',v:'9 tickets/week',ok:true},{l:'Kwaliteitsklachten Productlijn C',v:'47 tickets/week',ok:false},{l:'Accountbeheer',v:'8 tickets/week',ok:true},{l:'Algemene vragen',v:'14 tickets/week',ok:true}],
+       clueTag:'Ticketsysteem',clue:'Alle categorieën stabiel — behalve één. <span class="highlight">Kwaliteitsklachten over Productlijn C zijn 4x hoger dan normaal.</span> Klanten melden herhaaldelijk hetzelfde defect.'},
+      {mechanic:'wait', mechanicLabel:'SLA-rapport opvragen',
+       waitSteps:['Aanvraag verstuurd','Rapport gegenereerd','Beschikbaar'],
+       waitMsgs:['SLA-data wordt opgehaald...','Rapport wordt samengesteld...','Bijna klaar...','SLA-rapport beschikbaar!'],
+       clueTag:'SLA-rapport',clue:'Responstijd normaal, maar <span class="highlight">hersluitingspercentage van Productlijn C-tickets is 68% — ver boven de norm van 12%.</span> Tickets worden gesloten maar het probleem keert terug.'},
+      {mechanic:'quiz', mechanicLabel:'Beantwoord toegangsvraag',
+       quizQ:'Hoeveel keer hoger zijn de kwaliteitsklachten over Productlijn C dan normaal?',
+       quizOpts:['2x','4x','8x','10x'], quizAnswer:'4x',
+       clueTag:'Klantportal',clue:'Klanten laten reviews achter. <span class="highlight">87% van de negatieve reviews verwijst naar kwaliteitsproblemen op één specifieke productlijn.</span> Het patroon is glashelder.'},
+      {mechanic:'rows', mechanicLabel:'Vind de afwijkende agent',
+       rows:[{l:'Agent Team A',v:'Afhandeltijd: 4.2 min',ok:true},{l:'Agent Team B',v:'Afhandeltijd: 4.8 min',ok:true},{l:'Agent Team C',v:'Afhandeltijd: 18.7 min',ok:false},{l:'Agent Team D',v:'Afhandeltijd: 4.5 min',ok:true},{l:'Agent Team E',v:'Afhandeltijd: 5.1 min',ok:true}],
+       clueTag:'Agentprestaties',clue:'Team C heeft een 4x langere afhandeltijd. <span class="highlight">Reden: ze zijn volledig bezet met escalaties van Productlijn C-klachten</span> die steeds terugkomen omdat het onderliggende probleem niet wordt opgelost.'},
+      {mechanic:'wait', mechanicLabel:'Klantsentiment opvragen',
+       waitSteps:['Survey gekoppeld','Responses geladen','Analyse klaar'],
+       waitMsgs:['Surveydata wordt opgehaald...','Klantresponses laden...','Sentimentanalyse bezig...','Rapport beschikbaar!'],
+       clueTag:'Klanttevredenheidssurvey',clue:'NPS daalde van +42 naar +11 in twee kwartalen. <span class="highlight">Open antwoorden benoemen "terugkerende kwaliteitsproblemen" als hoofdreden.</span> 23% dreigt over te stappen naar concurrent.'}
+    ],
+    advice:'Jouw ticketdata wees op Productlijn C, maar Support kon dit niet intern oplossen. Rixsi koppelde de klantmeldingen aan productie- en onderhoudsdata: <strong>een machinestoring veroorzaakt structurele kwaliteitsproblemen, waardoor klanten herhaaldelijk contact opnemen.</strong>',
+    adviceAction:'Escaleer naar productie en management met de ticketdata als bewijs: <strong>47 tickets/week</strong> kost het supportteam €15k/kwartaal extra. Spoedonderhoud lost het structureel op.',
+    metrics:[{val:'47',lbl:'tickets/week Productlijn C'},{val:'68%',lbl:'hersluitingspercentage'},{val:'-31pt',lbl:'NPS daling'}]
   }
 };
 
-/* ══════════════════════════════════════════
-   ROL SELECTIE
-══════════════════════════════════════════ */
-function selectRole(role) {
-  currentRole = role;
-  document.querySelectorAll('.role-card').forEach(function(c){ c.classList.remove('selected'); });
-  document.getElementById('role-' + role).classList.add('selected');
-  var btn = document.getElementById('start-btn');
-  var note = document.getElementById('start-note');
-  var r = roles[role];
-  btn.disabled = false;
-  btn.style.opacity = '1';
-  btn.style.cursor = 'pointer';
-  btn.innerHTML = 'Start als ' + r.name + ' <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 8h8M9 5l3 3-3 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-  note.textContent = 'De timer start zodra je klikt';
+/* ═══════════════════════════════
+   START SCREEN LOGIC
+═══════════════════════════════ */
+function selectRole(r) {
+  currentRole = r;
+  document.querySelectorAll('.role-card').forEach(function(c){c.classList.remove('selected')});
+  document.getElementById('role-'+r).classList.add('selected');
+  checkStartReady();
 }
 
-/* ══════════════════════════════════════════
-   GAME START — inject role content
-══════════════════════════════════════════ */
+function toggleDs(ds) {
+  var card = document.getElementById('ds-'+ds);
+  var idx = selectedDs.indexOf(ds);
+  if (idx >= 0) {
+    selectedDs.splice(idx,1);
+    card.classList.remove('selected');
+  } else {
+    selectedDs.push(ds);
+    card.classList.add('selected');
+  }
+  var hint = document.getElementById('ds-hint');
+  if (selectedDs.length === 0) {hint.textContent='Selecteer minimaal 2 systemen';hint.className='ds-hint';}
+  else if (selectedDs.length === 1) {hint.textContent='Selecteer nog 1 systeem';hint.className='ds-hint error';}
+  else {hint.textContent=selectedDs.length+' systemen geselecteerd ✓';hint.className='ds-hint';}
+  checkStartReady();
+}
+
+function checkStartReady() {
+  var btn = document.getElementById('start-btn');
+  var note = document.getElementById('start-note');
+  if (currentRole && selectedDs.length >= 2) {
+    btn.disabled = false;
+    btn.innerHTML = 'Start als '+roles[currentRole].name+' <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 8h8M9 5l3 3-3 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    note.textContent = 'De timer start zodra je klikt';
+  } else {
+    btn.disabled = true;
+    btn.innerHTML = 'Kies een rol en minimaal 2 systemen <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 8h8M9 5l3 3-3 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    note.textContent = !currentRole ? 'Selecteer eerst een rol' : 'Selecteer minimaal 2 systemen';
+  }
+}
+
+/* ═══════════════════════════════
+   GAME START
+═══════════════════════════════ */
 function startGame() {
-  if (!currentRole) return;
+  if (!currentRole || selectedDs.length < 2) return;
   var r = roles[currentRole];
+  var n = selectedDs.length;
+  var nWords = ['','één','twee','drie','vier','vijf'];
 
-  /* Brief */
-  document.getElementById('brief-eyebrow').innerHTML =
-    '<span class="role-badge">' + r.icon + ' ' + r.name + '</span>';
-  document.getElementById('brief-title').textContent = 'De verdwijnende marge';
-  document.getElementById('brief-text').innerHTML = r.brief +
-    ' <strong>Rixie krijgt toegang tot drie databronnen.</strong> Jij ontgrendelt de aanwijzingen en verbindt de puntjes.';
+  document.getElementById('brief-eyebrow').innerHTML = '<span class="role-badge">'+r.icon+' '+r.name+'</span>';
+  document.getElementById('brief-text').innerHTML = r.brief.replace('{N}', nWords[n] || n);
+  document.getElementById('rixsi-role-label').textContent = 'AI Agent · Irixs · automatische analyse';
 
-  /* Inject source cards */
-  buildSourceCards(r);
+  document.getElementById('opt-a-text').textContent = r.options[0];
+  document.getElementById('opt-b-text').textContent = r.options[1];
+  document.getElementById('opt-c-text').textContent = r.options[2];
+  document.getElementById('opt-d-text').textContent = r.options[3];
 
-  /* Advice */
-  document.getElementById('advice-body-1').innerHTML = r.advice;
-  document.getElementById('advice-body-2').innerHTML = '<strong>Advies:</strong> ' + r.adviceAction;
+  // Build dynamic pips based on number of selected systems
+  var pipContainer = document.getElementById('pip-container');
+  pipContainer.innerHTML = '';
+  for (var i = 1; i <= n; i++) {
+    var pip = document.createElement('span');
+    pip.className = 'src-pip';
+    pip.id = 'pip-src'+i;
+    pipContainer.appendChild(pip);
+  }
+  document.getElementById('pip-label').textContent = '0 / '+n;
+
+  // Reset unlocked state to match number of sources
+  unlocked = {};
+  for (var j = 1; j <= n; j++) unlocked['src'+j] = false;
+
+  buildSources(r, n);
 
   document.getElementById('start-screen').style.display = 'none';
   document.getElementById('game-content').style.display = 'block';
-  window.scrollTo({top: 0});
-  initUnlockMechanics();
+  window.scrollTo({top:0});
   goScreen(1);
   startTimer();
 }
 
-function buildSourceCards(r) {
+function buildSources(r, n) {
   var grid = document.getElementById('sources-grid');
   grid.innerHTML = '';
-  ['src1','src2','src3'].forEach(function(key) {
-    var s = r.sources[key];
-    var iconBg = {crm:'#e3f5ee', chart:'#e8f2fb', feedback:'#fef3c7',
-                  people:'#f0e8f5', health:'#fdecea', exit:'#fef3c7',
-                  finance:'#fef3c7', invoice:'#e8f2fb', budget:'#f0e8f5'}[s.icon] || '#f0e8f5';
-    grid.innerHTML +=
-      '<div class="src-card" id="card-' + key + '">' +
-      '<div class="src-top">' +
-      '<div class="src-icon" style="background:' + iconBg + ';">' + iconSVG(s.icon) + '</div>' +
-      '<div><div class="src-name">' + s.name + '</div>' +
-      '<div class="src-status" id="' + key + '-status">' + s.sub + '</div></div>' +
-      '</div>' +
-      '<div id="' + key + '-body"></div>' +
-      '</div>';
-  });
+  var mechanics = ['rows','wait','quiz'];
+  for (var i = 0; i < n; i++) {
+    var dsKey = selectedDs[i];
+    var ds = dsLabels[dsKey];
+    var key = 'src'+(i+1);
+    // Deep-copy source template, cycling through the 3 defined sources
+    var srcTemplate = r.sources[i % r.sources.length];
+    var src = JSON.parse(JSON.stringify(srcTemplate));
+    // Assign mechanic cycling rows → wait → quiz → rows…
+    src.mechanic = mechanics[i % mechanics.length];
+    var div = document.createElement('div');
+    div.className = 'src-card';
+    div.id = 'card-'+key;
+    div.innerHTML =
+      '<div class="src-top">'+
+      '<div class="src-icon" style="background:var(--purple-pale);font-size:20px;">'+ds.icon+'</div>'+
+      '<div><div class="src-name">'+ds.name+'</div>'+
+      '<div class="src-status" id="'+key+'-status">'+ds.type+'</div></div>'+
+      '</div>'+
+      '<div id="'+key+'-body"></div>';
+    grid.appendChild(div);
+    initMechanic(key, src);
+  }
 }
 
-function iconSVG(type) {
-  var icons = {
-    crm: '<svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="8" cy="7" r="4" fill="#00875a"/><path d="M2 18c0-4 2.7-6.5 6-6.5s6 2.5 6 6.5" fill="#00875a" opacity=".4"/><circle cx="15" cy="7" r="2.8" fill="#00875a" opacity=".55"/></svg>',
-    chart: '<svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="12" width="3" height="6" rx="1" fill="#7B2D8B"/><rect x="7" y="8" width="3" height="10" rx="1" fill="#7B2D8B"/><rect x="12" y="4" width="3" height="14" rx="1" fill="#3D1254"/><rect x="17" y="9" width="3" height="9" rx="1" fill="#7B2D8B" opacity=".5"/></svg>',
-    feedback: '<svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="3" width="16" height="11" rx="3" fill="none" stroke="#d97706" stroke-width="1.5"/><path d="M6 17l4-3h8" fill="none" stroke="#d97706" stroke-width="1.5"/><line x1="6" y1="7" x2="14" y2="7" stroke="#d97706" stroke-width="1.2" opacity=".6"/><line x1="6" y1="10" x2="11" y2="10" stroke="#d97706" stroke-width="1.2" opacity=".6"/></svg>',
-    people: '<svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="7" cy="6" r="3.5" fill="#7B2D8B"/><path d="M1 18c0-3.5 2.5-6 6-6s6 2.5 6 6" fill="#7B2D8B" opacity=".4"/><circle cx="15" cy="7" r="2.5" fill="#7B2D8B" opacity=".6"/><path d="M13 18c0-2.5 1.5-4 4-4" fill="none" stroke="#7B2D8B" stroke-width="1.2"/></svg>',
-    health: '<svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 17s-7-5-7-10a5 5 0 0110 0 5 5 0 0110 0c0 5-7 10-7 10" fill="none" stroke="#c0392b" stroke-width="1.5" stroke-linecap="round"/><line x1="7" y1="9" x2="13" y2="9" stroke="#c0392b" stroke-width="1.5"/><line x1="10" y1="6" x2="10" y2="12" stroke="#c0392b" stroke-width="1.5"/></svg>',
-    exit: '<svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="3" width="10" height="14" rx="2" fill="none" stroke="#d97706" stroke-width="1.5"/><path d="M13 8l5 2-5 2" fill="none" stroke="#d97706" stroke-width="1.5" stroke-linecap="round"/><line x1="13" y1="10" x2="7" y2="10" stroke="#d97706" stroke-width="1.5"/></svg>',
-    finance: '<svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="12" width="3.5" height="6" rx="1" fill="#d97706"/><rect x="8" y="8" width="3.5" height="10" rx="1" fill="#d97706"/><rect x="14" y="3" width="3.5" height="15" rx="1" fill="#f59e0b"/></svg>',
-    invoice: '<svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="3" y="2" width="14" height="16" rx="2" fill="none" stroke="#7B2D8B" stroke-width="1.5"/><line x1="6" y1="7" x2="14" y2="7" stroke="#7B2D8B" stroke-width="1.2"/><line x1="6" y1="10" x2="14" y2="10" stroke="#7B2D8B" stroke-width="1.2"/><line x1="6" y1="13" x2="10" y2="13" stroke="#7B2D8B" stroke-width="1.2"/></svg>',
-    budget: '<svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" fill="none" stroke="#7B2D8B" stroke-width="1.5"/><path d="M10 6v4l3 3" stroke="#7B2D8B" stroke-width="1.5" stroke-linecap="round"/></svg>'
-  };
-  return icons[type] || icons.finance;
-}
-
-/* ══════════════════════════════════════════
-   UNLOCK MECHANICS — initialise per role
-══════════════════════════════════════════ */
-function initUnlockMechanics() {
-  var r = roles[currentRole];
-  ['src1','src2','src3'].forEach(function(key) {
-    var s = r.sources[key];
-    var body = document.getElementById(key + '-body');
-    if (s.mechanic === 'rows') {
-      body.innerHTML =
-        '<div class="src-mechanic-label"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 3h10M3 6h6M5 9h2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>' + s.mechanicLabel + '</div>' +
-        '<p class="puzzle-instruction">Klik op de rij die <strong>afwijkt</strong> van de rest:</p>' +
-        '<div class="data-rows" id="' + key + '-rows"></div>' +
-        '<p class="puzzle-error" id="' + key + '-error"></p>';
-      s.rows.forEach(function(row, i) {
-        var el = document.createElement('div');
-        el.className = 'data-row';
-        el.innerHTML = '<span class="data-row-label">' + row.label + '</span><span>' + row.val + '</span>';
-        el.onclick = (function(k, idx, ok) {
-          return function() {
-            if (ok) {
-              el.classList.add('wrong');
-              var err = document.getElementById(k + '-error');
-              if (err) err.textContent = 'Deze waarde lijkt normaal. Zoek de uitbijter.';
-              setTimeout(function(){ el.classList.remove('wrong'); if(err) err.textContent=''; }, 900);
-            } else {
-              el.classList.add('correct');
-              document.querySelectorAll('#' + k + '-rows .data-row').forEach(function(r){ r.onclick = null; });
-              var err = document.getElementById(k + '-error');
-              if (err) err.textContent = '';
-              setTimeout(function(){ unlock(k); }, 600);
-            }
-          };
-        })(key, i, row.ok);
-        document.getElementById(key + '-rows').appendChild(el);
-      });
-    } else if (s.mechanic === 'wait') {
-      body.innerHTML =
-        '<div class="src-mechanic-label"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M6 3v3l2 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>' + s.mechanicLabel + '</div>' +
-        '<button class="btn btn-primary" style="width:100%;justify-content:center;" onclick="startWait(this.getAttribute(\'data-key\'))" data-key="' + key + '" id="' + key + '-req-btn">Aanvragen</button>' +
-        '<div id="' + key + '-waiting" style="display:none;">' +
-        '<div class="wait-bar-wrap"><div class="wait-bar-bg"><div class="wait-bar-fill" id="' + key + '-bar"></div></div>' +
-        '<div class="wait-steps">' + s.waitSteps.map(function(ws, i){ return '<span class="wait-step' + (i===0?' active':'') + '" id="' + key + '-ws' + i + '">' + ws + '</span>'; }).join('') + '</div></div>' +
-        '<p class="wait-msg" id="' + key + '-msg">' + s.waitMsgs[0] + '</p></div>';
-    } else if (s.mechanic === 'quiz') {
-      body.innerHTML =
-        '<div class="src-mechanic-label"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M6 4v3M6 8.5v.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>' + s.mechanicLabel + '</div>' +
-        '<p class="puzzle-instruction">' + s.quizQ + '</p>' +
-        '<div class="quiz-options">' +
-        s.quizOpts.map(function(opt) {
-          return '<button class="quiz-opt" data-key="' + key + '" data-opt="' + opt.replace(/"/g,'&quot;') + '" onclick="checkQuiz(this.getAttribute(\'data-key\'),this.getAttribute(\'data-opt\'))">' + opt + '</button>';
-        }).join('') +
-        '</div>' +
-        '<p class="puzzle-error" id="' + key + '-error"></p>';
-    }
-  });
+/* ═══════════════════════════════
+   MECHANIC INIT
+═══════════════════════════════ */
+function initMechanic(key, src) {
+  var body = document.getElementById(key+'-body');
+  if (src.mechanic === 'rows') {
+    body.innerHTML =
+      '<div class="src-mechanic-label"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 3h10M3 6h6M5 9h2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>'+src.mechanicLabel+'</div>'+
+      '<p class="puzzle-instruction">Klik op de rij die <strong>afwijkt</strong> van de rest:</p>'+
+      '<div class="data-rows" id="'+key+'-rows"></div>'+
+      '<p class="puzzle-error" id="'+key+'-error"></p>';
+    src.rows.forEach(function(row, i) {
+      var el = document.createElement('div');
+      el.className = 'data-row';
+      el.innerHTML = '<span class="data-row-label">'+row.l+'</span><span>'+row.v+'</span>';
+      el.onclick = (function(k,ok){
+        return function(){
+          if (ok) {
+            el.classList.add('wrong');
+            var e = document.getElementById(k+'-error');
+            if(e) e.textContent = 'Deze waarde is normaal. Zoek de uitbijter.';
+            setTimeout(function(){el.classList.remove('wrong');if(e)e.textContent='';},900);
+          } else {
+            el.classList.add('correct');
+            document.querySelectorAll('#'+k+'-rows .data-row').forEach(function(r){r.onclick=null});
+            setTimeout(function(){unlock(k);},600);
+          }
+        };
+      })(key, row.ok);
+      document.getElementById(key+'-rows').appendChild(el);
+    });
+  } else if (src.mechanic === 'wait') {
+    body.innerHTML =
+      '<div class="src-mechanic-label"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M6 3v3l2 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>'+src.mechanicLabel+'</div>'+
+      '<button class="btn btn-primary" style="width:100%;justify-content:center;" id="'+key+'-reqbtn" data-key="'+key+'" onclick="startWait(this.getAttribute(\'data-key\'))">Aanvragen</button>'+
+      '<div id="'+key+'-waiting" style="display:none">'+
+      '<div class="wait-bar-wrap"><div class="wait-bar-bg"><div class="wait-bar-fill" id="'+key+'-bar"></div></div>'+
+      '<div class="wait-steps">'+src.waitSteps.map(function(s,i){'return "<span class=\'wait-step"+(i===0?" active":"")+"\' id=\'"+key+"-ws"+i+"\'>"+s+"</span>"';}).join('')+'</div></div>'+
+      '<p class="wait-msg" id="'+key+'-msg">'+src.waitMsgs[0]+'</p></div>';
+    // Re-render wait steps properly
+    var wDiv = document.getElementById(key+'-waiting').querySelector('.wait-steps');
+    wDiv.innerHTML = '';
+    src.waitSteps.forEach(function(s,i){
+      var sp = document.createElement('span');
+      sp.className = 'wait-step'+(i===0?' active':'');
+      sp.id = key+'-ws'+i;
+      sp.textContent = s;
+      wDiv.appendChild(sp);
+    });
+  } else if (src.mechanic === 'quiz') {
+    var optsHtml = src.quizOpts.map(function(opt){
+      return '<button class="quiz-opt" data-key="'+key+'" data-opt="'+opt.replace(/"/g,'&quot;')+'" onclick="checkQuiz(this.getAttribute(\'data-key\'),this.getAttribute(\'data-opt\'))">'+opt+'</button>';
+    }).join('');
+    body.innerHTML =
+      '<div class="src-mechanic-label"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M6 4v3M6 8.5v.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>'+src.mechanicLabel+'</div>'+
+      '<p class="puzzle-instruction">'+src.quizQ+'</p>'+
+      '<div class="quiz-options">'+optsHtml+'</div>'+
+      '<p class="puzzle-error" id="'+key+'-error"></p>';
+  }
+  // Store src on card for later
+  document.getElementById('card-'+key).__src = src;
 }
 
 function startWait(key) {
-  var s = roles[currentRole].sources[key];
-  document.getElementById(key + '-req-btn').style.display = 'none';
-  document.getElementById(key + '-waiting').style.display = 'block';
-  var msgs = s.waitMsgs;
-  var delays = [800, 4000, 3000, 1200];
-  var bar = document.getElementById(key + '-bar');
-  var msgEl = document.getElementById(key + '-msg');
-  var pcts = [20, 55, 85, 100];
+  var card = document.getElementById('card-'+key);
+  var src = card.__src;
+  var reqBtn = document.getElementById(key+'-reqbtn');
+  if (reqBtn) reqBtn.style.display = 'none';
+  var waiting = document.getElementById(key+'-waiting');
+  if (waiting) waiting.style.display = 'block';
+  var msgs = src.waitMsgs;
+  var delays = [800,4000,3000,1200];
+  var pcts = [20,55,85,100];
   var idx = 0;
-  function next() {
-    if (idx >= msgs.length) { setTimeout(function(){ unlock(key); }, 400); return; }
-    if (bar) bar.style.width = pcts[idx] + '%';
-    if (msgEl) msgEl.textContent = msgs[idx];
-    s.waitSteps.forEach(function(ws, i) {
-      var el = document.getElementById(key + '-ws' + i);
-      if (!el) return;
-      if (i < idx) el.className = 'wait-step done';
-      else if (i === idx) el.className = 'wait-step active';
-      else el.className = 'wait-step';
+  function next(){
+    if(idx>=msgs.length){setTimeout(function(){unlock(key);},400);return;}
+    var bar=document.getElementById(key+'-bar');
+    var msgEl=document.getElementById(key+'-msg');
+    if(bar) bar.style.width=pcts[idx]+'%';
+    if(msgEl) msgEl.textContent=msgs[idx];
+    src.waitSteps.forEach(function(s,i){
+      var el=document.getElementById(key+'-ws'+i);
+      if(!el)return;
+      if(i<idx)el.className='wait-step done';
+      else if(i===idx)el.className='wait-step active';
+      else el.className='wait-step';
     });
     idx++;
-    crmTimer = setTimeout(next, delays[Math.min(idx-1, delays.length-1)]);
+    var t=setTimeout(next,delays[Math.min(idx-1,delays.length-1)]);
+    waitTimers.push(t);
   }
   next();
 }
 
 function checkQuiz(key, answer) {
-  var s = roles[currentRole].sources[key];
-  var errEl = document.getElementById(key + '-error');
-  if (answer === s.quizAnswer) {
-    document.querySelectorAll('#card-' + key + ' .quiz-opt').forEach(function(b){
-      b.onclick = null;
-      if (b.textContent === answer) b.classList.add('correct');
+  var card = document.getElementById('card-'+key);
+  var src = card.__src;
+  var errEl = document.getElementById(key+'-error');
+  if (answer === src.quizAnswer) {
+    card.querySelectorAll('.quiz-opt').forEach(function(b){
+      b.onclick=null;
+      if(b.getAttribute('data-opt')===answer) b.classList.add('correct');
     });
-    if (errEl) errEl.textContent = '';
-    setTimeout(function(){ unlock(key); }, 500);
+    if(errEl) errEl.textContent='';
+    setTimeout(function(){unlock(key);},500);
   } else {
-    finAttempts++;
-    var btn = Array.from(document.querySelectorAll('#card-' + key + ' .quiz-opt')).find(function(b){ return b.textContent === answer; });
-    if (btn) { btn.classList.add('wrong'); setTimeout(function(){ btn.classList.remove('wrong'); }, 800); }
-    var hints = ['Fout. Hint: het staat in de zaakbeschrijving.', 'Nog niet. Lees de briefing opnieuw.', 'Het antwoord staat letterlijk beschreven.'];
-    if (errEl) errEl.textContent = hints[Math.min(finAttempts-1, hints.length-1)];
+    var btn = card.querySelector('[data-opt="'+answer+'"]');
+    if(btn){btn.classList.add('wrong');setTimeout(function(){btn.classList.remove('wrong');},800);}
+    if(errEl) errEl.textContent='Niet correct. Hint: het antwoord staat in de zaakbeschrijving.';
   }
 }
 
-/* ══════════════════════════════════════════
-   GENERIC UNLOCK
-══════════════════════════════════════════ */
+/* ═══════════════════════════════
+   CHATBOT (AVG popup)
+═══════════════════════════════ */
+function askChatbot() {
+  var btn = document.getElementById('global-chatbtn');
+  if (btn && btn.classList.contains('used')) return;
+  document.getElementById('avg-overlay').style.display = 'flex';
+}
+
+function closeAvgPopup() {
+  document.getElementById('avg-overlay').style.display = 'none';
+  var btn = document.getElementById('global-chatbtn');
+  if (btn) {
+    btn.classList.add('used');
+    btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="1" y="2" width="12" height="8" rx="2" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M4 12l3-2h7" fill="none" stroke="currentColor" stroke-width="1.2"/></svg> Chatbot al gebruikt — je verloor 20 seconden';
+  }
+  chatbotUsed++;
+  remaining = Math.max(0, remaining - 20);
+  updateTimerDisplay();
+}
+
+/* ═══════════════════════════════
+   UNLOCK
+═══════════════════════════════ */
 function unlock(key) {
   if (unlocked[key]) return;
   unlocked[key] = true;
-  var card = document.getElementById('card-' + key);
-  card.classList.add('unlocked', 'just-unlocked');
-  setTimeout(function(){ card.classList.remove('just-unlocked'); }, 400);
-  document.getElementById(key + '-status').classList.add('open');
-  document.getElementById(key + '-status').textContent = 'Ontgrendeld ✓';
-  var s = roles[currentRole].sources[key];
-  document.getElementById(key + '-body').innerHTML =
-    '<div class="unlocked-badge"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>' +
-    '<div class="src-data"><div class="src-data-tag">' + s.clueTag + '</div><div class="src-data-text">' + s.clue + '</div></div>';
+  var card = document.getElementById('card-'+key);
+  var src = card.__src;
+  card.classList.add('unlocked','just-unlocked');
+  setTimeout(function(){card.classList.remove('just-unlocked');},400);
+  document.getElementById(key+'-status').textContent = 'Ontgrendeld ✓';
+  document.getElementById(key+'-status').classList.add('open');
+  document.getElementById(key+'-body').innerHTML =
+    '<div class="unlocked-badge"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>'+
+    '<div class="src-data" style="border-top:1px solid var(--gray-200);margin-top:8px;padding-top:10px">'+
+    '<div style="font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--gray-500);margin-bottom:6px">'+src.clueTag+'</div>'+
+    '<div style="font-size:13px;color:var(--gray-700);line-height:1.6">'+src.clue+'</div>'+
+    '</div>';
   updatePips();
 }
 
-/* ══════════════════════════════════════════
-   COUNTDOWN OVERLAY
-══════════════════════════════════════════ */
-var overlayEl = null;
-function showCountdownOverlay(sec) {
-  if (!overlayEl) {
-    overlayEl = document.createElement('div');
-    overlayEl.id = 'countdown-overlay';
-    document.body.appendChild(overlayEl);
-  }
-  overlayEl.style.display = 'flex';
-  overlayEl.className = sec <= 5 ? 'urgent' : '';
-  var pct = sec / 10;
-  var g = Math.round(180 * pct);
-  var color = 'rgb(255,' + g + ',50)';
-  overlayEl.innerHTML =
-    '<div style="font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.5);font-family:Poppins,sans-serif;margin-bottom:4px;">Nog</div>' +
-    '<div style="font-size:52px;font-weight:700;font-family:Poppins,sans-serif;color:' + color + ';line-height:1;letter-spacing:-2px;">' + sec + '</div>' +
-    '<div style="font-size:11px;color:rgba(255,255,255,0.5);font-family:Poppins,sans-serif;margin-top:4px;">seconden</div>';
-  if (sec === 0) setTimeout(function(){ if(overlayEl) overlayEl.style.display='none'; }, 600);
-}
-
-function hideOverlay() { if (overlayEl) overlayEl.style.display = 'none'; }
-
-/* ══════════════════════════════════════════
+/* ═══════════════════════════════
    TIMER
-══════════════════════════════════════════ */
+═══════════════════════════════ */
+var overlayEl = null;
 function startTimer() {
-  remainingSeconds = TOTAL_SECONDS;
-  timerStopped = false;
+  remaining = TOTAL; timerStopped = false;
   updateTimerDisplay();
+  // Show sticky timer on scroll
+  window.addEventListener('scroll', handleScroll);
   if (timerInterval) clearInterval(timerInterval);
-  timerInterval = setInterval(function() {
+  timerInterval = setInterval(function(){
     if (timerStopped) return;
-    remainingSeconds--;
+    remaining--;
     updateTimerDisplay();
-    if (remainingSeconds <= 10 && remainingSeconds > 0) showCountdownOverlay(remainingSeconds);
-    else if (remainingSeconds === 0) { showCountdownOverlay(0); clearInterval(timerInterval); timerInterval = null; setTimeout(timeUp, 900); }
+    if (remaining <= 10 && remaining > 0) showOverlay(remaining);
+    else if (remaining === 0) {showOverlay(0);clearInterval(timerInterval);timerInterval=null;setTimeout(timeUp,900);}
     else hideOverlay();
-  }, 1000);
+  },1000);
 }
 
-function stopTimer() { timerStopped = true; hideOverlay(); }
+function handleScroll() {
+  var timerEl = document.getElementById('timer-display');
+  var sticky = document.getElementById('sticky-timer');
+  if (!timerEl || !sticky) return;
+  if (remaining <= 10) { sticky.style.display = 'none'; return; }
+  var rect = timerEl.getBoundingClientRect();
+  sticky.style.display = rect.bottom < 0 ? 'flex' : 'none';
+}
 
-function timeUp() {
-  stopTimer();
-  correctAnswer = false;
-  var cb = document.getElementById('check-btn');
-  if (cb) cb.disabled = true;
-  document.querySelectorAll('.opt').forEach(function(o){ o.onclick = null; });
-  var opts = document.querySelectorAll('.opt');
-  if (opts[2]) opts[2].classList.add('correct');
-  var sel = document.querySelector('.opt.selected');
-  if (sel && !sel.classList.contains('correct')) sel.classList.add('wrong');
+function stopTimer(){
+  timerStopped=true;
+  hideOverlay();
+  var sticky = document.getElementById('sticky-timer');
+  if (sticky) sticky.style.display = 'none';
+  window.removeEventListener('scroll', handleScroll);
+}
+
+function timeUp(){
+  stopTimer(); correctAnswer=false;
+  var cb=document.getElementById('check-btn');if(cb)cb.disabled=true;
+  document.querySelectorAll('.opt').forEach(function(o){o.onclick=null;});
+  var opts=document.querySelectorAll('.opt');
+  var ci=['a','b','c','d'].indexOf(roles[currentRole].correct);
+  if(opts[ci])opts[ci].classList.add('correct');
+  var sel=document.querySelector('.opt.selected');
+  if(sel&&!sel.classList.contains('correct'))sel.classList.add('wrong');
   goScore();
 }
 
-function elapsedSeconds() { return TOTAL_SECONDS - remainingSeconds; }
+function elapsedSec(){return TOTAL-remaining;}
 
-function updateTimerDisplay() {
-  var s = remainingSeconds;
-  var el = document.getElementById('timer-display');
-  if (!el) return;
-  el.textContent = Math.floor(s/60) + ':' + (s%60 < 10 ? '0' : '') + (s%60);
-  var r, g;
-  if (s > 120)      { r = 34;  g = 139; }
-  else if (s > 60)  { r = 200; g = 130; }
-  else if (s > 30)  { r = 220; g = 80; }
-  else              { r = 192; g = 39; }
-  el.style.color = 'rgb(' + r + ',' + g + ',50)';
+function updateTimerDisplay(){
+  var s=remaining, el=document.getElementById('timer-display');
+  var timeStr = Math.floor(s/60)+':'+(s%60<10?'0':'')+(s%60);
+  var color;
+  if(s>120) color='#00875a';
+  else if(s>60) color='#d4880a';
+  else if(s>30) color='#e67e22';
+  else color='#c0392b';
+
+  if(el){ el.textContent=timeStr; el.style.color=color; }
+
+  // Sync sticky timer
+  var sv = document.getElementById('sticky-timer-val');
+  var st = document.getElementById('sticky-timer');
+  if(sv) sv.textContent = timeStr;
+  if(st && s <= 10) st.style.display = 'none';
+  if(sv) sv.style.color = color;
 }
 
-/* ══════════════════════════════════════════
+function showOverlay(sec){
+  if(!overlayEl){overlayEl=document.createElement('div');overlayEl.id='countdown-overlay';document.body.appendChild(overlayEl);}
+  overlayEl.style.display='flex';
+  overlayEl.className=sec<=5?'urgent':'';
+  var g=Math.round(180*(sec/10));
+  overlayEl.innerHTML='<div style="font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.5);font-family:Poppins,sans-serif;margin-bottom:4px">Nog</div>'+
+    '<div style="font-size:52px;font-weight:700;font-family:Poppins,sans-serif;color:rgb(255,'+g+',50);line-height:1;letter-spacing:-2px">'+sec+'</div>'+
+    '<div style="font-size:11px;color:rgba(255,255,255,0.5);font-family:Poppins,sans-serif;margin-top:4px">seconden</div>';
+  if(sec===0)setTimeout(function(){if(overlayEl)overlayEl.style.display='none';},600);
+}
+function hideOverlay(){if(overlayEl)overlayEl.style.display='none';}
+
+/* ═══════════════════════════════
    PIPS & PROGRESS
-══════════════════════════════════════════ */
-function countUnlocked() {
-  return (unlocked.src1?1:0) + (unlocked.src2?1:0) + (unlocked.src3?1:0);
+═══════════════════════════════ */
+function countUnlocked(){
+  var n = selectedDs.length;
+  var c = 0;
+  for (var i = 1; i <= n; i++) { if (unlocked['src'+i]) c++; }
+  return c;
 }
 
-function updatePips() {
+function updatePips(){
+  var n = selectedDs.length;
   var count = countUnlocked();
-  ['src1','src2','src3'].forEach(function(k) {
-    var pip = document.getElementById('pip-' + k);
-    if (pip) { if (unlocked[k]) pip.classList.add('done'); else pip.classList.remove('done'); }
-  });
-  var pl = document.getElementById('pip-label');
-  if (pl) pl.textContent = count + ' / 3';
-  var banner = document.getElementById('proceed-banner');
-  if (banner && count === 3) {
-    banner.style.background = 'var(--green-light)';
-    banner.style.borderColor = 'var(--green)';
-    var pt = banner.querySelector('.proceed-text');
-    if (pt) { pt.style.color = 'var(--green)'; pt.textContent = 'Alle bronnen ontgrendeld — maximale score mogelijk!'; }
+  for (var i = 1; i <= n; i++) {
+    var p = document.getElementById('pip-src'+i);
+    if (p) { if (unlocked['src'+i]) p.classList.add('done'); else p.classList.remove('done'); }
   }
-}
-
-function goScreen(n) {
-  document.querySelectorAll('.screen').forEach(function(s){ s.classList.remove('active'); });
-  var scr = document.getElementById('screen' + n);
-  if (scr) scr.classList.add('active');
-  updateProgress(n);
-  var brief = document.querySelector('.brief-card');
-  if (brief) brief.style.display = n === 3 ? 'none' : '';
-  window.scrollTo({top: 0, behavior: 'smooth'});
-}
-
-function updateProgress(step) {
-  for (var i = 1; i <= 3; i++) {
-    var sc = document.getElementById('sc' + i);
-    var sl = document.getElementById('sl' + i);
-    if (!sc || !sl) continue;
-    sc.classList.remove('active','done');
-    sl.classList.remove('muted');
-    if (i < step) {
-      sc.classList.add('done');
-      sc.innerHTML = '<svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3.5 3.5 4.5-5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-      var conn = document.getElementById('conn' + i);
-      if (conn) conn.classList.add('done');
-    } else if (i === step) {
-      sc.classList.add('active'); sc.textContent = i;
-    } else {
-      sl.classList.add('muted'); sc.textContent = i;
+  var pl = document.getElementById('pip-label');
+  if (pl) pl.textContent = count+' / '+n;
+  if (count === n) {
+    var b = document.getElementById('proceed-banner');
+    if (b) {
+      b.style.background='var(--green-light)'; b.style.borderColor='var(--green)';
+      var pt = b.querySelector('.proceed-text');
+      if (pt) { pt.style.color='var(--green)'; pt.textContent='Alle bronnen ontgrendeld!'; }
     }
   }
 }
 
-function pick(el, val) {
-  selected = val;
-  document.querySelectorAll('.opt').forEach(function(o){ o.classList.remove('selected'); });
+function goScreen(n){
+  document.querySelectorAll('.screen').forEach(function(s){s.classList.remove('active');});
+  var scr=document.getElementById('screen'+n);if(scr)scr.classList.add('active');
+  updateProgress(n);
+  var bc=document.getElementById('brief-card');if(bc)bc.style.display=n===3?'none':'';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function updateProgress(step){
+  for(var i=1;i<=3;i++){
+    var sc=document.getElementById('sc'+i),sl=document.getElementById('sl'+i);
+    if(!sc||!sl)continue;
+    sc.classList.remove('active','done');sl.classList.remove('muted');
+    if(i<step){
+      sc.classList.add('done');
+      sc.innerHTML='<svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3.5 3.5 4.5-5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+      var conn=document.getElementById('conn'+i);if(conn)conn.classList.add('done');
+    } else if(i===step){sc.classList.add('active');sc.textContent=i;}
+    else{sl.classList.add('muted');sc.textContent=i;}
+  }
+}
+
+function pick(el,val){
+  selected=val;
+  document.querySelectorAll('.opt').forEach(function(o){o.classList.remove('selected');});
   el.classList.add('selected');
 }
 
-function checkAnswer() {
-  if (!selected) return;
+function checkAnswer(){
+  if(!selected)return;
   stopTimer();
-  document.getElementById('check-btn').disabled = true;
-  document.querySelectorAll('.opt').forEach(function(o){ o.onclick = null; });
-  document.querySelectorAll('.opt')[2].classList.add('correct');
-  correctAnswer = (selected === 'c');
-  var sel = document.querySelector('.opt.selected');
-  if (sel && !sel.classList.contains('correct')) sel.classList.add('wrong');
+  document.getElementById('check-btn').disabled=true;
+  document.querySelectorAll('.opt').forEach(function(o){o.onclick=null;});
+  var ci=['a','b','c','d'].indexOf(roles[currentRole].correct);
+  document.querySelectorAll('.opt')[ci].classList.add('correct');
+  correctAnswer=(selected===roles[currentRole].correct);
+  var sel=document.querySelector('.opt.selected');
+  if(sel&&!sel.classList.contains('correct'))sel.classList.add('wrong');
   goScore();
 }
 
-function goScore() {
-  var elapsed = elapsedSeconds();
-  var numUnlocked = countUnlocked();
-  var base = 100;
-  var answerBonus = correctAnswer ? 50 : 0;
-  var sourceScore;
-  if (numUnlocked === 0 && correctAnswer)     sourceScore = 60;
-  else if (numUnlocked === 0)                  sourceScore = 20;
-  else if (numUnlocked === 1 && correctAnswer) sourceScore = 45;
-  else if (numUnlocked === 1)                  sourceScore = 15;
-  else if (numUnlocked === 2 && correctAnswer) sourceScore = 30;
-  else if (numUnlocked === 2)                  sourceScore = 10;
-  else                                         sourceScore = 10;
-  var timeBonus = 0;
-  if (elapsed <= 30) timeBonus = 60;
-  else if (elapsed <= 60) timeBonus = 50;
-  else if (elapsed <= 90) timeBonus = 35;
-  else if (elapsed <= 120) timeBonus = 20;
-  else if (elapsed <= 150) timeBonus = 10;
-  var total = base + answerBonus + sourceScore + timeBonus;
-  var maxScore = 270;
-  var pct = Math.min(100, Math.round(total/maxScore*100));
+/* ═══════════════════════════════
+   SCORING
+═══════════════════════════════ */
+function goScore(){
+  var elapsed=elapsedSec(), numU=countUnlocked(), n=selectedDs.length, r=roles[currentRole];
+  var base=100, answerBonus=correctAnswer?50:0;
+  // Score: fewer sources used = higher bonus (relative to total available)
+  var usedFraction = numU / n;
+  var srcScore = correctAnswer
+    ? Math.round(60 * (1 - usedFraction * 0.8))
+    : Math.round(20 * (1 - usedFraction * 0.8));
+  var timeBonus=elapsed<=30?60:elapsed<=60?50:elapsed<=90?35:elapsed<=120?20:elapsed<=150?10:0;
+  var chatPenalty=chatbotUsed*10;
+  var total=Math.max(0,base+answerBonus+srcScore+timeBonus-chatPenalty);
+  var max=270, pct=Math.min(100,Math.round(total/max*100));
 
-  var mins = Math.floor(elapsed/60), secs = elapsed%60;
-  var r = roles[currentRole];
+  var mins=Math.floor(elapsed/60),secs=elapsed%60;
+  document.getElementById('score-time-val').textContent=mins+':'+(secs<10?'0':'')+secs;
+  document.getElementById('score-time-val').className='score-tile-val'+(elapsed<=90?' green':elapsed<=150?' amber':' red');
+  document.getElementById('score-sources-val').textContent=numU+' / '+n;
+  document.getElementById('score-sources-val').className='score-tile-val'+(numU===0?' green':usedFraction<0.6?' amber':'');
+  document.getElementById('score-answer-val').textContent=correctAnswer?'Correct':'Fout';
+  document.getElementById('score-answer-val').className='score-tile-val'+(correctAnswer?' green':' red');
+  document.getElementById('sr-answer-val').textContent=(answerBonus>0?'+':'')+answerBonus+' punten';
+  document.getElementById('sr-answer-val').className='score-row-val'+(answerBonus>0?' plus':' minus');
+  var sl=document.getElementById('sr-sources-label');
+  if(sl)sl.textContent=numU===0?'Geen bronnen gebruikt (max bonus)':numU+' van '+n+' bronnen gebruikt';
+  document.getElementById('sr-sources-val').textContent='+'+srcScore+' punten';
+  document.getElementById('sr-time-val').textContent='+'+timeBonus+' punten';
+  document.getElementById('sr-chatbot-val').textContent=chatbotUsed>0?'−'+chatPenalty+' punten ('+chatbotUsed+'x chatbot)':'0';
+  document.getElementById('sr-chatbot-val').className='score-row-val'+(chatbotUsed>0?' minus':'');
+  document.getElementById('sr-total').textContent=total+' punten';
 
-  document.getElementById('score-time-val').textContent = mins + ':' + (secs<10?'0':'') + secs;
-  document.getElementById('score-time-val').className = 'score-tile-val' + (elapsed<=90?' green':elapsed<=150?' amber':' red');
-  document.getElementById('score-sources-val').textContent = numUnlocked + ' / 3';
-  document.getElementById('score-sources-val').className = 'score-tile-val' + (numUnlocked<=1?' green':numUnlocked===2?' amber':'');
-  document.getElementById('score-answer-val').textContent = correctAnswer ? 'Correct' : 'Fout';
-  document.getElementById('score-answer-val').className = 'score-tile-val' + (correctAnswer?' green':' red');
-  document.getElementById('sr-answer-val').textContent = (answerBonus>0?'+':'') + answerBonus + ' punten';
-  document.getElementById('sr-answer-val').className = 'score-row-val' + (answerBonus>0?' plus':' minus');
-  document.getElementById('sr-sources-val').textContent = '+' + sourceScore + ' punten';
-  var sl = document.getElementById('sr-sources').querySelector('span');
-  if (sl) sl.textContent = numUnlocked===0 ? 'Geen bronnen (max bonus)' : numUnlocked===1 ? '1 bron gebruikt' : numUnlocked===2 ? '2 bronnen gebruikt' : 'Alle 3 bronnen gebruikt';
-  document.getElementById('sr-time-val').textContent = '+' + timeBonus + ' punten';
-  document.getElementById('sr-total').textContent = total + ' punten';
+  var rank,tc,bc,title,sub;
+  if(total>=220){rank='Data Expert';tc='gold';bc='gold';title='Uitstekend — Data Expert!';sub='Indrukwekkend — Rixsi had er minder dan 10 seconden over gedaan.';}
+  else if(total>=160){rank='Senior Analist';tc='silver';bc='silver';title='Goed gedaan — Senior Analist';sub='Goed geprobeerd. Rixsi had hetzelfde antwoord gegeven zonder ook maar één systeem handmatig te openen.';}
+  else{rank='Junior Detective';tc='bronze';bc='bronze';title='Zaak gesloten — Junior Detective';sub='Zie je hoe lastig dit is? Rixsi verbindt al jouw systemen automatisch en geeft direct het juiste antwoord.';}
 
-  var rank, trophyClass, barClass, titleText, subText;
-  if (total >= 220)      { rank='Data Expert'; trophyClass='gold'; barClass='gold'; titleText='Uitstekend — Data Expert!'; subText='Razendsnel en scherp. Precies zoals Rixie het doet.'; }
-  else if (total >= 160) { rank='Senior Analist'; trophyClass='silver'; barClass='silver'; titleText='Goed gedaan — Senior Analist'; subText='Solide. Probeer sneller te antwoorden voor meer punten.'; }
-  else                   { rank='Junior Detective'; trophyClass='bronze'; barClass='bronze'; titleText='Zaak gesloten — Junior Detective'; subText='Goede poging. Probeer met minder bronnen en sneller.'; }
+  document.getElementById('score-title').textContent=title;
+  document.getElementById('score-sub').textContent=sub;
+  document.getElementById('score-trophy').className='score-trophy '+tc;
+  document.getElementById('score-trophy').textContent=tc==='gold'?'🏆':tc==='silver'?'🥈':'🥉';
+  document.getElementById('bar-rank-label').textContent=rank;
+  document.getElementById('bar-pct-label').textContent=total+' / '+max;
 
-  document.getElementById('score-title').textContent = titleText;
-  document.getElementById('score-sub').textContent = subText;
-  document.getElementById('score-trophy').className = 'score-trophy ' + trophyClass;
-  document.getElementById('bar-rank-label').textContent = rank;
-  document.getElementById('bar-pct-label').textContent = total + ' / ' + maxScore;
+  document.getElementById('advice-body-1').innerHTML=r.advice;
+  document.getElementById('advice-body-2').innerHTML='<strong>Advies:</strong> '+r.adviceAction;
+  document.getElementById('m1-val').textContent=r.metrics[0].val;document.getElementById('m1-label').textContent=r.metrics[0].lbl;
+  document.getElementById('m2-val').textContent=r.metrics[1].val;document.getElementById('m2-label').textContent=r.metrics[1].lbl;
+  document.getElementById('m3-val').textContent=r.metrics[2].val;document.getElementById('m3-label').textContent=r.metrics[2].lbl;
 
-  /* Role-specific advice */
-  document.getElementById('advice-body-1').innerHTML = r.advice;
-  document.getElementById('advice-body-2').innerHTML = '<strong>Advies:</strong> ' + r.adviceAction;
-
-  var bar = document.getElementById('score-bar');
-  bar.className = 'score-bar-fill ' + barClass;
-  bar.style.width = '0%';
-  setTimeout(function(){ bar.style.width = pct + '%'; }, 150);
+  var bar=document.getElementById('score-bar');
+  bar.className='score-bar-fill '+bc;bar.style.width='0%';
+  setTimeout(function(){bar.style.width=pct+'%';},150);
   goScreen(3);
 }
 
-function resetGame() {
-  if (timerInterval) { clearInterval(timerInterval); timerInterval = null; }
-  if (crmTimer) { clearTimeout(crmTimer); crmTimer = null; }
+/* ═══════════════════════════════
+   RESET
+═══════════════════════════════ */
+function resetGame(){
+  if(timerInterval){clearInterval(timerInterval);timerInterval=null;}
+  waitTimers.forEach(function(t){clearTimeout(t);});waitTimers=[];
   hideOverlay();
+  unlocked={src1:false,src2:false,src3:false};
+  selected=null;correctAnswer=false;remaining=TOTAL;timerStopped=false;
+  chatbotUsed=0;avgPendingKey=null;
+  currentRole=null;selectedDs=[];
 
-  unlocked = {src1:false, src2:false, src3:false};
-  selected = null;
-  correctAnswer = false;
-  remainingSeconds = TOTAL_SECONDS;
-  timerStopped = false;
-  finAttempts = 0;
+  document.querySelectorAll('.role-card').forEach(function(c){c.classList.remove('selected');});
+  document.querySelectorAll('.ds-card').forEach(function(c){c.classList.remove('selected');});
 
-  /* Reset role selection */
-  document.querySelectorAll('.role-card').forEach(function(c){ c.classList.remove('selected'); });
-  var btn = document.getElementById('start-btn');
-  if (btn) {
-    btn.disabled = true; btn.style.opacity = '.5'; btn.style.cursor = 'not-allowed';
-    btn.innerHTML = 'Kies eerst een rol <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 8h8M9 5l3 3-3 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-  }
-  var note = document.getElementById('start-note');
-  if (note) note.textContent = 'Selecteer een rol om te beginnen';
+  var pc=document.getElementById('pip-container');if(pc)pc.innerHTML='';
+  var pl=document.getElementById('pip-label');if(pl)pl.textContent='0 / 0';
 
-  /* Reset pips */
-  ['src1','src2','src3'].forEach(function(k){
-    var pip = document.getElementById('pip-' + k);
-    if (pip) pip.classList.remove('done');
-  });
-  var pl = document.getElementById('pip-label');
-  if (pl) pl.textContent = '0 / 3';
+  var btn=document.getElementById('start-btn');
+  if(btn){btn.disabled=true;btn.innerHTML='Kies een rol en systemen <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 8h8M9 5l3 3-3 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';}
+  document.getElementById('start-note').textContent='Selecteer een rol en minimaal 2 systemen';
+  var dsh=document.getElementById('ds-hint');if(dsh){dsh.textContent='Selecteer minimaal 2 systemen';dsh.className='ds-hint';}
 
-  /* Reset banner */
-  var banner = document.getElementById('proceed-banner');
-  if (banner) {
-    banner.style.background = 'var(--purple-pale)'; banner.style.borderColor = 'var(--purple-mid)';
-    var pt = banner.querySelector('.proceed-text');
-    if (pt) { pt.style.color = 'var(--purple)'; pt.textContent = 'Databronnen zijn optioneel — je kunt direct doorgaan.'; }
-  }
+  var banner=document.getElementById('proceed-banner');
+  if(banner){banner.style.background='';banner.style.borderColor='';var pt=banner.querySelector('.proceed-text');if(pt){pt.style.color='';pt.textContent='Databronnen zijn optioneel — je kunt direct doorgaan.';}}
 
-  /* Reset verdict */
-  var vr = document.getElementById('verdict-result');
-  if (vr) vr.innerHTML = '';
-  var cb = document.getElementById('check-btn');
-  if (cb) cb.disabled = false;
+  var vr=document.getElementById('verdict-result');if(vr)vr.innerHTML='';
+  var cb=document.getElementById('check-btn');if(cb)cb.disabled=false;
 
-  /* Reset answer options */
-  var vals = ['a','b','c','d'];
-  document.querySelectorAll('.opt').forEach(function(o, i){
+  var vals=['a','b','c','d'];
+  document.querySelectorAll('.opt').forEach(function(o,i){
     o.classList.remove('selected','correct','wrong');
-    o.style.borderColor = ''; o.style.background = ''; o.style.color = '';
-    (function(v){ o.onclick = function(){ pick(this, v); }; })(vals[i]);
+    o.style.borderColor='';o.style.background='';o.style.color='';
+    (function(v){o.onclick=function(){pick(this,v);};})(vals[i]);
   });
 
-  /* Reset timer */
-  var td = document.getElementById('timer-display');
-  if (td) { td.textContent = '3:00'; td.style.color = ''; }
+  var gcb = document.getElementById('global-chatbtn');
+  if (gcb) {
+    gcb.classList.remove('used');
+    gcb.innerHTML = '<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="1" y="2" width="12" height="8" rx="2" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M4 12l3-2h7" fill="none" stroke="currentColor" stroke-width="1.2"/></svg> Snel antwoord zoeken via AI-chatbot (ChatGPT / Claude)';
+  }
+  var td=document.getElementById('timer-display');if(td){td.textContent='3:00';td.style.color='';}
+  var st=document.getElementById('sticky-timer');if(st)st.style.display='none';
+  window.removeEventListener('scroll', handleScroll);
+  var sb=document.getElementById('score-bar');if(sb)sb.style.width='0%';
 
-  /* Reset score bar */
-  var sb = document.getElementById('score-bar');
-  if (sb) sb.style.width = '0%';
-
-  /* Reset progress steps */
-  for (var i = 1; i <= 3; i++) {
-    var sc = document.getElementById('sc' + i);
-    var sl2 = document.getElementById('sl' + i);
-    if (sc) { sc.classList.remove('active','done'); sc.textContent = i; }
-    if (sl2) sl2.classList.remove('muted');
-    var conn = document.getElementById('conn' + i);
-    if (conn) conn.classList.remove('done');
+  for(var i=1;i<=3;i++){
+    var sc=document.getElementById('sc'+i),sl=document.getElementById('sl'+i);
+    if(sc){sc.classList.remove('active','done');sc.textContent=i;}
+    if(sl)sl.classList.remove('muted');
+    var conn=document.getElementById('conn'+i);if(conn)conn.classList.remove('done');
   }
 
-  currentRole = null;
-  document.getElementById('game-content').style.display = 'none';
-  document.getElementById('start-screen').style.display = 'flex';
+  document.getElementById('game-content').style.display='none';
+  document.getElementById('start-screen').style.display='flex';
   window.scrollTo({top:0});
 }
 </script>
